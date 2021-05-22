@@ -6,6 +6,10 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
+interface Intent
+interface SideEffect
+interface State
+
 abstract class BaseViewModel<Intent : hos.houns.weatherapp.presentation.base.Intent,
         State : hos.houns.weatherapp.presentation.base.State,
         SideEffect : hos.houns.weatherapp.presentation.base.SideEffect> : ViewModel() {

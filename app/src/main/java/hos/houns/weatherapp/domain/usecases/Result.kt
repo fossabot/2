@@ -15,6 +15,4 @@ sealed class GetWeatherResult : Result {
 
 sealed class FavouritesResult : Result {
     data class LoadResult(val value: Flow<List<FavouriteUiModel>>) : FavouritesResult()
-    object AddResult:FavouritesResult()
-    object DeleteResult:FavouritesResult()
 }

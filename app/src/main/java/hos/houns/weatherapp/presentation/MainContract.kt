@@ -2,9 +2,7 @@ package hos.houns.weatherapp.presentation
 
 import com.google.android.libraries.places.api.model.Place
 import hos.houns.weatherapp.domain.core.Failure
-import hos.houns.weatherapp.domain.entity.Country
 import hos.houns.weatherapp.domain.entity.FavouriteUiModel
-import hos.houns.weatherapp.domain.entity.Money
 import hos.houns.weatherapp.domain.entity.WeatherUiModel
 import hos.houns.weatherapp.presentation.base.Intent
 import hos.houns.weatherapp.presentation.base.SideEffect
@@ -26,13 +24,10 @@ class MainContract {
         object Loading: MainState()
         data class Success(val value: WeatherUiModel):MainState()
         data class Error(val failure: Failure):MainState()
-
         data class Favourites(val value: Flow<List<FavouriteUiModel>>): MainState()
     }
 
-    sealed class MainSideEffect: SideEffect{
-
-    }
+    sealed class MainSideEffect: SideEffect
 
 }
 

@@ -4,24 +4,33 @@ To achieve the goals,  I use Kotlin, Coroutines, MutableStateFlow, MutableShared
 My architecture follows the principle of clean architecture + MVVM + a kind of MVI.
 The clean architecture allows me to highly decoupled the code hence maintainable, easily scalable and testable.
 
-I also decouple the project in 4 layers.
+### MVI
+MVI can seems complicated and over-engineering but i decide to use it for couples reasons. MVI imply Unidirectional data flow. This means that:
 
- * Domain layer: It contains the [CalculateAmountUseCase (aka Interactor)](https://github.com/segnonna/BinariaTest/blob/main/app/src/main/java/hos/houns/penguinpay/domain/usecases/CalculateAmountUseCase.kt) and the [abstraction of the repository](https://github.com/segnonna/BinariaTest/blob/main/app/src/main/java/hos/houns/penguinpay/domain/usecases/CalculateAmountRepository.kt)
+ * State is passed to the view and to child components
+ * Actions (aka Intent or Event) are triggered by the view
+ * Actions can update the state
+ * The state change is passed to the view and to child components
+
+Unidirectional data flow has some Keys advantages:
+ * it’s less error prone, as you have more control over your data
+ * it’s easier to debug, as you know what is coming from where
+ * it’s more efficient, as the library already knows what the boundaries are of each part of the system
 
 
- * Data layer: It contains [the abstraction of RateRemoteDataStore](https://github.com/segnonna/BinariaTest/blob/main/app/src/main/java/hos/houns/penguinpay/data/RateRemoteDataStore.kt),  [the implementations of CalculateAmountRepository](https://github.com/segnonna/BinariaTest/blob/main/app/src/main/java/hos/houns/penguinpay/data/CalculateAmountRepositoryImpl.kt) and [BinaryConverter](https://github.com/segnonna/BinariaTest/blob/main/app/src/main/java/hos/houns/penguinpay/data/BinaryConverter.kt). 
-     BinaryConverter class is use to binary to integer  and  vice versa.
-     CalculateAmountRepository manage RateRemoteDataStore and BinaryConverter
+### Clean Architecture
+Clean Architecture allows me to design an application that is highly decoupled hence maintainable, easily scalable and testable. 
+To do that, I  decouple the project in 4 layers.
+
+ * Domain layer: (Use cases, aka Interactors, aka business services,)
+
+ * Data layer: 
      
- * Remote layer: it contains [the implementation of RateRemoteDataStore](https://github.com/segnonna/BinariaTest/blob/main/app/src/main/java/hos/houns/penguinpay/remote/RateRemoteDataStoreImpl.kt). All the retrofit under stuff are here.
+ * Remote layer: 
    
- * Presentation layer: it contains the viewmodel ans the UI (MainFragment). I use a ligth MVI to state representation.
-   The MainContract contains alls the intents (aka events) and state
-   
-I just wrote only one unit test for BinaryConverter. 
-
-Also, not knowing how often the rate changes, I choose to fetch the rate only when the user finished
-entering the amount to sent. To do this, [i add a timer in the change listener](https://github.com/segnonna/BinariaTest/blob/77dd2d2467e8112cc698375110f2d5170a34e45b/app/src/main/java/hos/houns/penguinpay/presentation/MainFragment.kt#L228). 
+ * Presentation layer: 
+ 
+I  write unit tests and has around 80% coverage. 
 
 ## Next improvement
 

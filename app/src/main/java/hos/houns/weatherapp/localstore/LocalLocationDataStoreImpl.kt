@@ -8,7 +8,6 @@ import hos.houns.weatherapp.data.LocalLocationDataStore
 import hos.houns.weatherapp.domain.entity.CurrentLocation
 import hos.houns.weatherapp.domain.entity.CurrentWeatherUIModel
 import hos.houns.weatherapp.domain.entity.ForecastWeatherUIModel
-import hos.houns.weatherapp.domain.entity.LocalWeatherUiModel
 
 class LocalLocationDataStoreImpl(private var context: Context) : LocalLocationDataStore {
 

@@ -21,12 +21,10 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import hos.houns.weatherapp.BuildConfig
-import hos.houns.weatherapp.MyApp
 import hos.houns.weatherapp.R
 import hos.houns.weatherapp.domain.core.Failure
 import hos.houns.weatherapp.domain.entity.WeatherType
 import hos.houns.weatherapp.domain.entity.WeatherUiModel
-import hos.houns.weatherapp.presentation.favourite.MapsActivity
 import hos.houns.weatherapp.presentation.favourite.PlaceAutocompleteActivity
 
 
@@ -143,7 +141,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 requestPermissionWithRationale(
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     REQUEST_FINE_LOCATION_PERMISSIONS_REQUEST_CODE,
-                    fineLocationRationalSnackbar
+                    fineLocationRationalDialog
                 )
             }
         }
@@ -154,17 +152,23 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         _binding = null
     }
 
-    private val fineLocationRationalSnackbar by lazy {
-        Snackbar.make(
-            binding.container,
-            R.string.fine_location_permission_rationale,
-            Snackbar.LENGTH_LONG
-        ).setAction(android.R.string.ok) {
-            requestPermissions(
-                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                REQUEST_FINE_LOCATION_PERMISSIONS_REQUEST_CODE
-            )
-        }
+    private val fineLocationRationalDialog by lazy {
+           AlertDialog.Builder(requireContext(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT)
+            .setMessage(getString(R.string.fine_location_permission_rationale))
+            .setCancelable(false)
+            .setPositiveButton(
+                getString(R.string.ok)
+            ) { _, _ ->
+                viewModel.setIntent(MainContract.MainIntent.CloseDialog)
+                requestPermissions(
+                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                    REQUEST_FINE_LOCATION_PERMISSIONS_REQUEST_CODE
+                )
+
+            }
+            .setNegativeButton(android.R.string.cancel) { _, _ ->
+                viewModel.setIntent(MainContract.MainIntent.InitialIntent)
+            }
     }
 
     override fun onRequestPermissionsResult(
@@ -186,11 +190,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 }
 
                 else -> {
-                    Snackbar.make(
+                   /* Snackbar.make(
                         binding.container,
                         R.string.fine_permission_denied_explanation,
-                        Snackbar.LENGTH_LONG
-                    )
+                        Snackbar.LENGTH_INDEFINITE
+                    ).setBackgroundTint(resources.getColor(android.R.color.white))
                         .setAction(R.string.settings) {
                             // Build intent that displays the App settings screen.
                             val intent = Intent()
@@ -204,7 +208,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                             startActivity(intent)
                         }
-                        .show()
+                        .show()*/
                 }
             }
         }

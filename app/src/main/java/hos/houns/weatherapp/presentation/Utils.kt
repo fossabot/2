@@ -2,6 +2,7 @@ package hos.houns.weatherapp.presentation
 
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
@@ -27,7 +28,7 @@ fun Fragment.hasPermission(permission: String): Boolean {
 fun Fragment.requestPermissionWithRationale(
     permission: String,
     requestCode: Int,
-    snackbar: Snackbar
+    snackbar: AlertDialog.Builder
 ) {
     val provideRationale = shouldShowRequestPermissionRationale(permission)
 

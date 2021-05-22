@@ -16,7 +16,7 @@
     <string name="locations">Locations</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="no_favourite_place_please_add_some_by_touche_button">No Favourite place. Please add some by touche + button</string>
-    <string name="favourites">Favourites</string>
+    <string name="no_favourite_place_please_add_some_by_touche_button">No Favorite place. Please add some by touche + button</string>
+    <string name="favourites">Favorites</string>
     <string name="delete_item">Do you want to delete this item?</string>
 </resources>

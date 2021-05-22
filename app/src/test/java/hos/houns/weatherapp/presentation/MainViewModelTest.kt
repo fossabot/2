@@ -20,18 +20,11 @@ internal class MainViewModelTest{
     @BeforeAll
     fun beforeAll() {
         getWeatherUseCase = mockk()
-       viewModel = MainViewModel(getWeatherUseCase)
+      // viewModel = MainViewModel(getWeatherUseCase)
     }
 
     @Test
     fun test(){
-
-        coEvery {
-            getWeatherUseCase()
-        } returns GetWeatherResult.Success(WeatherUiModel(
-            currentWeatherUIModel = CurrentWeatherUIModel.EMPTY,
-            forecastWeatherUIModel = listOf()
-        ))
 
     }
 }

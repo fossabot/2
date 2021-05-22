@@ -33,48 +33,100 @@ class GetWeatherUseCaseImplTest{
     }
 
     @Nested
-    inner class `In Success scenario` {
-        init {
-            coEvery { repo.getWeather() } returns
-                    Either.Right(WeatherUiModel(
-                        CurrentWeatherUIModel(temp = 24,
-                        tempMin = 22,tempMax = 27,type = WeatherType.SUNNY), listOf(
-                            ForecastWeatherUIModel(temp = 0,type = WeatherType.CLOUDY,"Friday")
-                        )))
+    inner class `User's position scenario` {
+        @Nested
+        inner class `In Success scenario` {
+            init {
+                coEvery { repo.getWeather(null,null) } returns
+                        Either.Right(WeatherUiModel(
+                            CurrentWeatherUIModel(temp = 24,
+                                tempMin = 22,tempMax = 27,type = WeatherType.SUNNY), listOf(
+                                ForecastWeatherUIModel(temp = 0,type = WeatherType.CLOUDY,"Friday")
+                            )))
+            }
+
+            @Test
+            fun `Check if calculate is called`() = runBlocking {
+                usecase.execute(null,null)
+                coVerify { repo.getWeather(null,null)}
+            }
+
+            @Test
+            fun `should return String when repo send Either type Right`()  {
+                val result = runBlocking {  usecase.execute(null,null)}
+                result `should be instance of` GetWeatherResult.Success::class
+                ( result as GetWeatherResult.Success).value.currentWeatherUIModel.shouldEqual(CurrentWeatherUIModel(temp = 24,
+                    tempMin = 22,tempMax = 27,type = WeatherType.SUNNY))
+                result.value.forecastWeatherUIModel.shouldEqual(listOf(
+                    ForecastWeatherUIModel(temp = 0,type = WeatherType.CLOUDY,"Friday")
+                ))
+            }
+
         }
 
-        @Test
-        fun `Check if calculate is called`() = runBlocking {
-            usecase()
-            coVerify { repo.getWeather()}
-        }
+        @Nested
+        inner class `In Error scenario` {
+            @ParameterizedTest
+            @MethodSource("hos.houns.weatherapp.domain.usecases.GetWeatherUseCaseImplTest#provideData")
+            fun `should return Error when repo send Either type Right`(input: Failure)  {
+                coEvery { repo.getWeather(null,null) } returns  Either.Left(input)
+                val result = runBlocking {  usecase.execute(null,null)}
+                result `should be instance of` GetWeatherResult.Error::class
+                (result as GetWeatherResult.Error) .error.`should be instance of`( input::class)
+            }
 
-        @Test
-        fun `should return String when repo send Either type Right`()  {
-            val result = runBlocking {  usecase()}
-            result `should be instance of` GetWeatherResult.Success::class
-            ( result as GetWeatherResult.Success).value.currentWeatherUIModel.shouldEqual(CurrentWeatherUIModel(temp = 24,
-                tempMin = 22,tempMax = 27,type = WeatherType.SUNNY))
-            result.value.forecastWeatherUIModel.shouldEqual(listOf(
-                ForecastWeatherUIModel(temp = 0,type = WeatherType.CLOUDY,"Friday")
-            ))
-        }
 
+        }
     }
 
     @Nested
-    inner class `In Error scenario` {
-        @ParameterizedTest
-        @MethodSource("hos.houns.weatherapp.domain.usecases.GetWeatherUseCaseImplTest#provideData")
-        fun `should return Error when repo send Either type Right`(input: Failure)  {
-            coEvery { repo.getWeather() } returns  Either.Left(input)
-            val result = runBlocking {  usecase()}
-            result `should be instance of` GetWeatherResult.Error::class
-            (result as GetWeatherResult.Error) .error.`should be instance of`( input::class)
+    inner class `Favourite position scenario` {
+        @Nested
+        inner class `In Success scenario` {
+            init {
+                coEvery { repo.getWeather(10.0,12.0) } returns
+                        Either.Right(WeatherUiModel(
+                            CurrentWeatherUIModel(temp = 24,
+                                tempMin = 22,tempMax = 27,type = WeatherType.SUNNY), listOf(
+                                ForecastWeatherUIModel(temp = 0,type = WeatherType.CLOUDY,"Friday")
+                            )))
+            }
+
+            @Test
+            fun `Check if calculate is called`() = runBlocking {
+                usecase.execute(10.0,12.0)
+                coVerify { repo.getWeather(10.0,12.0)}
+            }
+
+            @Test
+            fun `should return String when repo send Either type Right`()  {
+                val result = runBlocking {  usecase.execute(10.0,12.0)}
+                result `should be instance of` GetWeatherResult.Success::class
+                ( result as GetWeatherResult.Success).value.currentWeatherUIModel.shouldEqual(CurrentWeatherUIModel(temp = 24,
+                    tempMin = 22,tempMax = 27,type = WeatherType.SUNNY))
+                result.value.forecastWeatherUIModel.shouldEqual(listOf(
+                    ForecastWeatherUIModel(temp = 0,type = WeatherType.CLOUDY,"Friday")
+                ))
+            }
+
         }
 
+        @Nested
+        inner class `In Error scenario` {
+            @ParameterizedTest
+            @MethodSource("hos.houns.weatherapp.domain.usecases.GetWeatherUseCaseImplTest#provideData")
+            fun `should return Error when repo send Either type Right`(input: Failure)  {
+                coEvery { repo.getWeather(10.0,12.0) } returns  Either.Left(input)
+                val result = runBlocking {  usecase.execute(10.0,12.0)}
+                result `should be instance of` GetWeatherResult.Error::class
+                (result as GetWeatherResult.Error) .error.`should be instance of`( input::class)
+            }
 
+
+        }
     }
+
+
 
     companion object{
         @JvmStatic

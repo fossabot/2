@@ -1,19 +1,19 @@
-package hos.houns.weatherapp.data.favourite
+package hos.houns.weatherapp.data.favorite
 
 import hos.houns.weatherapp.domain.core.CoroutineDispatchers
 import hos.houns.weatherapp.domain.entity.FavouriteUiModel
 import hos.houns.weatherapp.domain.usecases.favourite.FavouritesRepository
-import hos.houns.weatherapp.localstore.favourite.Favourite
+import hos.houns.weatherapp.localstore.favorite.Favorite
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
-class FavouritesRepositoryImpl(private val coroutineDispatchers: CoroutineDispatchers,
-                               private val favouritesLocalDataStore: FavouritesLocalDataStore):
+class FavoritesRepositoryImpl(private val coroutineDispatchers: CoroutineDispatchers,
+                              private val favoritesLocalDataStore: FavoritesLocalDataStore):
     FavouritesRepository {
     override suspend fun load(): Flow<List<FavouriteUiModel>> {
         return withContext(coroutineDispatchers.io){
-            favouritesLocalDataStore.load().map { lists ->
+            favoritesLocalDataStore.load().map { lists ->
                 lists.map {
                    FavouriteUiModel(it.id,
                        it.label?:"",
@@ -26,13 +26,13 @@ class FavouritesRepositoryImpl(private val coroutineDispatchers: CoroutineDispat
 
     override suspend fun addFavourite(value: FavouriteUiModel) {
         return withContext(coroutineDispatchers.io){
-            favouritesLocalDataStore.addFavourite(Favourite(value.id,value.label,value.latitude,value.longitude))
+            favoritesLocalDataStore.addFavourite(Favorite(value.id,value.label,value.latitude,value.longitude))
         }
     }
 
     override suspend fun deleteFavourite(value: FavouriteUiModel) {
         return withContext(coroutineDispatchers.io){
-            favouritesLocalDataStore.deleteFavourite(Favourite(value.id,value.label,value.latitude,value.longitude))
+            favoritesLocalDataStore.deleteFavourite(Favorite(value.id,value.label,value.latitude,value.longitude))
         }
     }
 }

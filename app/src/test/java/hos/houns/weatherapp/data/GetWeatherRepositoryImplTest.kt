@@ -90,7 +90,7 @@ internal class GetWeatherRepositoryImplTest {
         @Test
         fun `Check if fetchRate is called`() = runBlocking {
 
-            repository.getWeather()
+            repository.getWeather(10.0,12.0)
             coVerify {
                 locationManager.getCurrentLocation()
                 weatherRemoteDataStore.currentWeather(any())
@@ -102,7 +102,7 @@ internal class GetWeatherRepositoryImplTest {
         fun `should return Success when repo send Either type Right`() {
             coEvery { locationManager.getCurrentLocation() } returns CurrentLocation(10.0, 14.0)
 
-            val response = runBlocking { repository.getWeather() }
+            val response = runBlocking { repository.getWeather(10.0,12.0) }
             response shouldBeInstanceOf Either.Right::class
             (response as Either.Right).b.currentWeatherUIModel.shouldEqual(
                 CurrentWeatherUIModel(
@@ -123,7 +123,7 @@ internal class GetWeatherRepositoryImplTest {
         fun `should get location from local and return Success when repo send Either type Right`() {
             coEvery { locationManager.getCurrentLocation() } returns CurrentLocation(0.0, 0.0)
             coEvery { localLocationDataStore.getLastLocation() } returns CurrentLocation(10.0,14.0)
-            val response = runBlocking { repository.getWeather() }
+            val response = runBlocking { repository.getWeather(10.0,12.0) }
             response shouldBeInstanceOf Either.Right::class
             (response as Either.Right).b.currentWeatherUIModel.shouldEqual(
                 CurrentWeatherUIModel(
@@ -148,7 +148,7 @@ internal class GetWeatherRepositoryImplTest {
         fun `Location is disabled`() {
             coEvery { locationManager.isLocationEnabled() } returns false
             coEvery { localLocationDataStore.getLastLocation() } returns CurrentLocation(0.0, 0.0)
-            val response = runBlocking { repository.getWeather() }
+            val response = runBlocking { repository.getWeather(10.0,12.0) }
             response shouldBeInstanceOf Either.Left::class
             (response as Either.Left).a.shouldBeInstanceOf<Failure.LocationIsDisabledError>()
         }
@@ -157,7 +157,7 @@ internal class GetWeatherRepositoryImplTest {
         fun `Fine Permission is denied`() {
             coEvery { locationManager.isLocationEnabled() } returns true
             coEvery { locationManager.hasFinePermissionGranted() } returns false
-            val response = runBlocking { repository.getWeather() }
+            val response = runBlocking { repository.getWeather(10.0,12.0) }
             response shouldBeInstanceOf Either.Left::class
             (response as Either.Left).a.shouldBeInstanceOf<Failure.FineLocationPermissionNotGrantedError>()
         }
@@ -168,7 +168,7 @@ internal class GetWeatherRepositoryImplTest {
             coEvery { locationManager.hasFinePermissionGranted() } returns true
 
             coEvery { weatherRemoteDataStore.currentWeather(any()) } returns  Either.Left(Failure.ServerError)
-            val response = runBlocking { repository.getWeather()}
+            val response = runBlocking { repository.getWeather(10.0,12.0)}
             response shouldBeInstanceOf Either.Right::class
             response shouldEqual Either.Right(WeatherUiModel(currentWeatherUIModel = CurrentWeatherUIModel(0,0,0,WeatherType.CLOUDY),forecastWeatherUIModel = listOf()))
         }
@@ -179,7 +179,7 @@ internal class GetWeatherRepositoryImplTest {
             coEvery { locationManager.hasFinePermissionGranted() } returns true
             coEvery { weatherRemoteDataStore.forecastWeather(any()) } returns  Either.Left(Failure.ServerError)
 
-            val response = runBlocking { repository.getWeather()}
+            val response = runBlocking { repository.getWeather(10.0,12.0)}
             response shouldBeInstanceOf Either.Right::class
             response shouldEqual Either.Right(WeatherUiModel(currentWeatherUIModel = CurrentWeatherUIModel(15,10,20,WeatherType.CLEAR),forecastWeatherUIModel = listOf()))
         }

@@ -21,12 +21,12 @@ class GetWeatherRepositoryImpl(
     ): Either<Failure, WeatherUiModel> =
         withContext(coroutineDispatchers.io) {
             if (latitude != null && longitude != null) {
-                fetchData(CurrentLocation(latitude ?: 0.0, longitude ?: 0.0), true)
+                fetchDataCurrentAndForeCast(CurrentLocation(latitude ?: 0.0, longitude ?: 0.0), true)
             } else if (locationManager.isLocationEnabled() && locationManager.hasFinePermissionGranted()) {
                 val currentLocation = locationManager.getCurrentLocation()
                 localLocationDataStore.saveLastLocation(currentLocation)
 
-                fetchData(currentLocation, false)
+                fetchDataCurrentAndForeCast(currentLocation, false)
             } else if (!locationManager.isLocationEnabled()) {
                 val lastLocation = localLocationDataStore.getLastLocation()
                 //if we never set location in shared preference
@@ -35,14 +35,14 @@ class GetWeatherRepositoryImpl(
                 }
                 //We have once save the user's local storage
                 else {
-                    fetchData(lastLocation, false)
+                    fetchDataCurrentAndForeCast(lastLocation, false)
                 }
             } else {
                 Either.Left(Failure.FineLocationPermissionNotGrantedError)
             }
         }
 
-    private suspend fun fetchData(
+    private suspend fun fetchDataCurrentAndForeCast(
         currentLocation: CurrentLocation,
         isFavourite: Boolean
     ): Either.Right<WeatherUiModel> {
@@ -53,17 +53,24 @@ class GetWeatherRepositoryImpl(
                 fetchForeCastWeatherAndMapToUIModel(currentLocation, isFavourite)
             val weather = WeatherUiModel(currentWeatherUIModel, foreCastWeatherUIModel)
 
-            localLocationDataStore.saveCurrentWeather(currentWeatherUIModel)
-            localLocationDataStore.saveForecastWeather(foreCastWeatherUIModel)
-            localLocationDataStore.saveUpdateDate(
-                SimpleDateFormat(
-                    "EEE MMM d yy 'at' HH:mm:ss",
-                    Locale.US
-                ).format(Date())
-            )
+            saveToLocal(currentWeatherUIModel, foreCastWeatherUIModel)
 
             Either.Right(weather)
         }
+    }
+
+    private suspend fun saveToLocal(
+        currentWeatherUIModel: CurrentWeatherUIModel,
+        foreCastWeatherUIModel: List<ForecastWeatherUIModel>
+    ) {
+        localLocationDataStore.saveCurrentWeather(currentWeatherUIModel)
+        localLocationDataStore.saveForecastWeather(foreCastWeatherUIModel)
+        localLocationDataStore.saveUpdateDate(
+            SimpleDateFormat(
+                "EEE MMM d yy 'at' HH:mm:ss",
+                Locale.US
+            ).format(Date())
+        )
     }
 
     private suspend fun fetchCurrentWeatherAndMapToUIModel(
@@ -73,16 +80,7 @@ class GetWeatherRepositoryImpl(
         return withContext(coroutineDispatchers.io) {
             when (val currentWeather = weatherRemoteDataStore.currentWeather(currentLocation)) {
                 is Either.Left -> if (isFavourite) CurrentWeatherUIModel.EMPTY else localLocationDataStore.getCurrentWeather()
-                is Either.Right -> CurrentWeatherUIModel(
-                    temp = (currentWeather.b?.main?.temp ?: 0.0).toInt(),
-                    tempMax = (
-                            currentWeather.b?.main?.temp_max ?: 0.0
-                            ).toInt(),
-                    tempMin = (
-                            currentWeather.b?.main?.temp_min ?: 0.0
-                            ).toInt(),
-                    type = getWeatherTypeById(currentWeather.b?.weather?.first()?.id ?: 0)
-                )
+                is Either.Right -> currentWeather.b.toUiModel()
             }
         }
     }
@@ -94,52 +92,10 @@ class GetWeatherRepositoryImpl(
         return withContext(coroutineDispatchers.io) {
             when (val foreCastWeather = weatherRemoteDataStore.forecastWeather(currentLocation)) {
                 is Either.Left -> if (isFavourite) listOf(ForecastWeatherUIModel.EMPTY) else localLocationDataStore.getForecastWeather()
-                is Either.Right -> foreCastWeather.b?.daily?.map {
-                    ForecastWeatherUIModel(
-                        temp = it.temp.max.toInt(),
-                        type = getWeatherTypeById(it.weather.first().id),
-                        day = getDayFromTimestamp(it.dt.toLong())
-                    )
-                } ?: emptyList()
+                is Either.Right -> foreCastWeather.b?.toUiModel() ?: emptyList()
             }
         }
     }
 
-    private fun getDayFromTimestamp(value: Long): String {
-        return SimpleDateFormat("EEEE", Locale.US).format(Date(value * 1000))
-    }
-
-
-    private fun getWeatherTypeById(value: Int): WeatherType {
-        return when {
-            value == 0 -> {
-                WeatherType.UNKNOW
-            }
-            value.toString().startsWith("2") -> {
-                WeatherType.THUNDERSTORM
-            }
-            value.toString().startsWith("3") -> {
-                WeatherType.DRIZZLE
-            }
-            value.toString().startsWith("5") -> {
-                WeatherType.RAINY
-            }
-            value.toString().startsWith("6") -> {
-                WeatherType.SNOW
-            }
-            value.toString().startsWith("7") -> {
-                WeatherType.ATMOSPHERE
-            }
-            value.toString() == "800" -> {
-                WeatherType.CLEAR
-            }
-            value.toString().startsWith("80") -> {
-                WeatherType.CLOUDY
-            }
-            else -> {
-                WeatherType.SUNNY
-            }
-        }
-    }
 
 }

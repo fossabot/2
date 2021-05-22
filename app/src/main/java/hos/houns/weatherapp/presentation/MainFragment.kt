@@ -81,6 +81,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
                     }
                     is MainContract.MainState.Error -> {
+                        binding.progressBar.visibility = View.GONE
                         handleError(state.failure)
                     }
                     MainContract.MainState.Loading -> {
@@ -129,12 +130,14 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     private fun handleError(failure: Failure) {
         when (failure) {
-            is Failure.FeatureFailure -> TODO()
+            is Failure.FeatureFailure -> {
+
+            }
             Failure.LocationIsDisabledError -> {
                 showLocationSettings()
             }
-            Failure.NetworkConnection -> TODO()
-            Failure.ServerError -> TODO()
+            Failure.NetworkConnection -> {}
+            Failure.ServerError -> {}
             Failure.ServerTimeoutError -> TODO()
             Failure.UnknownError -> TODO()
             Failure.FineLocationPermissionNotGrantedError -> {

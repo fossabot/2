@@ -10,20 +10,19 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.CancellationTokenSource
-import hos.houns.weatherapp.domain.core.CoroutineDispatchers
 import hos.houns.weatherapp.domain.entity.CurrentLocation
 import hos.houns.weatherapp.domain.usecases.LocationManager
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.lang.Exception
 
 @SuppressLint("MissingPermission")
 class LocationManagerImpl(
-    private val context: Context,
-    private val dispatchers: CoroutineDispatchers
+    private val context: Context
 ) : LocationManager {
 
-    override suspend fun getCurrentLocation() = withContext(dispatchers.io) {
+    override suspend fun getCurrentLocation() = withContext(Dispatchers.IO) {
         val cancellationTokenSource = CancellationTokenSource()
         val currentLocationTask =  LocationServices.getFusedLocationProviderClient(context).getCurrentLocation(
             PRIORITY_HIGH_ACCURACY,

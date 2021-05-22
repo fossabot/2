@@ -25,9 +25,9 @@ fun CurrentWeatherResponse?.toUiModel(): CurrentWeatherUIModel {
 fun ForecastResponse?.toUiModel(): List<ForecastWeatherUIModel> {
     return this?.daily?.map {
         ForecastWeatherUIModel(
-            temp = it.temp.max.toInt(),
-            type = it.weather.first().id.toWeatherType(),
-            day = it.dt.toLong().toDateString()
+            temp = it.temp?.max?.toInt()?:0,
+            type = it.weather?.first()?.id?.toWeatherType()?: WeatherType.UNKNOW,
+            day = it.dt?.toDateString()?:""
         )
     } ?: emptyList()
 }

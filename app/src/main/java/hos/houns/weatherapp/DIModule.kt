@@ -9,8 +9,6 @@ import hos.houns.weatherapp.data.WeatherRemoteDataStore
 import hos.houns.weatherapp.data.favorite.FavoritesLocalDataStore
 import hos.houns.weatherapp.data.favorite.FavoritesRepositoryImpl
 import hos.houns.weatherapp.device.LocationManagerImpl
-import hos.houns.weatherapp.domain.core.CoroutineDispatchers
-import hos.houns.weatherapp.domain.core.CoroutineDispatchersImpl
 import hos.houns.weatherapp.domain.usecases.*
 import hos.houns.weatherapp.domain.usecases.favourite.*
 import hos.houns.weatherapp.localstore.favorite.AppDatabase
@@ -34,7 +32,6 @@ val modules = module {
 
     // Domain Layer
 
-    single<CoroutineDispatchers> { CoroutineDispatchersImpl() }
     single<GetWeatherUseCase> { GetWeatherUseCaseImpl(get()) }
     single<LoadFavouritesUseCase> { LoadFavouritesUseCaseImpl(get()) }
     single<AddDeleteFavouriteUseCase> { AddDeleteFavouriteUseCaseImpl(get()) }
@@ -48,9 +45,9 @@ val modules = module {
     single<WeatherRemoteDataStore> { WeatherRemoteDataStoreImpl(get(), get()) }
     single { OpenWeatherApi(get()) }
     single { RemoteErrorFactory() }
-    single<GetWeatherRepository> { GetWeatherRepositoryImpl(get(), get(), get(), get()) }
+    single<GetWeatherRepository> { GetWeatherRepositoryImpl(get(), get(), get()) }
 
-    single<FavouritesRepository> { FavoritesRepositoryImpl(get(), get()) }
+    single<FavouritesRepository> { FavoritesRepositoryImpl(get()) }
     single {
         Room.databaseBuilder(
             androidContext(),
@@ -59,11 +56,11 @@ val modules = module {
     }
 
 
-    single<FavoritesLocalDataStore> { FavoritesLocalDataStoreImpl(get(),get()) }
+    single<FavoritesLocalDataStore> { FavoritesLocalDataStoreImpl(get()) }
 
 
     //Device layer
-    single<LocationManager> { LocationManagerImpl(get(), get()) }
+    single<LocationManager> { LocationManagerImpl(get()) }
 
     single<LocalLocationDataStore> { LocalLocationDataStoreImpl(get()) }
 

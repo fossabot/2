@@ -4,12 +4,12 @@ import hos.houns.weatherapp.domain.core.*
 import hos.houns.weatherapp.domain.entity.*
 import hos.houns.weatherapp.domain.usecases.GetWeatherRepository
 import hos.houns.weatherapp.domain.usecases.LocationManager
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.*
 
 class GetWeatherRepositoryImpl(
-    private val coroutineDispatchers: CoroutineDispatchers,
     private val locationManager: LocationManager,
     private val localLocationDataStore: LocalLocationDataStore,
     private val weatherRemoteDataStore: WeatherRemoteDataStore,
@@ -19,13 +19,12 @@ class GetWeatherRepositoryImpl(
         latitude: Double?,
         longitude: Double?
     ): Either<Failure, WeatherUiModel> =
-        withContext(coroutineDispatchers.io) {
+        withContext(Dispatchers.IO) {
             if (latitude != null && longitude != null) {
                 fetchDataCurrentAndForeCast(CurrentLocation(latitude ?: 0.0, longitude ?: 0.0), true)
             } else if (locationManager.isLocationEnabled() && locationManager.hasFinePermissionGranted()) {
                 val currentLocation = locationManager.getCurrentLocation()
                 localLocationDataStore.saveLastLocation(currentLocation)
-
                 fetchDataCurrentAndForeCast(currentLocation, false)
             } else if (!locationManager.isLocationEnabled()) {
                 val lastLocation = localLocationDataStore.getLastLocation()
@@ -46,7 +45,7 @@ class GetWeatherRepositoryImpl(
         currentLocation: CurrentLocation,
         isFavourite: Boolean
     ): Either.Right<WeatherUiModel> {
-        return withContext(coroutineDispatchers.io) {
+        return withContext(Dispatchers.IO) {
             val currentWeatherUIModel =
                 fetchCurrentWeatherAndMapToUIModel(currentLocation, isFavourite)
             val foreCastWeatherUIModel =
@@ -77,7 +76,7 @@ class GetWeatherRepositoryImpl(
         currentLocation: CurrentLocation,
         isFavourite: Boolean
     ): CurrentWeatherUIModel {
-        return withContext(coroutineDispatchers.io) {
+        return withContext(Dispatchers.IO) {
             when (val currentWeather = weatherRemoteDataStore.currentWeather(currentLocation)) {
                 is Either.Left -> if (isFavourite) CurrentWeatherUIModel.EMPTY else localLocationDataStore.getCurrentWeather()
                 is Either.Right -> currentWeather.b.toUiModel()
@@ -89,7 +88,7 @@ class GetWeatherRepositoryImpl(
         currentLocation: CurrentLocation,
         isFavourite: Boolean
     ): List<ForecastWeatherUIModel> {
-        return withContext(coroutineDispatchers.io) {
+        return withContext(Dispatchers.IO) {
             when (val foreCastWeather = weatherRemoteDataStore.forecastWeather(currentLocation)) {
                 is Either.Left -> if (isFavourite) listOf(ForecastWeatherUIModel.EMPTY) else localLocationDataStore.getForecastWeather()
                 is Either.Right -> foreCastWeather.b?.toUiModel() ?: emptyList()

@@ -30,14 +30,9 @@ abstract class FailureFactory : BaseFailureFactory {
         }
     }
 
-
     private fun <T> handleHttpCode(response: Response<T>?): Failure {
         return when (response?.code()) {
             HTTP_INTERNAL_SERVER_ERROR -> Failure.ServerError
-            in arrayOf(400, 403) -> {
-                val apiError = ErrorParser.parse(response?.errorBody())
-                handleFeatureError(apiError)
-            }
             else -> Failure.UnknownError
         }
     }

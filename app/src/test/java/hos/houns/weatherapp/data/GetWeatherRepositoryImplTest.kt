@@ -1,11 +1,8 @@
 package hos.houns.weatherapp.data
 
-import hos.houns.weatherapp.domain.core.CoroutineDispatchers
-import hos.houns.weatherapp.domain.core.CoroutineDispatchersImpl
 import hos.houns.weatherapp.domain.core.Either
 import hos.houns.weatherapp.domain.core.Failure
 import hos.houns.weatherapp.domain.entity.*
-import hos.houns.weatherapp.domain.usecases.GetWeatherUseCaseImpl
 import hos.houns.weatherapp.domain.usecases.LocationManager
 import hos.houns.weatherapp.remotestore.CurrentWeatherResponse
 import hos.houns.weatherapp.remotestore.ForecastResponse
@@ -26,16 +23,12 @@ import org.junit.jupiter.api.TestInstance
 internal class GetWeatherRepositoryImplTest {
 
     private lateinit var repository: GetWeatherRepositoryImpl
-    private lateinit var coroutineDispatchers: CoroutineDispatchers
     private lateinit var locationManager: LocationManager
     private lateinit var localLocationDataStore: LocalLocationDataStore
     private lateinit var weatherRemoteDataStore: WeatherRemoteDataStore
 
     @BeforeAll
     fun setUp() {
-        coroutineDispatchers = spyk()
-        coEvery { coroutineDispatchers.io } returns CoroutineDispatchersImpl().io
-
         locationManager = mockk()
 
 
@@ -47,7 +40,6 @@ internal class GetWeatherRepositoryImplTest {
 
         weatherRemoteDataStore = mockk()
         repository = GetWeatherRepositoryImpl(
-            coroutineDispatchers,
             locationManager,
             localLocationDataStore,
             weatherRemoteDataStore
@@ -162,8 +154,8 @@ internal class GetWeatherRepositoryImplTest {
                 coEvery { locationManager.isLocationEnabled() } returns true
                 coEvery { locationManager.hasFinePermissionGranted() } returns false
                 val response = runBlocking { repository.getWeather(10.0,12.0) }
-                response shouldBeInstanceOf Either.Left::class
-                (response as Either.Left).a.shouldBeInstanceOf<Failure.FineLocationPermissionNotGrantedError>()
+                response shouldBeInstanceOf Either.Right::class
+                (response as Either.Right).b.shouldBeInstanceOf<WeatherUiModel>()
             }
 
             @Test
@@ -174,7 +166,6 @@ internal class GetWeatherRepositoryImplTest {
                 coEvery { weatherRemoteDataStore.currentWeather(any()) } returns  Either.Left(Failure.ServerError)
                 val response = runBlocking { repository.getWeather(10.0,12.0)}
                 response shouldBeInstanceOf Either.Right::class
-                response shouldEqual Either.Right(WeatherUiModel(currentWeatherUIModel = CurrentWeatherUIModel(0,0,0,WeatherType.CLOUDY),forecastWeatherUIModel = listOf()))
             }
 
             @Test
@@ -185,7 +176,7 @@ internal class GetWeatherRepositoryImplTest {
 
                 val response = runBlocking { repository.getWeather(10.0,12.0)}
                 response shouldBeInstanceOf Either.Right::class
-                response shouldEqual Either.Right(WeatherUiModel(currentWeatherUIModel = CurrentWeatherUIModel(15,10,20,WeatherType.CLEAR),forecastWeatherUIModel = listOf()))
+
             }
 
         }

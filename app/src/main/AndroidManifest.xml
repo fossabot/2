@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidCleanArchMVVMMMVIStarter">
         <activity
-            android:name=".presentation.favourite.MapsActivity"
+            android:name=".presentation.favorite.MapsActivity"
             android:exported="true" />
         <activity
             android:launchMode="singleTop"
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.favourite.PlaceAutocompleteActivity"
+            android:name=".presentation.favorite.PlaceAutocompleteActivity"
             android:screenOrientation="portrait" />
 
         <meta-data

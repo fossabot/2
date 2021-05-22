@@ -5,7 +5,6 @@ import android.annotation.SuppressLint
 import android.app.*
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import androidx.fragment.app.Fragment
@@ -19,13 +18,12 @@ import org.koin.android.viewmodel.ext.android.getSharedViewModel
 import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
-import hos.houns.weatherapp.BuildConfig
 import hos.houns.weatherapp.R
+import hos.houns.weatherapp.data.withDegree
 import hos.houns.weatherapp.domain.core.Failure
 import hos.houns.weatherapp.domain.entity.WeatherType
 import hos.houns.weatherapp.domain.entity.WeatherUiModel
-import hos.houns.weatherapp.presentation.favourite.PlaceAutocompleteActivity
+import hos.houns.weatherapp.presentation.favorite.PlaceAutocompleteActivity
 
 
 class MainFragment : Fragment(R.layout.fragment_main) {
@@ -95,20 +93,12 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 }
             }
 
-            viewModel.sideEffect.collect {
-
-                when (it) {
-
-                }
-            }
         }
     }
-
 
     @SuppressLint("SetTextI18n")
     private fun handleSuccess(value: WeatherUiModel) {
         val color = value.currentWeatherUIModel.type.getColor()
-        //MyApp.appcolor =color
         binding.progressBar.visibility = View.GONE
         binding.container.visibility = View.VISIBLE
         binding.container.setBackgroundColor(color)

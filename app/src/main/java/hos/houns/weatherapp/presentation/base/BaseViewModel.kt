@@ -7,27 +7,18 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 interface Intent
-interface SideEffect
 interface State
 
 abstract class BaseViewModel<Intent : hos.houns.weatherapp.presentation.base.Intent,
-        State : hos.houns.weatherapp.presentation.base.State,
-        SideEffect : hos.houns.weatherapp.presentation.base.SideEffect> : ViewModel() {
+        State : hos.houns.weatherapp.presentation.base.State> : ViewModel() {
 
     private val initialState: State by lazy { createInitialState() }
     abstract fun createInitialState(): State
-
-    val currentState: State
-        get() = uiState.value
 
     private val _uiState: MutableStateFlow<State> = MutableStateFlow(initialState)
     val uiState = _uiState.asStateFlow()
 
     private val _intent: MutableSharedFlow<Intent> = MutableSharedFlow()
-    val intent = _intent.asSharedFlow()
-
-    private val _sideEffect: Channel<SideEffect> = Channel()
-    val sideEffect = _sideEffect.receiveAsFlow()
 
     init {
         subscribeIntents()
@@ -38,7 +29,7 @@ abstract class BaseViewModel<Intent : hos.houns.weatherapp.presentation.base.Int
      */
     private fun subscribeIntents() {
         viewModelScope.launch {
-            intent.collect {
+            _intent.collect {
                 handleIntent(it)
             }
         }
@@ -47,7 +38,7 @@ abstract class BaseViewModel<Intent : hos.houns.weatherapp.presentation.base.Int
     /**
      * Handle each intent
      */
-    abstract fun handleIntent(event: Intent)
+    protected abstract fun handleIntent(event: Intent)
 
 
     /**
@@ -62,15 +53,9 @@ abstract class BaseViewModel<Intent : hos.houns.weatherapp.presentation.base.Int
      * Set new Ui State
      */
     protected fun setState(reduce: State.() -> State) {
-        val newState = currentState.reduce()
+        val newState = uiState.value.reduce()
         _uiState.value = newState
     }
 
-    /**
-     * Set new Effect
-     */
-    protected fun setSideEffect(builder: () -> SideEffect) {
-        val effectValue = builder()
-        viewModelScope.launch { _sideEffect.send(effectValue) }
-    }
+
 }

@@ -21,7 +21,7 @@ import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class GetWeatherUseCaseImplTest{
+class GetWeatherUseCaseTest{
 
     private lateinit var repo: GetWeatherRepository
     private lateinit var usecase: GetWeatherUseCase
@@ -29,7 +29,7 @@ class GetWeatherUseCaseImplTest{
     @BeforeAll
     fun setUp() {
         repo = mockk()
-        usecase = GetWeatherUseCaseImpl(repo)
+        usecase = GetWeatherUseCase(repo)
     }
 
     @Nested
@@ -67,14 +67,13 @@ class GetWeatherUseCaseImplTest{
         @Nested
         inner class `In Error scenario` {
             @ParameterizedTest
-            @MethodSource("hos.houns.weatherapp.domain.usecases.GetWeatherUseCaseImplTest#provideData")
+            @MethodSource("hos.houns.weatherapp.domain.usecases.GetWeatherUseCaseTest#provideData")
             fun `should return Error when repo send Either type Right`(input: Failure)  {
                 coEvery { repo.getWeather(null,null) } returns  Either.Left(input)
                 val result = runBlocking {  usecase.execute(null,null)}
                 result `should be instance of` GetWeatherResult.Error::class
                 (result as GetWeatherResult.Error) .error.`should be instance of`( input::class)
             }
-
 
         }
     }
@@ -114,7 +113,7 @@ class GetWeatherUseCaseImplTest{
         @Nested
         inner class `In Error scenario` {
             @ParameterizedTest
-            @MethodSource("hos.houns.weatherapp.domain.usecases.GetWeatherUseCaseImplTest#provideData")
+            @MethodSource("hos.houns.weatherapp.domain.usecases.GetWeatherUseCaseTest#provideData")
             fun `should return Error when repo send Either type Right`(input: Failure)  {
                 coEvery { repo.getWeather(10.0,12.0) } returns  Either.Left(input)
                 val result = runBlocking {  usecase.execute(10.0,12.0)}

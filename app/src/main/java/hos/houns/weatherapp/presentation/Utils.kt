@@ -13,18 +13,6 @@ const val FavouriteUiModelID="FavouriteUiModelID"
 const val FavouriteUiModelTitle="FavouriteUiModelTitle"
 const val FavouriteUiModelLat="FavouriteUiModelLat"
 const val FavouriteUiModelLong="FavouriteUiModelLong"
-fun Fragment.hasPermission(permission: String): Boolean {
-
-    // Background permissions didn't exit prior to Q, so it's approved by default.
-    if (permission == Manifest.permission.ACCESS_BACKGROUND_LOCATION &&
-        android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.Q) {
-        return true
-    }
-
-    return ActivityCompat.checkSelfPermission(requireActivity(), permission) ==
-            PackageManager.PERMISSION_GRANTED
-}
-
 fun Fragment.requestPermissionWithRationale(
     permission: String,
     requestCode: Int,
@@ -39,7 +27,5 @@ fun Fragment.requestPermissionWithRationale(
     }
 }
 
-fun String.withDegree(): String {
-    return this + 0x00B0.toChar()
-}
+
 

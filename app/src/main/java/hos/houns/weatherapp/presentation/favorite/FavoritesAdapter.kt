@@ -1,26 +1,17 @@
-package hos.houns.weatherapp.presentation.favourite
+package hos.houns.weatherapp.presentation.favorite
 
-import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 
-import android.widget.TextView
-
 import androidx.recyclerview.widget.RecyclerView
-import hos.houns.weatherapp.R
 import hos.houns.weatherapp.databinding.FavouriteItemBinding
-import hos.houns.weatherapp.databinding.ForecastItemBinding
-import hos.houns.weatherapp.domain.entity.FavouriteUiModel
-import hos.houns.weatherapp.domain.entity.ForecastWeatherUIModel
-import hos.houns.weatherapp.domain.entity.WeatherType
-import hos.houns.weatherapp.presentation.*
+import hos.houns.weatherapp.domain.entity.FavoriteUiModel
 
 
-class FavouritesAdapter(var list: List<FavouriteUiModel>,
-                        var onLongClicked : (FavouriteUiModel) -> Unit,
-                        var onClicked : (FavouriteUiModel) -> Unit,
-) : RecyclerView.Adapter<FavouritesAdapter.ViewHolder>(){
+class FavoritesAdapter(var list: List<FavoriteUiModel>,
+                       var onLongClicked : (FavoriteUiModel) -> Unit,
+                       var onClicked : (FavoriteUiModel) -> Unit,
+) : RecyclerView.Adapter<FavoritesAdapter.ViewHolder>(){
     inner class ViewHolder(val binding: FavouriteItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

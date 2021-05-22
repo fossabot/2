@@ -10,7 +10,7 @@ import hos.houns.weatherapp.data.favorite.FavoritesLocalDataStore
 import hos.houns.weatherapp.data.favorite.FavoritesRepositoryImpl
 import hos.houns.weatherapp.device.LocationManagerImpl
 import hos.houns.weatherapp.domain.usecases.*
-import hos.houns.weatherapp.domain.usecases.favourite.*
+import hos.houns.weatherapp.domain.usecases.favorite.*
 import hos.houns.weatherapp.localstore.favorite.AppDatabase
 import hos.houns.weatherapp.localstore.favorite.FavoritesLocalDataStoreImpl
 import hos.houns.weatherapp.localstore.LocalLocationDataStoreImpl
@@ -32,9 +32,9 @@ val modules = module {
 
     // Domain Layer
 
-    single<GetWeatherUseCase> { GetWeatherUseCaseImpl(get()) }
-    single<LoadFavouritesUseCase> { LoadFavouritesUseCaseImpl(get()) }
-    single<AddDeleteFavouriteUseCase> { AddDeleteFavouriteUseCaseImpl(get()) }
+    single { GetWeatherUseCase(get()) }
+    single { LoadFavoritesUseCase(get()) }
+    single { AddDeleteFavouriteUseCase(get()) }
 
     //Remote layer
 
@@ -47,7 +47,7 @@ val modules = module {
     single { RemoteErrorFactory() }
     single<GetWeatherRepository> { GetWeatherRepositoryImpl(get(), get(), get()) }
 
-    single<FavouritesRepository> { FavoritesRepositoryImpl(get()) }
+    single<FavoritesRepository> { FavoritesRepositoryImpl(get()) }
     single {
         Room.databaseBuilder(
             androidContext(),

@@ -1,4 +1,4 @@
-package hos.houns.weatherapp.presentation.favourite
+package hos.houns.weatherapp.presentation.favorite
 
 import android.app.Activity
 import android.app.AlertDialog
@@ -15,7 +15,7 @@ import com.google.android.libraries.places.widget.AutocompleteActivity
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import hos.houns.weatherapp.R
 import hos.houns.weatherapp.databinding.PlaceAutocompleteBinding
-import hos.houns.weatherapp.domain.entity.FavouriteUiModel
+import hos.houns.weatherapp.domain.entity.FavoriteUiModel
 import hos.houns.weatherapp.presentation.*
 import kotlinx.coroutines.flow.collect
 import org.koin.android.viewmodel.ext.android.getViewModel
@@ -68,7 +68,7 @@ class PlaceAutocompleteActivity : AppCompatActivity(R.layout.place_autocomplete)
                                 binding.recyclerview.layoutManager =
                                     LinearLayoutManager(applicationContext)
                                 binding.recyclerview.adapter =
-                                    FavouritesAdapter(it, onLongClicked = {
+                                    FavoritesAdapter(it, onLongClicked = {
                                         showDeletionPopup(it)
                                     }, onClicked = {
                                         val intent = Intent(this@PlaceAutocompleteActivity, MainActivity::class.java)
@@ -89,14 +89,14 @@ class PlaceAutocompleteActivity : AppCompatActivity(R.layout.place_autocomplete)
 
     }
 
-    private fun showDeletionPopup(favouriteUiModel: FavouriteUiModel) {
+    private fun showDeletionPopup(favoriteUiModel: FavoriteUiModel) {
         AlertDialog.Builder(this, AlertDialog.THEME_DEVICE_DEFAULT_LIGHT)
             .setMessage(getString(R.string.delete_item))
             .setCancelable(false)
             .setPositiveButton(
                 getString(android.R.string.yes)
             ) { _, _ ->
-                viewModel.setIntent(MainContract.MainIntent.DeleteFavouriteIntent(favouriteUiModel))
+                viewModel.setIntent(MainContract.MainIntent.DeleteFavouriteIntent(favoriteUiModel))
             }
             .setNegativeButton(android.R.string.cancel) { _, _ ->
                 viewModel.setIntent(MainContract.MainIntent.InitialIntent)

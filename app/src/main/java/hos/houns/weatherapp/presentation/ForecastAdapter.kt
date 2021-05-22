@@ -8,6 +8,7 @@ import android.widget.TextView
 
 import androidx.recyclerview.widget.RecyclerView
 import hos.houns.weatherapp.R
+import hos.houns.weatherapp.data.withDegree
 import hos.houns.weatherapp.databinding.ForecastItemBinding
 import hos.houns.weatherapp.domain.entity.ForecastWeatherUIModel
 import hos.houns.weatherapp.domain.entity.WeatherType

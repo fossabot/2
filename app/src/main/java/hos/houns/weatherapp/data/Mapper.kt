@@ -67,3 +67,7 @@ fun Int.toWeatherType( ): WeatherType {
 fun Long.toDateString(): String {
     return SimpleDateFormat("EEEE", Locale.US).format(Date(this * 1000))
 }
+
+fun String.withDegree(): String {
+    return this + 0x00B0.toChar()
+}

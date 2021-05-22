@@ -1,4 +1,4 @@
-package hos.houns.weatherapp.presentation.favourite
+package hos.houns.weatherapp.presentation.favorite
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,10 +9,8 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
 import hos.houns.weatherapp.R
-import hos.houns.weatherapp.domain.entity.FavouriteUiModel
 import hos.houns.weatherapp.presentation.*
 import kotlinx.coroutines.flow.collect
 import org.koin.android.viewmodel.ext.android.getViewModel

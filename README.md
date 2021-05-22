@@ -30,6 +30,10 @@ To do that, I  decouple the project in 4 layers.
    
  * Presentation layer: 
  
+ * Device layer: 
+
+ * Local layer: 
+ 
 I  write unit tests and has around 80% coverage. 
 
 ## Next improvement

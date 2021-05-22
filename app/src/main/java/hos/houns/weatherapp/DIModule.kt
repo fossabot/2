@@ -3,21 +3,18 @@ package hos.houns.weatherapp
 import androidx.room.Room
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import hos.houns.weatherapp.data.GetWeatherRepositoryImpl
-import hos.houns.weatherapp.data.LocalLocationDataStore
-import hos.houns.weatherapp.data.WeatherRemoteDataStore
-import hos.houns.weatherapp.data.favorite.FavoritesLocalDataStore
-import hos.houns.weatherapp.data.favorite.FavoritesRepositoryImpl
-import hos.houns.weatherapp.device.LocationManagerImpl
+import hos.houns.weatherapp.data.GetWeatherRepository
+import hos.houns.weatherapp.data.favorite.FavoritesRepository
+import hos.houns.weatherapp.device.LocationManager
 import hos.houns.weatherapp.domain.usecases.*
 import hos.houns.weatherapp.domain.usecases.favorite.*
 import hos.houns.weatherapp.localstore.favorite.AppDatabase
-import hos.houns.weatherapp.localstore.favorite.FavoritesLocalDataStoreImpl
-import hos.houns.weatherapp.localstore.LocalLocationDataStoreImpl
+import hos.houns.weatherapp.localstore.favorite.FavoritesLocalDataStore
+import hos.houns.weatherapp.localstore.LocalLocationDataStore
 import hos.houns.weatherapp.presentation.MainViewModel
 import hos.houns.weatherapp.remotestore.OpenWeatherApi
 import hos.houns.weatherapp.remotestore.RemoteErrorFactory
-import hos.houns.weatherapp.remotestore.WeatherRemoteDataStoreImpl
+import hos.houns.weatherapp.remotestore.WeatherRemoteDataStore
 import hos.houns.weatherapp.remotestore.retrofit.NoConnectionInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -42,12 +39,12 @@ val modules = module {
     single { provideGson() }
     single { provideOkHttpClient(get()) }
     factory { NoConnectionInterceptor(get()) }
-    single<WeatherRemoteDataStore> { WeatherRemoteDataStoreImpl(get(), get()) }
+    single { WeatherRemoteDataStore(get(), get()) }
     single { OpenWeatherApi(get()) }
     single { RemoteErrorFactory() }
-    single<GetWeatherRepository> { GetWeatherRepositoryImpl(get(), get(), get()) }
+    single { GetWeatherRepository(get(), get(), get()) }
 
-    single<FavoritesRepository> { FavoritesRepositoryImpl(get()) }
+    single { FavoritesRepository(get()) }
     single {
         Room.databaseBuilder(
             androidContext(),
@@ -56,13 +53,13 @@ val modules = module {
     }
 
 
-    single<FavoritesLocalDataStore> { FavoritesLocalDataStoreImpl(get()) }
+    single { FavoritesLocalDataStore(get()) }
 
 
     //Device layer
-    single<LocationManager> { LocationManagerImpl(get()) }
+    single { LocationManager(get()) }
 
-    single<LocalLocationDataStore> { LocalLocationDataStoreImpl(get()) }
+    single{ LocalLocationDataStore(get()) }
 
     // Presentation
 

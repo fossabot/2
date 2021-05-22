@@ -1,21 +1,21 @@
 package hos.houns.weatherapp.data
 
+import hos.houns.weatherapp.device.LocationManager
 import hos.houns.weatherapp.domain.core.*
 import hos.houns.weatherapp.domain.entity.*
-import hos.houns.weatherapp.domain.usecases.GetWeatherRepository
-import hos.houns.weatherapp.domain.usecases.LocationManager
+import hos.houns.weatherapp.localstore.LocalLocationDataStore
+import hos.houns.weatherapp.remotestore.WeatherRemoteDataStore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.*
 
-class GetWeatherRepositoryImpl(
+class GetWeatherRepository(
     private val locationManager: LocationManager,
     private val localLocationDataStore: LocalLocationDataStore,
-    private val weatherRemoteDataStore: WeatherRemoteDataStore,
-) : GetWeatherRepository {
+    private val weatherRemoteDataStore: WeatherRemoteDataStore )  {
 
-    override suspend fun getWeather(
+     suspend fun getWeather(
         latitude: Double?,
         longitude: Double?
     ): Either<Failure, WeatherUiModel> =

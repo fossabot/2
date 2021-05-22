@@ -1,5 +1,6 @@
 package hos.houns.weatherapp.domain.usecases
 
+import hos.houns.weatherapp.data.GetWeatherRepository
 import hos.houns.weatherapp.domain.core.Either
 import hos.houns.weatherapp.domain.core.Failure
 import hos.houns.weatherapp.domain.entity.CurrentWeatherUIModel

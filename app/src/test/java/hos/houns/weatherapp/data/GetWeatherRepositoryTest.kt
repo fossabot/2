@@ -1,15 +1,16 @@
 package hos.houns.weatherapp.data
 
+import hos.houns.weatherapp.device.LocationManager
 import hos.houns.weatherapp.domain.core.Either
 import hos.houns.weatherapp.domain.core.Failure
 import hos.houns.weatherapp.domain.entity.*
-import hos.houns.weatherapp.domain.usecases.LocationManager
+import hos.houns.weatherapp.localstore.LocalLocationDataStore
 import hos.houns.weatherapp.remotestore.CurrentWeatherResponse
 import hos.houns.weatherapp.remotestore.ForecastResponse
+import hos.houns.weatherapp.remotestore.WeatherRemoteDataStore
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
-import io.mockk.spyk
 import kotlinx.coroutines.runBlocking
 import org.amshove.kluent.shouldBeInstanceOf
 import org.amshove.kluent.shouldEqual
@@ -20,9 +21,9 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-internal class GetWeatherRepositoryImplTest {
+internal class GetWeatherRepositoryTest {
 
-    private lateinit var repository: GetWeatherRepositoryImpl
+    private lateinit var repository: GetWeatherRepository
     private lateinit var locationManager: LocationManager
     private lateinit var localLocationDataStore: LocalLocationDataStore
     private lateinit var weatherRemoteDataStore: WeatherRemoteDataStore
@@ -39,7 +40,7 @@ internal class GetWeatherRepositoryImplTest {
         coEvery { localLocationDataStore.saveUpdateDate(any()) } returns  Unit
 
         weatherRemoteDataStore = mockk()
-        repository = GetWeatherRepositoryImpl(
+        repository = GetWeatherRepository(
             locationManager,
             localLocationDataStore,
             weatherRemoteDataStore

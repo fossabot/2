@@ -6,14 +6,13 @@ import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import org.amshove.kluent.shouldBeInstanceOf
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class WeatherRemoteDataStoreImplTest {
-    private lateinit var remoteDataStore: WeatherRemoteDataStoreImpl
+class WeatherRemoteDataStoreTest {
+    private lateinit var remoteDataStore: WeatherRemoteDataStore
     private lateinit var openWeatherApi: OpenWeatherApi
     private lateinit var remoteErrorFactory: RemoteErrorFactory
 
@@ -21,7 +20,7 @@ class WeatherRemoteDataStoreImplTest {
     fun beforeAll() {
         openWeatherApi = mockk()
         remoteErrorFactory = mockk()
-        remoteDataStore = WeatherRemoteDataStoreImpl(openWeatherApi, remoteErrorFactory)
+        remoteDataStore = WeatherRemoteDataStore(openWeatherApi, remoteErrorFactory)
     }
 
     @Test

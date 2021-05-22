@@ -13,10 +13,10 @@ import org.junit.jupiter.api.Test
 
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-internal class LocalLocationDataStoreImplTest{
+internal class LocalLocationDataStoreTest{
     private lateinit var editor: SharedPreferences.Editor
     private lateinit var sharedPrefs: SharedPreferences
-    private lateinit var localStore: LocalLocationDataStoreImpl
+    private lateinit var localStore: LocalLocationDataStore
 
     @BeforeAll
     fun setUp(){
@@ -26,22 +26,22 @@ internal class LocalLocationDataStoreImplTest{
         editor = mockk()
 
         every {  sharedPrefs.edit() } returns editor
-        localStore = LocalLocationDataStoreImpl(context)
+        localStore = LocalLocationDataStore(context)
      }
 
     @Test
     fun testSaveData(){
         every { sharedPrefs.edit().apply() } returns Unit
-        every { sharedPrefs.edit().putString(LocalLocationDataStoreImpl.LONGITUDE_KEY,"10.23") } returns editor
-        every { sharedPrefs.edit().putString(LocalLocationDataStoreImpl.LATITUDE_KEY,"14.3") } returns editor
+        every { sharedPrefs.edit().putString(LocalLocationDataStore.LONGITUDE_KEY,"10.23") } returns editor
+        every { sharedPrefs.edit().putString(LocalLocationDataStore.LATITUDE_KEY,"14.3") } returns editor
         val result = runBlocking { localStore.saveLastLocation(CurrentLocation(14.3,10.23)) }
         result.shouldEqual(Unit)
     }
 
     @Test
     fun testGetData(){
-        every { sharedPrefs.getString(LocalLocationDataStoreImpl.LONGITUDE_KEY,"0.0") } returns "10.23"
-        every { sharedPrefs.getString(LocalLocationDataStoreImpl.LATITUDE_KEY,"0.0") } returns "14.3"
+        every { sharedPrefs.getString(LocalLocationDataStore.LONGITUDE_KEY,"0.0") } returns "10.23"
+        every { sharedPrefs.getString(LocalLocationDataStore.LATITUDE_KEY,"0.0") } returns "14.3"
         val result = runBlocking { localStore.getLastLocation() }
         result shouldEqual  CurrentLocation(14.3,10.23)
     }

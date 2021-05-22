@@ -1,5 +1,6 @@
 package hos.houns.weatherapp.domain.usecases.favorite
 
+import hos.houns.weatherapp.data.favorite.FavoritesRepository
 import hos.houns.weatherapp.domain.entity.FavoriteUiModel
 import io.mockk.coEvery
 import io.mockk.coVerify

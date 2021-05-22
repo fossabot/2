@@ -1,16 +1,15 @@
 package hos.houns.weatherapp.remotestore
 
-import hos.houns.weatherapp.data.WeatherRemoteDataStore
 import hos.houns.weatherapp.domain.core.Either
 import hos.houns.weatherapp.domain.core.Failure
 import hos.houns.weatherapp.domain.entity.CurrentLocation
 
-class WeatherRemoteDataStoreImpl(
+class WeatherRemoteDataStore(
     private val openWeatherApi: OpenWeatherApi,
     private val remoteErrorFactory: RemoteErrorFactory
-) : WeatherRemoteDataStore {
+)  {
 
-    override suspend fun currentWeather(location: CurrentLocation): Either<Failure, CurrentWeatherResponse?> {
+     suspend fun currentWeather(location: CurrentLocation): Either<Failure, CurrentWeatherResponse?> {
         return try {
             Either.Right(
                 openWeatherApi
@@ -25,7 +24,7 @@ class WeatherRemoteDataStoreImpl(
         }
     }
 
-    override suspend fun forecastWeather(location: CurrentLocation): Either<Failure, ForecastResponse?> {
+    suspend fun forecastWeather(location: CurrentLocation): Either<Failure, ForecastResponse?> {
         return try {
             Either.Right(
                 openWeatherApi

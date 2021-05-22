@@ -1,0 +1,116 @@
+plugins {
+    id ("com.android.application")
+    id ("kotlin-android")
+    id("kotlin-kapt")
+    id ("de.mannodermaus.android-junit5")
+}
+
+
+android {
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "hos.houns.weatherapp"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                        "room.schemaLocation":"$projectDir/schemas".toString(),
+                        "room.incremental":"true",
+                        "room.expandProjection":"true"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.0.0-beta07'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.md'
+        exclude 'META-INF/LICENSE-notice.md'
+    }
+
+    testOptions {
+        unitTests.includeAndroidResources = true
+        unitTests.returnDefaultValues = true
+    }
+
+
+}
+
+dependencies {
+    implementation ("androidx.multidex:multidex:2.0.1")
+    implementation ("androidx.core:core-ktx:1.5.0")
+    implementation ("androidx.appcompat:appcompat:1.3.0")
+    implementation (CommonsDependencies.kotlinxCoroutinesCoreLib)
+    implementation(CommonsDependencies.kotlinReflect)
+    implementation(CommonsDependencies.lifecycleLivedataKtsLib)
+    implementation(CommonsDependencies.koinCoreLib)
+    implementation(CommonsDependencies.koinAndroidViewModelLib)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.2")
+    implementation(CommonsDependencies.jetBrainKotlinStdLib)
+    implementation(CommonsDependencies.lifecycleViewmodelLib)
+    implementation(CommonsDependencies.lifecycleRuntimeKtsLib)
+    implementation(CommonsDependencies.lifecycleCommonsJava8Lib)
+    implementation(CommonsDependencies.lifecycleExtensionLib)
+    implementation(CommonsDependencies.lifecycleReactivestreamsLib)
+    implementation(CommonsDependencies.materialLib)
+    implementation(CommonsDependencies.constraintLayoutLib)
+    implementation(CommonsDependencies.okhttpLib)
+    implementation(CommonsDependencies.retrofitLib)
+    api(CommonsDependencies.gsonLib)
+    implementation(CommonsDependencies.gsonConverterLib)
+    implementation(CommonsDependencies.okhttLoggingInterceptorLib)
+    implementation("androidx.activity:activity-ktx:1.3.0-alpha08")
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation 'com.google.android.libraries.places:places:2.4.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    def room_version = "2.3.0"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation("androidx.room:room-ktx:$room_version")
+
+    testImplementation(CommonsDependencies.mockkLib)
+    testImplementation(CommonsDependencies.junitEngineLib)
+    testImplementation(CommonsDependencies.junitAPiLib)
+    testImplementation(CommonsDependencies.junitParamsLib)
+    testRuntimeOnly(CommonsDependencies.junitJupiterEngineLib)
+    testImplementation(CommonsDependencies.kluentLib)
+    testImplementation(CommonsDependencies.junitLib)
+    testRuntimeOnly(CommonsDependencies.junitVintageEngineLib)
+    testRuntimeOnly(CommonsDependencies.kotlinReflect)
+    runtimeOnly(CommonsDependencies.junitVintageEngineLib)
+    runtimeOnly(CommonsDependencies.junitJupiterEngineLib)
+
+}

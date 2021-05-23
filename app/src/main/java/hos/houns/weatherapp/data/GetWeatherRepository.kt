@@ -1,6 +1,5 @@
 package hos.houns.weatherapp.data
 
-import hos.houns.weatherapp.device.LocationManager
 import hos.houns.weatherapp.domain.core.*
 import hos.houns.weatherapp.domain.entity.*
 import hos.houns.weatherapp.localstore.store.LocalLocationDataStore
@@ -11,37 +10,17 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class GetWeatherRepository(
-    private val locationManager: LocationManager,
     private val localLocationDataStore: LocalLocationDataStore,
     private val weatherRemoteDataStore: WeatherRemoteDataStore
 ) {
     suspend fun getWeather(
-        latitude: Double?, longitude: Double?
-    ): Either<Failure, WeatherUiModel> =
-        withContext(Dispatchers.IO) {
+        latitude: Double, longitude: Double, isFavourite: Boolean
+    ): Either<Failure, WeatherUiModel> = withContext(Dispatchers.IO) {
 
-            if (latitude != null && longitude != null) {
-                fetchDataCurrentAndForeCast(
-                    CurrentLocation(latitude ?: 0.0, longitude ?: 0.0),
-                    true
-                )
-            } else if (locationManager.isLocationEnabled() && locationManager.hasFinePermissionGranted()) {
-                val currentLocation = locationManager.getCurrentLocation()
-                localLocationDataStore.saveLastLocation(currentLocation)
-                fetchDataCurrentAndForeCast(currentLocation, false)
-            } else if (!locationManager.isLocationEnabled()) {
-                val lastLocation = localLocationDataStore.getLastLocation()
-                //if we never set location in shared preference
-                if (lastLocation == CurrentLocation(0.0, 0.0)) {
-                    Either.Left(Failure.LocationIsDisabledError)
-                }
-                //We have once save the user's local storage
-                else {
-                    fetchDataCurrentAndForeCast(lastLocation, false)
-                }
-            } else {
-                Either.Left(Failure.FineLocationPermissionNotGrantedError)
-            }
+            fetchDataCurrentAndForeCast(
+                CurrentLocation(latitude , longitude ),
+                isFavourite
+            )
         }
 
     private suspend fun fetchDataCurrentAndForeCast(
@@ -49,13 +28,21 @@ class GetWeatherRepository(
         isFavourite: Boolean
     ): Either.Right<WeatherUiModel> {
         return withContext(Dispatchers.IO) {
+            if (!isFavourite){
+                println("isNotFavourite lastLocation:$currentLocation")
+                localLocationDataStore.saveLastLocation(currentLocation)
+            }
             val currentWeatherUIModel =
                 fetchCurrentWeatherAndMapToUIModel(currentLocation, isFavourite)
             val foreCastWeatherUIModel =
                 fetchForeCastWeatherAndMapToUIModel(currentLocation, isFavourite)
             val weather = WeatherUiModel(currentWeatherUIModel, foreCastWeatherUIModel)
 
-            saveToLocal(currentWeatherUIModel, foreCastWeatherUIModel)
+            if (!isFavourite) {
+                saveToLocal(currentWeatherUIModel, foreCastWeatherUIModel)
+
+            }
+
 
             Either.Right(weather)
         }

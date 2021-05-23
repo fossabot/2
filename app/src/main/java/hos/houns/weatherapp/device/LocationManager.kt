@@ -18,7 +18,6 @@ import java.lang.Exception
 class LocationManager(
     private val context: Context
 )  {
-
      suspend fun getCurrentLocation() = withContext(Dispatchers.IO) {
         val cancellationTokenSource = CancellationTokenSource()
         val currentLocationTask =  LocationServices.getFusedLocationProviderClient(context).getCurrentLocation(

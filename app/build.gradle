@@ -35,7 +35,22 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'crea
     classDirectories.setFrom(files([debugTree]))
     executionData.setFrom(fileTree(dir: "$buildDir", includes: [
             'jacoco/testDebugUnitTest.exec', 'outputs/code_coverage/debugAndroidTest/connected/**/*.ec'
-    ]))
+              ],
+            excludes: ['hos.houns.weatherapp.presentation/**',
+                 'hos.houns.weatherapp.localstore.database/**',
+                 'hos.houns.weatherapp.databinding/**',
+                 'androidx.databinding'
+         ]))
+
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: 'hos.houns.weatherapp.presentation/**',
+                    'hos.houns.weatherapp.localstore.database/**',
+                    'hos.houns.weatherapp.databinding/**',
+                    'androidx.databinding')
+        }))
+    }
+
 }
 
 android {

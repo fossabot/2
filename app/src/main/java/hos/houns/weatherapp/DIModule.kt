@@ -28,7 +28,7 @@ val modules = module {
 
     // Domain Layer
 
-    single { GetWeatherUseCase(get()) }
+    single { GetWeatherUseCase(get(),get(),get()) }
     single { LoadFavoritesUseCase(get()) }
     single { AddDeleteFavouriteUseCase(get()) }
 
@@ -41,7 +41,7 @@ val modules = module {
     single { WeatherRemoteDataStore(get(), get()) }
     single { OpenWeatherApi(get()) }
     single { RemoteErrorFactory() }
-    single { GetWeatherRepository(get(), get(), get()) }
+    single { GetWeatherRepository(get(), get()) }
 
     single { FavoritesRepository(get()) }
     single {

@@ -25,7 +25,6 @@ import hos.houns.weatherapp.domain.entity.WeatherType
 import hos.houns.weatherapp.domain.entity.WeatherUiModel
 import hos.houns.weatherapp.presentation.favorite.PlaceAutocompleteActivity
 
-
 class MainFragment : Fragment(R.layout.fragment_main) {
 
     private var _binding: FragmentMainBinding? = null

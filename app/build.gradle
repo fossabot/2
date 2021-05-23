@@ -2,10 +2,10 @@ plugins {
     id ("com.android.application")
     id ("kotlin-android")
     id("kotlin-kapt")
-    id("jacoco")
     id ("de.mannodermaus.android-junit5")
-
+    id("jacoco")
 }
+
 jacoco {
     toolVersion = "0.8.7"
 }
@@ -18,7 +18,8 @@ tasks.withType(Test) {
 }
 
 task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
-
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports"
     reports {
         xml.enabled = true
         html.enabled = true
@@ -27,12 +28,12 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'crea
     def fileFilter = [
             '**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*', '**/*$[0-9].*'
     ]
-    def debugTree = fileTree(dir: "$project.buildDir/tmp/kotlin-classes/debug", excludes: fileFilter)
-    def mainSrc = "$project.projectDir/src/main/kotlin"
+    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
 
     sourceDirectories.setFrom(files([mainSrc]))
     classDirectories.setFrom(files([debugTree]))
-    executionData.setFrom(fileTree(dir: project.buildDir, includes: [
+    executionData.setFrom(fileTree(dir: "$buildDir", includes: [
             'jacoco/testDebugUnitTest.exec', 'outputs/code_coverage/debugAndroidTest/connected/**/*.ec'
     ]))
 }
@@ -98,6 +99,11 @@ android {
     }
 
     testOptions {
+        unitTests.all{
+            jacoco {
+                includeNoLocationClasses = true
+            }
+        }
         unitTests.includeAndroidResources = true
         unitTests.returnDefaultValues = true
     }

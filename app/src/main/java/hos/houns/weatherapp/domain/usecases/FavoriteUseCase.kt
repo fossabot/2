@@ -4,7 +4,6 @@ import hos.houns.weatherapp.data.FavoritesRepository
 import hos.houns.weatherapp.domain.entity.FavoriteUiModel
 import kotlinx.coroutines.flow.Flow
 
-
 class AddDeleteFavouriteUseCase(private val repository: FavoritesRepository)  {
      suspend fun execute(favorite: FavoriteUiModel, isDeletion: Boolean) {
         return if (isDeletion) {
@@ -14,7 +13,6 @@ class AddDeleteFavouriteUseCase(private val repository: FavoritesRepository)  {
         }
     }
 }
-
 
 class LoadFavoritesUseCase(private val repository: FavoritesRepository){
      suspend fun execute(): LoadFavoriteResult {

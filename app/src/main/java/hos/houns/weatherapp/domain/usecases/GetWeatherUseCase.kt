@@ -4,8 +4,6 @@ import hos.houns.weatherapp.domain.core.Either
 import hos.houns.weatherapp.domain.core.Failure
 import hos.houns.weatherapp.domain.entity.WeatherUiModel
 
-
-
 class GetWeatherUseCase(private val repository: GetWeatherRepository) {
 
       suspend fun execute(latitude: Double?,longitude:Double?): GetWeatherResult {

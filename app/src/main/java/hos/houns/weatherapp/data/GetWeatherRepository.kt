@@ -13,15 +13,18 @@ import java.util.*
 class GetWeatherRepository(
     private val locationManager: LocationManager,
     private val localLocationDataStore: LocalLocationDataStore,
-    private val weatherRemoteDataStore: WeatherRemoteDataStore )  {
-
-     suspend fun getWeather(
-        latitude: Double?,
-        longitude: Double?
+    private val weatherRemoteDataStore: WeatherRemoteDataStore
+) {
+    suspend fun getWeather(
+        latitude: Double?, longitude: Double?
     ): Either<Failure, WeatherUiModel> =
         withContext(Dispatchers.IO) {
+
             if (latitude != null && longitude != null) {
-                fetchDataCurrentAndForeCast(CurrentLocation(latitude ?: 0.0, longitude ?: 0.0), true)
+                fetchDataCurrentAndForeCast(
+                    CurrentLocation(latitude ?: 0.0, longitude ?: 0.0),
+                    true
+                )
             } else if (locationManager.isLocationEnabled() && locationManager.hasFinePermissionGranted()) {
                 val currentLocation = locationManager.getCurrentLocation()
                 localLocationDataStore.saveLastLocation(currentLocation)
@@ -84,8 +87,10 @@ class GetWeatherRepository(
         }
     }
 
-    private suspend fun fetchForeCastWeatherAndMapToUIModel(currentLocation: CurrentLocation,
-        isFavourite: Boolean): List<ForecastWeatherUIModel> {
+    private suspend fun fetchForeCastWeatherAndMapToUIModel(
+        currentLocation: CurrentLocation,
+        isFavourite: Boolean
+    ): List<ForecastWeatherUIModel> {
         return withContext(Dispatchers.IO) {
             when (val foreCastWeather = weatherRemoteDataStore.forecastWeather(currentLocation)) {
                 is Either.Left -> if (isFavourite) listOf(ForecastWeatherUIModel.EMPTY) else localLocationDataStore.getForecastWeather()

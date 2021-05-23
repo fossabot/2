@@ -18,13 +18,13 @@ abstract class FailureFactory : BaseFailureFactory {
 
     override fun produce(exception: Exception): Failure {
         return when (exception) {
-            is SocketTimeoutException -> Failure.ServerTimeoutError
+            is SocketTimeoutException -> Failure.NetworkError
             is HttpException -> {
                 val response = exception.response()
                 return handleHttpCode(response)
             }
             is NoConnectionInterceptor.NoConnectivityException, NoConnectionInterceptor.NoInternetException ->{
-                Failure.NetworkConnection
+                Failure.NetworkError
             }
             else -> Failure.UnknownError
         }
@@ -32,7 +32,7 @@ abstract class FailureFactory : BaseFailureFactory {
 
     private fun <T> handleHttpCode(response: Response<T>?): Failure {
         return when (response?.code()) {
-            HTTP_INTERNAL_SERVER_ERROR -> Failure.ServerError
+            HTTP_INTERNAL_SERVER_ERROR -> Failure.NetworkError
             else -> Failure.UnknownError
         }
     }

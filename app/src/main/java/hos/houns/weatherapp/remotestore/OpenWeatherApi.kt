@@ -12,7 +12,7 @@ interface OpenWeatherApi {
         @Query("appid") appId: String = OPEN_WEATHER_API,
         @Query("lat") lat: String,
         @Query("lon") lon: String,
-        @Query("units") units: String=UNIT_METRIC
+        @Query("units") units: String=UNIT_METRIC,
     ): CurrentWeatherResponse
 
 
@@ -23,7 +23,7 @@ interface OpenWeatherApi {
         @Query("lon") lon: String,
         @Query("units") units: String=UNIT_METRIC,
         @Query("cnt") cnt: String= LIMIT,
-        @Query("exclude") exclude: String= "current,minutely,hourly,alerts",
+        @Query("exclude") exclude: String= "current,minutely,hourly,alerts,feels_like",
     ): ForecastResponse
 
     companion object {

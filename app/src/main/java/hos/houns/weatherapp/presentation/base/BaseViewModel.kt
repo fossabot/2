@@ -38,7 +38,7 @@ abstract class BaseViewModel<Intent : hos.houns.weatherapp.presentation.base.Int
     /**
      * Handle each intent
      */
-    protected abstract fun handleIntent(event: Intent)
+    protected abstract fun handleIntent(intent: Intent)
 
 
     /**

@@ -4,7 +4,7 @@ import hos.houns.weatherapp.device.LocationManager
 import hos.houns.weatherapp.domain.core.Either
 import hos.houns.weatherapp.domain.core.Failure
 import hos.houns.weatherapp.domain.entity.*
-import hos.houns.weatherapp.localstore.LocalLocationDataStore
+import hos.houns.weatherapp.localstore.store.LocalLocationDataStore
 import hos.houns.weatherapp.remotestore.CurrentWeatherResponse
 import hos.houns.weatherapp.remotestore.ForecastResponse
 import hos.houns.weatherapp.remotestore.WeatherRemoteDataStore
@@ -164,7 +164,7 @@ internal class GetWeatherRepositoryTest {
                 coEvery { locationManager.isLocationEnabled() } returns true
                 coEvery { locationManager.hasFinePermissionGranted() } returns true
 
-                coEvery { weatherRemoteDataStore.currentWeather(any()) } returns  Either.Left(Failure.ServerError)
+                coEvery { weatherRemoteDataStore.currentWeather(any()) } returns  Either.Left(Failure.NetworkError)
                 val response = runBlocking { repository.getWeather(10.0,12.0)}
                 response shouldBeInstanceOf Either.Right::class
             }
@@ -173,7 +173,7 @@ internal class GetWeatherRepositoryTest {
             fun ` forecastWeather should return Failure when repo send Either type Left`() {
                 coEvery { locationManager.isLocationEnabled() } returns true
                 coEvery { locationManager.hasFinePermissionGranted() } returns true
-                coEvery { weatherRemoteDataStore.forecastWeather(any()) } returns  Either.Left(Failure.ServerError)
+                coEvery { weatherRemoteDataStore.forecastWeather(any()) } returns  Either.Left(Failure.NetworkError)
 
                 val response = runBlocking { repository.getWeather(10.0,12.0)}
                 response shouldBeInstanceOf Either.Right::class

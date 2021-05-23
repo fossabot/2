@@ -1,7 +1,8 @@
 package hos.houns.weatherapp.domain.usecases.favorite
 
-import hos.houns.weatherapp.data.favorite.FavoritesRepository
+import hos.houns.weatherapp.data.FavoritesRepository
 import hos.houns.weatherapp.domain.entity.FavoriteUiModel
+import hos.houns.weatherapp.domain.usecases.LoadFavoritesUseCase
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.flow.collect
@@ -33,7 +34,7 @@ internal class LoadFavoritesUseCaseTest{
         } returns  flowOf(listOf(FavoriteUiModel("id","label",10.0,13.0)))
 
        val  result = runBlocking { usecase.execute() }
-        result shouldBeInstanceOf (LoadFavoriteResult::class.java)
+        result shouldBeInstanceOf (LoadFavoritesUseCase.LoadFavoriteResult::class.java)
         runBlocking {
             val actual = mutableListOf<FavoriteUiModel>()
 

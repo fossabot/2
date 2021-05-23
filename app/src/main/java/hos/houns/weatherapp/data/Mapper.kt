@@ -7,16 +7,17 @@ import hos.houns.weatherapp.remotestore.CurrentWeatherResponse
 import hos.houns.weatherapp.remotestore.ForecastResponse
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.roundToInt
 
 fun CurrentWeatherResponse?.toUiModel(): CurrentWeatherUIModel {
    return  CurrentWeatherUIModel(
-        temp = (this?.main?.temp ?: 0.0).toInt(),
+        temp = (this?.main?.temp ?: 0.0).roundToInt(),
         tempMax = (
                 this?.main?.temp_max ?: 0.0
-                ).toInt(),
+                ).roundToInt(),
         tempMin = (
                 this?.main?.temp_min ?: 0.0
-                ).toInt(),
+                ).roundToInt(),
         type = (this?.weather?.first()?.id ?: 0).toWeatherType()
     )
 }
@@ -25,7 +26,7 @@ fun CurrentWeatherResponse?.toUiModel(): CurrentWeatherUIModel {
 fun ForecastResponse?.toUiModel(): List<ForecastWeatherUIModel> {
     return this?.daily?.map {
         ForecastWeatherUIModel(
-            temp = it.temp?.max?.toInt()?:0,
+            temp = it.temp?.max?.roundToInt()?:0,
             type = it.weather?.first()?.id?.toWeatherType()?: WeatherType.UNKNOW,
             day = it.dt?.toDateString()?:""
         )

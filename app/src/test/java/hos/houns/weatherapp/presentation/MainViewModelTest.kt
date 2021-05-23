@@ -1,8 +1,5 @@
 package hos.houns.weatherapp.presentation
 
-import hos.houns.weatherapp.domain.entity.CurrentWeatherUIModel
-import hos.houns.weatherapp.domain.entity.WeatherUiModel
-import hos.houns.weatherapp.domain.usecases.GetWeatherResult
 import hos.houns.weatherapp.domain.usecases.GetWeatherUseCase
 import io.mockk.coEvery
 import io.mockk.every

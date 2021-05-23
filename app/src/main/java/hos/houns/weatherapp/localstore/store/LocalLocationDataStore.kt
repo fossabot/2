@@ -1,4 +1,4 @@
-package hos.houns.weatherapp.localstore
+package hos.houns.weatherapp.localstore.store
 
 import android.content.Context
 import android.content.SharedPreferences

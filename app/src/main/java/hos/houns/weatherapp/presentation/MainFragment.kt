@@ -120,16 +120,16 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     private fun handleError(failure: Failure) {
         when (failure) {
-            is Failure.FeatureFailure -> {
-
-            }
             Failure.LocationIsDisabledError -> {
                 showLocationSettings()
             }
-            Failure.NetworkConnection -> {}
-            Failure.ServerError -> {}
-            Failure.ServerTimeoutError -> TODO()
-            Failure.UnknownError -> TODO()
+
+            Failure.NetworkError -> {
+
+            }
+            Failure.UnknownError -> {
+
+            }
             Failure.FineLocationPermissionNotGrantedError -> {
                 requestPermissionWithRationale(
                     Manifest.permission.ACCESS_FINE_LOCATION,
@@ -234,7 +234,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         } else {
 
             viewModel.setIntent(
-                MainContract.MainIntent.LoadFarouriteWeather(
+                MainContract.MainIntent.LoadFavoriteWeather(
                     requireActivity().intent.extras?.getDouble(FavouriteUiModelLat),
                     requireActivity().intent.extras?.getDouble(FavouriteUiModelLong)
                 )

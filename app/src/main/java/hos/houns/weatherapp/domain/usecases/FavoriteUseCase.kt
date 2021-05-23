@@ -1,6 +1,6 @@
-package hos.houns.weatherapp.domain.usecases.favorite
+package hos.houns.weatherapp.domain.usecases
 
-import hos.houns.weatherapp.data.favorite.FavoritesRepository
+import hos.houns.weatherapp.data.FavoritesRepository
 import hos.houns.weatherapp.domain.entity.FavoriteUiModel
 import kotlinx.coroutines.flow.Flow
 
@@ -15,9 +15,11 @@ class AddDeleteFavouriteUseCase(private val repository: FavoritesRepository)  {
     }
 }
 
-data class LoadFavoriteResult(val value: Flow<List<FavoriteUiModel>>)
+
 class LoadFavoritesUseCase(private val repository: FavoritesRepository){
      suspend fun execute(): LoadFavoriteResult {
         return LoadFavoriteResult(repository.load())
     }
+    data class LoadFavoriteResult(val value: Flow<List<FavoriteUiModel>>)
 }
+

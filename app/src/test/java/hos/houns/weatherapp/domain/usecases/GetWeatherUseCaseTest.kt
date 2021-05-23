@@ -3,6 +3,7 @@ package hos.houns.weatherapp.domain.usecases
 import hos.houns.weatherapp.data.GetWeatherRepository
 import hos.houns.weatherapp.domain.core.Either
 import hos.houns.weatherapp.domain.core.Failure
+import hos.houns.weatherapp.domain.usecases.GetWeatherUseCase.GetWeatherResult
 import hos.houns.weatherapp.domain.entity.CurrentWeatherUIModel
 import hos.houns.weatherapp.domain.entity.ForecastWeatherUIModel
 import hos.houns.weatherapp.domain.entity.WeatherType
@@ -55,8 +56,8 @@ class GetWeatherUseCaseTest{
             @Test
             fun `should return String when repo send Either type Right`()  {
                 val result = runBlocking {  usecase.execute(null,null)}
-                result `should be instance of` GetWeatherResult.Success::class
-                ( result as GetWeatherResult.Success).value.currentWeatherUIModel.shouldEqual(CurrentWeatherUIModel(temp = 24,
+                result `should be instance of` GetWeatherUseCase.GetWeatherResult.Success::class
+                ( result as GetWeatherUseCase.GetWeatherResult.Success).value.currentWeatherUIModel.shouldEqual(CurrentWeatherUIModel(temp = 24,
                     tempMin = 22,tempMax = 27,type = WeatherType.SUNNY))
                 result.value.forecastWeatherUIModel.shouldEqual(listOf(
                     ForecastWeatherUIModel(temp = 0,type = WeatherType.CLOUDY,"Friday")
@@ -72,7 +73,7 @@ class GetWeatherUseCaseTest{
             fun `should return Error when repo send Either type Right`(input: Failure)  {
                 coEvery { repo.getWeather(null,null) } returns  Either.Left(input)
                 val result = runBlocking {  usecase.execute(null,null)}
-                result `should be instance of` GetWeatherResult.Error::class
+                result `should be instance of` GetWeatherUseCase.GetWeatherResult.Error::class
                 (result as GetWeatherResult.Error) .error.`should be instance of`( input::class)
             }
 
@@ -132,10 +133,7 @@ class GetWeatherUseCaseTest{
         @JvmStatic
         fun  provideData()= listOf<Arguments>(
             Arguments.of(Failure.FineLocationPermissionNotGrantedError),
-            Arguments.of(Failure.NetworkConnection),
             Arguments.of(Failure.LocationIsDisabledError),
-            Arguments.of(Failure.ServerError),
-            Arguments.of(Failure.ServerTimeoutError),
             Arguments.of(Failure.UnknownError)
         )
     }

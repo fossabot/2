@@ -1,7 +1,7 @@
-package hos.houns.weatherapp.data.favorite
+package hos.houns.weatherapp.data
 import hos.houns.weatherapp.domain.entity.FavoriteUiModel
-import hos.houns.weatherapp.localstore.favorite.Favorite
-import hos.houns.weatherapp.localstore.favorite.FavoritesLocalDataStore
+import hos.houns.weatherapp.localstore.database.Favorite
+import hos.houns.weatherapp.localstore.store.FavoritesLocalDataStore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

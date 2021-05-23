@@ -4,13 +4,12 @@ import androidx.room.Room
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import hos.houns.weatherapp.data.GetWeatherRepository
-import hos.houns.weatherapp.data.favorite.FavoritesRepository
+import hos.houns.weatherapp.data.FavoritesRepository
 import hos.houns.weatherapp.device.LocationManager
 import hos.houns.weatherapp.domain.usecases.*
-import hos.houns.weatherapp.domain.usecases.favorite.*
-import hos.houns.weatherapp.localstore.favorite.AppDatabase
-import hos.houns.weatherapp.localstore.favorite.FavoritesLocalDataStore
-import hos.houns.weatherapp.localstore.LocalLocationDataStore
+import hos.houns.weatherapp.localstore.database.AppDatabase
+import hos.houns.weatherapp.localstore.store.FavoritesLocalDataStore
+import hos.houns.weatherapp.localstore.store.LocalLocationDataStore
 import hos.houns.weatherapp.presentation.MainViewModel
 import hos.houns.weatherapp.remotestore.OpenWeatherApi
 import hos.houns.weatherapp.remotestore.RemoteErrorFactory
@@ -64,7 +63,7 @@ val modules = module {
     // Presentation
 
     viewModel {
-        MainViewModel(get(),get(),get())
+        MainViewModel(get(),get(),get(),get())
     }
 }
 

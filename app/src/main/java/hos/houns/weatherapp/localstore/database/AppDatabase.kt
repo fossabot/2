@@ -1,4 +1,4 @@
-package hos.houns.weatherapp.localstore.favorite
+package hos.houns.weatherapp.localstore.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

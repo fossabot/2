@@ -47,7 +47,7 @@ class PlaceAutocompleteActivity : AppCompatActivity(R.layout.place_autocomplete)
 
         initObservers()
 
-        viewModel.setIntent(MainContract.MainIntent.LoadFavouriteIntent)
+        viewModel.setIntent(MainContract.MainIntent.LoadFavoriteIntent)
 
     }
 
@@ -55,7 +55,7 @@ class PlaceAutocompleteActivity : AppCompatActivity(R.layout.place_autocomplete)
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { state ->
                 when (state) {
-                    is MainContract.MainState.Favourites -> {
+                    is MainContract.MainState.Favorites -> {
                         state.value.collect {
                             if (it.isEmpty()) {
                                 binding.nofavourite.visibility = View.VISIBLE
@@ -96,7 +96,7 @@ class PlaceAutocompleteActivity : AppCompatActivity(R.layout.place_autocomplete)
             .setPositiveButton(
                 getString(android.R.string.yes)
             ) { _, _ ->
-                viewModel.setIntent(MainContract.MainIntent.DeleteFavouriteIntent(favoriteUiModel))
+                viewModel.setIntent(MainContract.MainIntent.DeleteFavoriteIntent(favoriteUiModel))
             }
             .setNegativeButton(android.R.string.cancel) { _, _ ->
                 viewModel.setIntent(MainContract.MainIntent.InitialIntent)
@@ -111,7 +111,7 @@ class PlaceAutocompleteActivity : AppCompatActivity(R.layout.place_autocomplete)
                     data?.let {
                         val place = Autocomplete.getPlaceFromIntent(data)
                         viewModel.setIntent(
-                            MainContract.MainIntent.AddFavouriteIntent(
+                            MainContract.MainIntent.AddFavoriteIntent(
                                 place
                             )
                         )

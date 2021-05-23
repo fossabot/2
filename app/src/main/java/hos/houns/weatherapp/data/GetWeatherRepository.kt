@@ -3,7 +3,7 @@ package hos.houns.weatherapp.data
 import hos.houns.weatherapp.device.LocationManager
 import hos.houns.weatherapp.domain.core.*
 import hos.houns.weatherapp.domain.entity.*
-import hos.houns.weatherapp.localstore.LocalLocationDataStore
+import hos.houns.weatherapp.localstore.store.LocalLocationDataStore
 import hos.houns.weatherapp.remotestore.WeatherRemoteDataStore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -84,10 +84,8 @@ class GetWeatherRepository(
         }
     }
 
-    private suspend fun fetchForeCastWeatherAndMapToUIModel(
-        currentLocation: CurrentLocation,
-        isFavourite: Boolean
-    ): List<ForecastWeatherUIModel> {
+    private suspend fun fetchForeCastWeatherAndMapToUIModel(currentLocation: CurrentLocation,
+        isFavourite: Boolean): List<ForecastWeatherUIModel> {
         return withContext(Dispatchers.IO) {
             when (val foreCastWeather = weatherRemoteDataStore.forecastWeather(currentLocation)) {
                 is Either.Left -> if (isFavourite) listOf(ForecastWeatherUIModel.EMPTY) else localLocationDataStore.getForecastWeather()

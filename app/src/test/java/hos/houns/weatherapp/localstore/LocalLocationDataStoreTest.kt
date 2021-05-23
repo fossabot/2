@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.TestInstance
 import android.content.SharedPreferences
 import hos.houns.weatherapp.domain.entity.CurrentLocation
+import hos.houns.weatherapp.localstore.store.LocalLocationDataStore
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking

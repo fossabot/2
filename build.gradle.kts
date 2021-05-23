@@ -1,5 +1,4 @@
 buildscript {
-
     repositories {
         google()
         jcenter()
@@ -9,8 +8,9 @@ buildscript {
         classpath("com.android.tools.build:gradle:4.1.3")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.32")
         classpath("com.jakewharton:butterknife-gradle-plugin:10.1.0")
-        classpath("de.mannodermaus.gradle.plugins:android-junit5:1.3.2.0")
+        classpath("de.mannodermaus.gradle.plugins:android-junit5:1.7.1.1")
         classpath("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.17.0")
+        classpath ("org.jacoco:org.jacoco.core:0.8.7")
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

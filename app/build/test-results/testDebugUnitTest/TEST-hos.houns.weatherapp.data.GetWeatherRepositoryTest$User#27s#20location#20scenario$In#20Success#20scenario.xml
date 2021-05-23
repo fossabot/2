@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="hos.houns.weatherapp.data.GetWeatherRepositoryTest$User's location scenario$In Success scenario" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-05-23T15:02:33" hostname="Hospices-MacBook-Pro.local" time="0.084">
-  <properties/>
-  <testcase name="should return Success when repo send Either type Right()" classname="hos.houns.weatherapp.data.GetWeatherRepositoryTest$User's location scenario$In Success scenario" time="0.028"/>
-  <testcase name="Check if fetchRate is called()" classname="hos.houns.weatherapp.data.GetWeatherRepositoryTest$User's location scenario$In Success scenario" time="0.015"/>
-  <testcase name="should get location from local and return Success when repo send Either type Right()" classname="hos.houns.weatherapp.data.GetWeatherRepositoryTest$User's location scenario$In Success scenario" time="0.016"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

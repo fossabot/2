@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="hos.houns.weatherapp.localstore.LocalLocationDataStoreTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-05-23T15:03:05" hostname="Hospices-MacBook-Pro.local" time="0.037">
-  <properties/>
-  <testcase name="testSaveData()" classname="hos.houns.weatherapp.localstore.LocalLocationDataStoreTest" time="0.028"/>
-  <testcase name="testGetData()" classname="hos.houns.weatherapp.localstore.LocalLocationDataStoreTest" time="0.008"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

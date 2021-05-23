@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="hos.houns.weatherapp.ExampleUnitTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-05-23T15:02:19" hostname="Hospices-MacBook-Pro.local" time="0.006">
-  <properties/>
-  <testcase name="addition_isCorrect" classname="hos.houns.weatherapp.ExampleUnitTest" time="0.006"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

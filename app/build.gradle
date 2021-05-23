@@ -40,6 +40,11 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'crea
 
 android {
 
+    lintOptions {
+        abortOnError false
+    }
+
+
     buildFeatures {
         viewBinding true
     }

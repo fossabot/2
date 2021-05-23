@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="hos.houns.weatherapp.remotestore.WeatherRemoteDataStoreTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-05-23T15:02:29" hostname="Hospices-MacBook-Pro.local" time="3.653">
-  <properties/>
-  <testcase name="Fetch forecast Weather with success()" classname="hos.houns.weatherapp.remotestore.WeatherRemoteDataStoreTest" time="3.623"/>
-  <testcase name="Fetch current Weather with success()" classname="hos.houns.weatherapp.remotestore.WeatherRemoteDataStoreTest" time="0.022"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

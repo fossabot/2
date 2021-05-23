@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="hos.houns.weatherapp.domain.usecases.favorite.AddDeleteFavoriteUseCaseImplTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-05-23T15:03:04" hostname="Hospices-MacBook-Pro.local" time="0.035">
-  <properties/>
-  <testcase name="test add()" classname="hos.houns.weatherapp.domain.usecases.favorite.AddDeleteFavoriteUseCaseImplTest" time="0.024"/>
-  <testcase name="test deletion()" classname="hos.houns.weatherapp.domain.usecases.favorite.AddDeleteFavoriteUseCaseImplTest" time="0.01"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

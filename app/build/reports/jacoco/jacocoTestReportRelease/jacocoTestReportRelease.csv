@@ -1,0 +1,187 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+app,hos.houns.weatherapp.domain.core,EitherKt,75,0,4,0,11,0,6,0,4,0
+app,hos.houns.weatherapp.domain.core,Either.Right,0,10,0,0,0,1,0,2,0,2
+app,hos.houns.weatherapp.domain.core,Either.Left,0,10,0,0,0,1,0,2,0,2
+app,hos.houns.weatherapp.domain.core,Failure.NetworkError,0,11,0,0,0,1,0,2,0,2
+app,hos.houns.weatherapp.domain.core,Failure.UnknownError,0,11,0,0,0,1,0,2,0,2
+app,hos.houns.weatherapp.domain.core,EitherKt.c.new Function1() {...},8,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.domain.core,Failure.FineLocationPermissionNotGrantedError,0,11,0,0,0,1,0,2,0,2
+app,hos.houns.weatherapp.domain.core,Either,42,0,2,0,8,0,6,0,5,0
+app,hos.houns.weatherapp.domain.core,Failure.LocationIsDisabledError,0,11,0,0,0,1,0,2,0,2
+app,hos.houns.weatherapp.localstore.database,FavoriteDao_Impl.new Callable() {...},112,0,10,0,27,0,8,0,3,0
+app,hos.houns.weatherapp.localstore.database,FavoriteDao_Impl.new Callable() {...},104,0,10,0,26,0,8,0,3,0
+app,hos.houns.weatherapp.localstore.database,FavoriteDao_Impl.new EntityInsertionAdapter() {...},60,0,8,0,15,0,7,0,3,0
+app,hos.houns.weatherapp.localstore.database,FavoriteDao_Impl.new EntityDeletionOrUpdateAdapter() {...},22,0,2,0,6,0,4,0,3,0
+app,hos.houns.weatherapp.localstore.database,AppDatabase_Impl.new RoomOpenHelper.Delegate() {...},214,0,14,0,35,0,15,0,8,0
+app,hos.houns.weatherapp.localstore.database,Favorite,0,30,0,0,0,5,0,5,0,5
+app,hos.houns.weatherapp.localstore.database,AppDatabase_Impl,116,0,6,0,30,0,9,0,6,0
+app,hos.houns.weatherapp.localstore.database,AppDatabase,3,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.localstore.database,FavoriteDao_Impl,113,0,2,0,28,0,7,0,6,0
+app,androidx.databinding,DataBinderMapperImpl,8,0,0,0,3,0,1,0,1,0
+app,hos.houns.weatherapp.remotestore.retrofit,NoConnectionInterceptor,109,0,18,0,27,0,13,0,4,0
+app,hos.houns.weatherapp.remotestore.retrofit,NoConnectionInterceptor.NoInternetException,9,0,0,0,2,0,2,0,2,0
+app,hos.houns.weatherapp.remotestore.retrofit,NoConnectionInterceptor.NoConnectivityException,9,0,0,0,2,0,2,0,2,0
+app,hos.houns.weatherapp.remotestore.retrofit,FailureFactory,64,0,14,0,12,0,10,0,3,0
+app,hos.houns.weatherapp.remotestore.retrofit,ApiError,23,0,0,0,1,0,4,0,4,0
+app,hos.houns.weatherapp.presentation.favorite,MapsActivity,66,0,4,0,12,0,5,0,3,0
+app,hos.houns.weatherapp.presentation.favorite,MapsActivity.onCreate..inlined.getViewModel.new Function0() {...},6,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.favorite,PlaceAutocompleteActivity.initObservers.1.invokeSuspend..inlined.collect.new FlowCollector() {...},14,0,0,0,2,0,2,0,2,0
+app,hos.houns.weatherapp.presentation.favorite,PlaceAutocompleteActivity.onCreate..inlined.getViewModel.new Function0() {...},6,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.favorite,PlaceAutocompleteActivity.initObservers.1.invokeSuspend..inlined.collect.1.new ContinuationImpl() {...},22,0,0,0,0,0,2,0,2,0
+app,hos.houns.weatherapp.presentation.favorite,FavoritesAdapter,110,0,0,0,14,0,10,0,10,0
+app,hos.houns.weatherapp.presentation.favorite,PlaceAutocompleteActivity.onCreate.new View.OnClickListener() {...},4,0,0,0,2,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.favorite,PlaceAutocompleteActivity.onCreate.new View.OnClickListener() {...},11,0,0,0,2,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.favorite,FavoritesAdapter.ViewHolder,18,0,0,0,1,0,2,0,2,0
+app,hos.houns.weatherapp.presentation.favorite,PlaceAutocompleteActivity.onCreate.new View.OnClickListener() {...},37,0,0,0,5,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.favorite,FavoritesAdapter.onBindViewHolder.new View.OnLongClickListener() {...},20,0,0,0,3,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.favorite,FavoritesAdapter.onBindViewHolder.new View.OnClickListener() {...},12,0,0,0,2,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.favorite,PlaceAutocompleteActivity.initObservers.1.invokeSuspend..inlined.collect.1.lambda.1.new Function1() {...},11,0,0,0,2,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.favorite,PlaceAutocompleteActivity.initObservers.1.invokeSuspend..inlined.collect.1.lambda.1.new Function1() {...},46,0,0,0,7,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.favorite,PlaceAutocompleteActivity.initObservers.1.invokeSuspend..inlined.collect.1.lambda.new FlowCollector() {...},14,0,0,0,2,0,2,0,2,0
+app,hos.houns.weatherapp.presentation.favorite,PlaceAutocompleteActivity.showDeletionPopup.new DialogInterface.OnClickListener() {...},7,0,0,0,2,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.favorite,PlaceAutocompleteActivity.showDeletionPopup.new DialogInterface.OnClickListener() {...},11,0,0,0,2,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.favorite,MapsActivity.onMapReady.new GoogleMap.OnMarkerClickListener() {...},43,0,0,0,7,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.favorite,MapsActivity.onMapReady.new Function2() {...},15,0,0,0,3,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.favorite,MapsActivity.onMapReady.2.invokeSuspend..inlined.collect.1.new ContinuationImpl() {...},22,0,0,0,0,0,2,0,2,0
+app,hos.houns.weatherapp.presentation.favorite,MapsActivity.onMapReady.2.invokeSuspend..inlined.collect.new FlowCollector() {...},14,0,0,0,2,0,2,0,2,0
+app,hos.houns.weatherapp.presentation.favorite,MapsActivity.onMapReady.2.invokeSuspend..inlined.collect.1.lambda.new FlowCollector() {...},14,0,0,0,2,0,2,0,2,0
+app,hos.houns.weatherapp.presentation.favorite,PlaceAutocompleteActivity.initObservers.new Function2() {...},15,0,0,0,3,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.favorite,PlaceAutocompleteActivity,206,0,10,0,38,0,11,0,5,0
+app,hos.houns.weatherapp.data,MapperKt,19,215,19,43,2,31,20,16,1,4
+app,hos.houns.weatherapp.data,GetWeatherRepository.fetchForeCastWeatherAndMapToUIModel.new Function2() {...},19,41,3,5,0,4,3,2,0,1
+app,hos.houns.weatherapp.data,FavoritesRepository.load.2.invokeSuspend..inlined.map.1.new FlowCollector() {...},0,15,0,0,0,2,0,2,0,2
+app,hos.houns.weatherapp.data,FavoritesRepository.load.2.invokeSuspend..inlined.map.1.2.new ContinuationImpl() {...},15,7,0,0,0,0,1,1,1,1
+app,hos.houns.weatherapp.data,FavoritesRepository.deleteFavourite.new Function2() {...},0,34,0,0,0,8,0,1,0,1
+app,hos.houns.weatherapp.data,FavoritesRepository.load.2.invokeSuspend..inlined.map.new Flow() {...},0,15,0,0,0,3,0,2,0,2
+app,hos.houns.weatherapp.data,GetWeatherRepository.fetchCurrentWeatherAndMapToUIModel.new Function2() {...},16,36,1,3,0,4,1,2,0,1
+app,hos.houns.weatherapp.data,FavoritesRepository.addFavourite.new Function2() {...},0,34,0,0,0,8,0,1,0,1
+app,hos.houns.weatherapp.data,FavoritesRepository,4,42,0,0,0,4,0,4,0,4
+app,hos.houns.weatherapp.data,GetWeatherRepository.fetchDataCurrentAndForeCast.new Function2() {...},0,71,0,0,0,8,0,1,0,1
+app,hos.houns.weatherapp.data,GetWeatherRepository.getWeather.new Function2() {...},114,38,12,4,10,5,8,1,0,1
+app,hos.houns.weatherapp.data,FavoritesRepository.load.new Function2() {...},0,18,0,0,0,2,0,1,0,1
+app,hos.houns.weatherapp.data,GetWeatherRepository,0,140,0,0,0,14,0,6,0,6
+app,hos.houns.weatherapp.domain.usecases,LoadFavoritesUseCase,0,28,0,0,0,2,0,2,0,2
+app,hos.houns.weatherapp.domain.usecases,GetWeatherUseCase,0,53,0,2,0,5,0,3,0,2
+app,hos.houns.weatherapp.domain.usecases,LoadFavoritesUseCase.LoadFavoriteResult,0,12,0,0,0,1,0,2,0,2
+app,hos.houns.weatherapp.domain.usecases,AddDeleteFavouriteUseCase,0,51,0,2,0,4,0,3,0,2
+app,hos.houns.weatherapp.domain.usecases,GetWeatherUseCase.GetWeatherResult.Error,0,13,0,0,0,1,0,2,0,2
+app,hos.houns.weatherapp.domain.usecases,GetWeatherUseCase.GetWeatherResult.Success,0,13,0,0,0,1,0,2,0,2
+app,hos.houns.weatherapp.device,LocationManager,75,0,10,0,18,0,9,0,4,0
+app,hos.houns.weatherapp.device,LocationManager.getCurrentLocation.new Function2() {...},44,0,0,0,8,0,1,0,1,0
+app,androidx.databinding.library.baseAdapters,BR,3,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.remotestore,CurrentWeatherResponse.Main,9,30,0,0,3,4,3,4,3,4
+app,hos.houns.weatherapp.remotestore,ForecastResponse,0,9,0,0,0,2,0,2,0,2
+app,hos.houns.weatherapp.remotestore,RemoteErrorFactory,12,0,0,0,3,0,2,0,2,0
+app,hos.houns.weatherapp.remotestore,OpenWeatherApi.DefaultImpls,0,48,0,0,0,6,0,2,0,2
+app,hos.houns.weatherapp.remotestore,WeatherRemoteDataStore,24,89,0,0,6,15,0,3,0,3
+app,hos.houns.weatherapp.remotestore,ForecastResponse.Daily,0,21,0,0,0,4,0,4,0,4
+app,hos.houns.weatherapp.remotestore,OpenWeatherApi.Companion,18,0,0,0,2,0,2,0,2,0
+app,hos.houns.weatherapp.remotestore,CurrentWeatherResponse.Weather,3,12,0,0,1,2,1,2,1,2
+app,hos.houns.weatherapp.remotestore,CurrentWeatherResponse,0,15,0,0,0,3,0,3,0,3
+app,hos.houns.weatherapp.remotestore,ForecastResponse.Temp,3,12,0,0,1,2,1,2,1,2
+app,hos.houns.weatherapp.remotestore,ForecastResponse.Weather,0,9,0,0,0,2,0,2,0,2
+app,hos.houns.weatherapp.localstore.store,LocalLocationDataStore.sharedPref.new Function0() {...},0,7,0,0,0,1,0,1,0,1
+app,hos.houns.weatherapp.localstore.store,FavoritesLocalDataStore,46,0,0,0,4,0,4,0,4,0
+app,hos.houns.weatherapp.localstore.store,FavoritesLocalDataStore.addFavourite.new Function2() {...},17,0,0,0,3,0,1,0,1,0
+app,hos.houns.weatherapp.localstore.store,LocalLocationDataStore.saveLastLocation.new Function2() {...},0,38,0,0,0,7,0,1,0,1
+app,hos.houns.weatherapp.localstore.store,FavoritesLocalDataStore.deleteFavourite.new Function2() {...},12,0,0,0,3,0,1,0,1,0
+app,hos.houns.weatherapp.localstore.store,LocalLocationDataStore.saveUpdateDate.new Function2() {...},14,0,0,0,3,0,1,0,1,0
+app,hos.houns.weatherapp.localstore.store,LocalLocationDataStore.getUpdatedDate.new Function2() {...},15,0,2,0,2,0,2,0,1,0
+app,hos.houns.weatherapp.localstore.store,LocalLocationDataStore.getLastLocation.new Function2() {...},4,43,4,4,0,4,4,1,0,1
+app,hos.houns.weatherapp.localstore.store,LocalLocationDataStore.saveCurrentWeather.new Function2() {...},18,0,0,0,3,0,1,0,1,0
+app,hos.houns.weatherapp.localstore.store,LocalLocationDataStore.saveForecastWeather.new Function2() {...},18,0,0,0,3,0,1,0,1,0
+app,hos.houns.weatherapp.localstore.store,LocalLocationDataStore.getForecastWeather.new Function2() {...},27,0,0,0,6,0,1,0,1,0
+app,hos.houns.weatherapp.localstore.store,FavoritesLocalDataStore.load.new Function2() {...},9,0,0,0,2,0,1,0,1,0
+app,hos.houns.weatherapp.localstore.store,LocalLocationDataStore.getForecastWeather.type.new TypeToken() {...},3,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.localstore.store,LocalLocationDataStore.getCurrentWeather.new Function2() {...},20,0,0,0,6,0,1,0,1,0
+app,hos.houns.weatherapp.localstore.store,LocalLocationDataStore,103,39,0,0,11,4,6,3,6,3
+app,hos.houns.weatherapp.domain.entity,FavoriteUiModel,0,47,0,0,0,5,0,6,0,6
+app,hos.houns.weatherapp.domain.entity,ForecastWeatherUIModel.Companion,0,2,0,0,0,1,0,1,0,1
+app,hos.houns.weatherapp.domain.entity,CurrentWeatherUIModel,12,32,0,0,3,2,4,2,4,2
+app,hos.houns.weatherapp.domain.entity,CurrentLocation,0,15,0,0,0,1,0,3,0,3
+app,hos.houns.weatherapp.domain.entity,ForecastWeatherUIModel,9,31,0,0,2,2,3,2,3,2
+app,hos.houns.weatherapp.domain.entity,FavoriteUiModel.Companion,0,2,0,0,0,1,0,1,0,1
+app,hos.houns.weatherapp.domain.entity,WeatherUiModel,0,21,0,0,0,1,0,3,0,3
+app,hos.houns.weatherapp.domain.entity,CurrentWeatherUIModel.Companion,0,2,0,0,0,1,0,1,0,1
+app,hos.houns.weatherapp,DataBinderMapperImpl.InnerLayoutIdLookup,6,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt,79,0,0,0,18,0,5,0,5,0
+app,hos.houns.weatherapp,DataBindingInfo,3,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DataBinderMapperImpl,92,0,16,0,26,0,15,0,7,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},10,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},16,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,BR,3,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},12,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},12,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},12,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},14,0,0,0,4,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},12,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},18,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,MyApp,28,0,0,0,6,0,3,0,3,0
+app,hos.houns.weatherapp,DIModuleKt.modules.new Function1() {...},89,0,0,0,18,0,1,0,1,0
+app,hos.houns.weatherapp,MyApp.onCreate.new Function1() {...},20,0,0,0,4,0,1,0,1,0
+app,hos.houns.weatherapp,MyApp.Companion,5,0,0,0,1,0,2,0,2,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},12,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},12,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},8,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},10,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},12,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},13,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DataBinderMapperImpl.InnerBrLookup,10,0,0,0,3,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},9,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},12,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp,DIModuleKt.modules.1.new Function2() {...},14,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainFragment.onViewCreated.new View.OnClickListener() {...},12,0,0,0,2,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainFragment.onViewCreated.new View.OnClickListener() {...},9,0,2,0,2,0,2,0,1,0
+app,hos.houns.weatherapp.presentation,MainFragment.initObservers.1.invokeSuspend..inlined.collect.new FlowCollector() {...},14,0,0,0,2,0,2,0,2,0
+app,hos.houns.weatherapp.presentation,MainFragment.onViewCreated..inlined.getSharedViewModel.new Function0() {...},10,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainViewModel.handleIntent.5.new Function1() {...},12,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainViewModel.handleIntent.5.new Function1() {...},12,0,0,0,2,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,ForecastAdapter,100,0,4,0,16,0,10,0,7,0
+app,hos.houns.weatherapp.presentation,MainFragment.showLocationSettings.new DialogInterface.OnClickListener() {...},7,0,0,0,2,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainContract.MainState.Initial,11,0,0,0,1,0,2,0,2,0
+app,hos.houns.weatherapp.presentation,MainFragment.showLocationSettings.new DialogInterface.OnClickListener() {...},14,0,0,0,5,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainContract.MainIntent.LastPosition,11,0,0,0,1,0,2,0,2,0
+app,hos.houns.weatherapp.presentation,MainContract.MainState.Success,13,0,0,0,1,0,2,0,2,0
+app,hos.houns.weatherapp.presentation,MainFragment,526,0,38,0,87,0,36,0,15,0
+app,hos.houns.weatherapp.presentation,MainContract.MainState.Loading,11,0,0,0,1,0,2,0,2,0
+app,hos.houns.weatherapp.presentation,MainContract.MainIntent.LoadFavoriteWeather,16,0,0,0,1,0,3,0,3,0
+app,hos.houns.weatherapp.presentation,MainContract.MainIntent.InitialIntent,11,0,0,0,1,0,2,0,2,0
+app,hos.houns.weatherapp.presentation,MainContract.MainIntent.AddFavoriteIntent,13,0,0,0,1,0,2,0,2,0
+app,hos.houns.weatherapp.presentation,MainContract.MainIntent.CloseDialog,11,0,0,0,1,0,2,0,2,0
+app,hos.houns.weatherapp.presentation,MainViewModel.handleIntent.8.new Function1() {...},10,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainContract.MainIntent.LoadFavoriteIntent,11,0,0,0,1,0,2,0,2,0
+app,hos.houns.weatherapp.presentation,MainViewModel,163,0,14,0,19,0,10,0,3,0
+app,hos.houns.weatherapp.presentation,MainContract,3,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainFragment.fineLocationRationalDialog.new Function0() {...},34,0,0,0,7,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainActivity,10,0,0,0,4,0,2,0,2,0
+app,hos.houns.weatherapp.presentation,MainContract.MainState.Error,13,0,0,0,1,0,2,0,2,0
+app,hos.houns.weatherapp.presentation,MainViewModel.handleIntent.2.new Function1() {...},12,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainViewModel.handleIntent.2.new Function1() {...},12,0,0,0,2,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainFragment.fineLocationRationalDialog.2.new DialogInterface.OnClickListener() {...},19,0,0,0,5,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,ForecastAdapter.ViewHolder,18,0,0,0,1,0,2,0,2,0
+app,hos.houns.weatherapp.presentation,MainFragment.fineLocationRationalDialog.2.new DialogInterface.OnClickListener() {...},8,0,0,0,2,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainContract.MainIntent.DeleteFavoriteIntent,13,0,0,0,1,0,2,0,2,0
+app,hos.houns.weatherapp.presentation,MainViewModel.handleIntent.new Function2() {...},22,0,0,0,3,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainFragment.initObservers.new Function2() {...},15,0,0,0,3,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainViewModel.handleIntent.new Function2() {...},26,0,0,0,4,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainViewModel.handleIntent.new Function2() {...},50,0,4,0,6,0,3,0,1,0
+app,hos.houns.weatherapp.presentation,MainViewModel.handleIntent.new Function2() {...},77,0,12,0,9,0,7,0,1,0
+app,hos.houns.weatherapp.presentation,MainViewModel.handleIntent.3.new Function1() {...},11,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,UtilsKt,29,0,2,0,5,0,2,0,1,0
+app,hos.houns.weatherapp.presentation,MainContract.MainState.Favorites,13,0,0,0,1,0,2,0,2,0
+app,hos.houns.weatherapp.presentation,MainContract.MainState.LastPosition,13,0,0,0,1,0,2,0,2,0
+app,hos.houns.weatherapp.presentation,MainViewModel.handleIntent.new Function2() {...},26,0,0,0,4,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainViewModel.handleIntent.new Function1() {...},6,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainViewModel.handleIntent.new Function1() {...},6,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.presentation,MainViewModel.handleIntent.new Function2() {...},44,0,4,0,5,0,3,0,1,0
+app,hos.houns.weatherapp.databinding,ActivityMapsBinding,40,0,4,0,12,0,7,0,5,0
+app,hos.houns.weatherapp.databinding,ForecastItemBinding,95,0,8,0,29,0,9,0,5,0
+app,hos.houns.weatherapp.databinding,FragmentMainBinding,283,0,36,0,97,0,23,0,5,0
+app,hos.houns.weatherapp.databinding,ActivityMainBinding,60,0,4,0,17,0,7,0,5,0
+app,hos.houns.weatherapp.databinding,PlaceAutocompleteBinding,144,0,16,0,47,0,13,0,5,0
+app,hos.houns.weatherapp.databinding,FavouriteItemBinding,60,0,4,0,17,0,7,0,5,0
+app,hos.houns.weatherapp.presentation.base,BaseViewModel.subscribeIntents.1.invokeSuspend..inlined.collect.new FlowCollector() {...},14,0,0,0,2,0,2,0,2,0
+app,hos.houns.weatherapp.presentation.base,BaseViewModel,84,0,0,0,16,0,5,0,5,0
+app,hos.houns.weatherapp.presentation.base,BaseViewModel.initialState.new Function0() {...},4,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.base,BaseViewModel.setIntent.new Function2() {...},19,0,0,0,1,0,1,0,1,0
+app,hos.houns.weatherapp.presentation.base,BaseViewModel.subscribeIntents.new Function2() {...},14,0,0,0,3,0,1,0,1,0

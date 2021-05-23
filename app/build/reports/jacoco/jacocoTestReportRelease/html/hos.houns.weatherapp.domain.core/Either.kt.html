@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Either.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">hos.houns.weatherapp.domain.core</a> &gt; <span class="el_source">Either.kt</span></div><h1>Either.kt</h1><pre class="source lang-java linenums">/**
+ * Copyright (C) 2019 Fernando Cejas Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package hos.houns.weatherapp.domain.core
+
+/**
+ * Represents a value of one of two possible types (a disjoint union).
+ * Instances of [Either] are either an instance of [Left] or [Right].
+ * FP Convention dictates that [Left] is used for &quot;failure&quot;
+ * and [Right] is used for &quot;success&quot;.
+ *
+ * @see Left
+ * @see Right
+ */
+sealed class Either&lt;out L, out R&gt; {
+    /** * Represents the left side of [Either] class which by convention is a &quot;Failure&quot;. */
+<span class="fc" id="L29">    data class Left&lt;out L&gt;(val a: L) : Either&lt;L, Nothing&gt;()</span>
+
+    /** * Represents the right side of [Either] class which by convention is a &quot;Success&quot;. */
+<span class="fc" id="L32">    data class Right&lt;out R&gt;(val b: R) : Either&lt;Nothing, R&gt;()</span>
+
+    /**
+     * Returns true if this is a Right, false otherwise.
+     * @see Right
+     */
+<span class="nc" id="L38">    val isRight get() = this is Right&lt;R&gt;</span>
+
+    /**
+     * Returns true if this is a Left, false otherwise.
+     * @see Left
+     */
+<span class="nc" id="L44">    val isLeft get() = this is Left&lt;L&gt;</span>
+
+    /**
+     * Creates a Left type.
+     * @see Left
+     */
+<span class="nc" id="L50">    fun &lt;L&gt; left(a: L) = Left(a)</span>
+
+    /**
+     * Creates a Left type.
+     * @see Right
+     */
+<span class="nc" id="L56">    fun &lt;R&gt; right(b: R) = Right(b)</span>
+
+    /**
+     * Applies fnL if this is a Left or fnR if this is a Right.
+     * @see Left
+     * @see Right
+     */
+    fun fold(fnL: (L) -&gt; Any, fnR: (R) -&gt; Any): Any =
+<span class="nc" id="L64">        when (this) {</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">            is Left -&gt; fnL(a)</span>
+<span class="nc" id="L66">            is Right -&gt; fnR(b)</span>
+<span class="nc" id="L67">        }</span>
+}
+
+/**
+ * Composes 2 functions
+ * See &lt;a href=&quot;https://proandroiddev.com/kotlins-nothing-type-946de7d464fb&quot;&gt;Credits to Alex Hart.&lt;/a&gt;
+ */
+<span class="nc" id="L74">fun &lt;A, B, C&gt; ((A) -&gt; B).c(f: (B) -&gt; C): (A) -&gt; C = {</span>
+<span class="nc" id="L75">    f(this(it))</span>
+<span class="nc" id="L76">}</span>
+
+/**
+ * Right-biased flatMap() FP convention which means that Right is assumed to be the default case
+ * to operate on. If it is Left, operations like map, flatMap, ... return the Left value unchanged.
+ */
+fun &lt;T, L, R&gt; Either&lt;L, R&gt;.flatMap(fn: (R) -&gt; Either&lt;L, T&gt;): Either&lt;L, T&gt; =
+<span class="nc" id="L83">    when (this) {</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">        is Either.Left -&gt; Either.Left(a)</span>
+<span class="nc" id="L85">        is Either.Right -&gt; fn(b)</span>
+<span class="nc" id="L86">    }</span>
+
+/**
+ * Right-biased map() FP convention which means that Right is assumed to be the default case
+ * to operate on. If it is Left, operations like map, flatMap, ... return the Left value unchanged.
+ */
+<span class="nc" id="L92">fun &lt;T, L, R&gt; Either&lt;L, R&gt;.map(fn: (R) -&gt; (T)): Either&lt;L, T&gt; = this.flatMap(fn.c(::right))</span>
+
+/** Returns the value from this `Right` or the given argument if this is a `Left`.
+ *  Right(12).getOrElse(17) RETURNS 12 and Left(12).getOrElse(17) RETURNS 17
+ */
+fun &lt;L, R&gt; Either&lt;L, R&gt;.getOrElse(value: R): R =
+<span class="nc" id="L98">    when (this) {</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">        is Either.Left -&gt; value</span>
+<span class="nc" id="L100">        is Either.Right -&gt; b</span>
+<span class="nc" id="L101">    }</span>
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

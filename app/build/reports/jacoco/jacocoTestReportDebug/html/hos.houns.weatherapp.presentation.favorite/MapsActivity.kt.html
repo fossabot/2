@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MapsActivity.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">hos.houns.weatherapp.presentation.favorite</a> &gt; <span class="el_source">MapsActivity.kt</span></div><h1>MapsActivity.kt</h1><pre class="source lang-java linenums">package hos.houns.weatherapp.presentation.favorite
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.lifecycle.lifecycleScope
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import hos.houns.weatherapp.R
+import hos.houns.weatherapp.presentation.*
+import kotlinx.coroutines.flow.collect
+import org.koin.android.viewmodel.ext.android.getViewModel
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+
+<span class="nc" id="L19">class MapsActivity : AppCompatActivity(), OnMapReadyCallback {</span>
+    private lateinit var viewModel: MainViewModel
+    override fun onCreate(savedInstanceState: Bundle?) {
+<span class="nc" id="L22">        super.onCreate(savedInstanceState)</span>
+<span class="nc" id="L23">        setContentView(R.layout.activity_maps)</span>
+<span class="nc" id="L24">        viewModel = getViewModel()</span>
+
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        mapFragment?.getMapAsync(this)</span>
+<span class="nc" id="L28">    }</span>
+
+    override fun onMapReady(googleMap: GoogleMap) {
+<span class="nc" id="L31">        googleMap.setOnMarkerClickListener {</span>
+
+<span class="nc" id="L33">            val intent = Intent(this, MainActivity::class.java)</span>
+<span class="nc" id="L34">            intent.putExtra(FavouriteUiModelID, it.id)</span>
+<span class="nc" id="L35">            intent.putExtra(FavouriteUiModelTitle, it.title)</span>
+<span class="nc" id="L36">            intent.putExtra(FavouriteUiModelLat, it.position.latitude)</span>
+<span class="nc" id="L37">            intent.putExtra(FavouriteUiModelLong, it.position.longitude)</span>
+<span class="nc" id="L38">            startActivity(intent)</span>
+
+<span class="nc" id="L40">            true</span>
+        }
+<span class="nc" id="L42">        viewModel.setIntent(MainContract.MainIntent.LoadFavoriteIntent)</span>
+<span class="nc" id="L43">        viewModel.setIntent(MainContract.MainIntent.LastPosition)</span>
+<span class="nc" id="L44">        lifecycleScope.launchWhenStarted {</span>
+<span class="nc" id="L45">            viewModel.uiState.collect { state -&gt;</span>
+                when (state) {
+                    is MainContract.MainState.Favorites -&gt; {
+                        state.value.collect { favourites -&gt;
+                            favourites.forEach { favourite -&gt;
+                                val latLong = LatLng(favourite.latitude, favourite.longitude)
+                                googleMap.addMarker(
+                                    MarkerOptions()
+                                        .position(latLong)
+                                        .title(favourite.label)
+                                )
+                              //  googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLong))
+                            }
+                        }
+
+                    }
+
+                    is MainContract.MainState.LastPosition -&gt; {
+                        val latLng = LatLng(state.value.latitude, state.value.longitude)
+                        val markerOptions = MarkerOptions()
+                        markerOptions.position(latLng)
+                        markerOptions.title(&quot;Current Position&quot;)
+                        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                        googleMap.addMarker(markerOptions)
+
+                        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
+                        googleMap.animateCamera(CameraUpdateFactory.zoomTo(0f))
+                    }
+
+                }
+            }
+<span class="nc" id="L76">        }</span>
+<span class="nc" id="L77">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

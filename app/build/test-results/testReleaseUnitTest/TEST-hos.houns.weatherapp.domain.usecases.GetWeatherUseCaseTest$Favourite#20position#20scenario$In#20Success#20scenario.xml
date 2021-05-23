@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="hos.houns.weatherapp.domain.usecases.GetWeatherUseCaseTest$Favourite position scenario$In Success scenario" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-05-23T15:03:04" hostname="Hospices-MacBook-Pro.local" time="0.013">
+  <properties/>
+  <testcase name="should return String when repo send Either type Right()" classname="hos.houns.weatherapp.domain.usecases.GetWeatherUseCaseTest$Favourite position scenario$In Success scenario" time="0.003"/>
+  <testcase name="Check if calculate is called()" classname="hos.houns.weatherapp.domain.usecases.GetWeatherUseCaseTest$Favourite position scenario$In Success scenario" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MainContract.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">hos.houns.weatherapp.presentation</a> &gt; <span class="el_source">MainContract.kt</span></div><h1>MainContract.kt</h1><pre class="source lang-java linenums">package hos.houns.weatherapp.presentation
+
+import com.google.android.libraries.places.api.model.Place
+import hos.houns.weatherapp.domain.core.Failure
+import hos.houns.weatherapp.domain.entity.CurrentLocation
+import hos.houns.weatherapp.domain.entity.FavoriteUiModel
+import hos.houns.weatherapp.domain.entity.WeatherUiModel
+import hos.houns.weatherapp.presentation.base.Intent
+import hos.houns.weatherapp.presentation.base.State
+import kotlinx.coroutines.flow.Flow
+
+<span class="nc" id="L12">class MainContract {</span>
+    sealed class MainIntent : Intent {
+<span class="nc" id="L14">        object InitialIntent: MainIntent()</span>
+<span class="nc" id="L15">        object LoadFavoriteIntent: MainIntent()</span>
+<span class="nc" id="L16">        data class AddFavoriteIntent(val place: Place): MainIntent()</span>
+<span class="nc" id="L17">        data class DeleteFavoriteIntent(val favoriteUiModel: FavoriteUiModel): MainIntent()</span>
+<span class="nc" id="L18">        object CloseDialog: MainIntent()</span>
+<span class="nc" id="L19">        data class LoadFavoriteWeather(val latitude:Double?, val longitude:Double?): MainIntent()</span>
+<span class="nc" id="L20">        object LastPosition:MainIntent()</span>
+    }
+
+    sealed class MainState : State {
+<span class="nc" id="L24">        object Initial: MainState()</span>
+<span class="nc" id="L25">        object Loading: MainState()</span>
+<span class="nc" id="L26">        data class Success(val value: WeatherUiModel):MainState()</span>
+<span class="nc" id="L27">        data class Error(val failure: Failure):MainState()</span>
+<span class="nc" id="L28">        data class Favorites(val value: Flow&lt;List&lt;FavoriteUiModel&gt;&gt;): MainState()</span>
+<span class="nc" id="L29">        data class LastPosition(val value: CurrentLocation):MainState()</span>
+    }
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

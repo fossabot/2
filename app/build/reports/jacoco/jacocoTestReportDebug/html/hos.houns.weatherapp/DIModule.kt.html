@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DIModule.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">hos.houns.weatherapp</a> &gt; <span class="el_source">DIModule.kt</span></div><h1>DIModule.kt</h1><pre class="source lang-java linenums">package hos.houns.weatherapp
+
+import androidx.room.Room
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import hos.houns.weatherapp.data.GetWeatherRepository
+import hos.houns.weatherapp.data.FavoritesRepository
+import hos.houns.weatherapp.device.LocationManager
+import hos.houns.weatherapp.domain.usecases.*
+import hos.houns.weatherapp.localstore.database.AppDatabase
+import hos.houns.weatherapp.localstore.store.FavoritesLocalDataStore
+import hos.houns.weatherapp.localstore.store.LocalLocationDataStore
+import hos.houns.weatherapp.presentation.MainViewModel
+import hos.houns.weatherapp.remotestore.OpenWeatherApi
+import hos.houns.weatherapp.remotestore.RemoteErrorFactory
+import hos.houns.weatherapp.remotestore.WeatherRemoteDataStore
+import hos.houns.weatherapp.remotestore.retrofit.NoConnectionInterceptor
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.dsl.module
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
+
+<span class="nc" id="L27">val modules = module {</span>
+
+    // Domain Layer
+
+<span class="nc" id="L31">    single { GetWeatherUseCase(get()) }</span>
+<span class="nc" id="L32">    single { LoadFavoritesUseCase(get()) }</span>
+<span class="nc" id="L33">    single { AddDeleteFavouriteUseCase(get()) }</span>
+
+    //Remote layer
+
+<span class="nc" id="L37">    single { provideRetrofit(&quot;https://api.openweathermap.org/data/2.5/&quot;, get(), get()) }</span>
+<span class="nc" id="L38">    single { provideGson() }</span>
+<span class="nc" id="L39">    single { provideOkHttpClient(get()) }</span>
+<span class="nc" id="L40">    factory { NoConnectionInterceptor(get()) }</span>
+<span class="nc" id="L41">    single { WeatherRemoteDataStore(get(), get()) }</span>
+<span class="nc" id="L42">    single { OpenWeatherApi(get()) }</span>
+<span class="nc" id="L43">    single { RemoteErrorFactory() }</span>
+<span class="nc" id="L44">    single { GetWeatherRepository(get(), get(), get()) }</span>
+
+<span class="nc" id="L46">    single { FavoritesRepository(get()) }</span>
+<span class="nc" id="L47">    single {</span>
+<span class="nc" id="L48">        Room.databaseBuilder(</span>
+<span class="nc" id="L49">            androidContext(),</span>
+<span class="nc" id="L50">            AppDatabase::class.java, &quot;database-weather&quot;</span>
+<span class="nc" id="L51">        ).build()</span>
+    }
+
+
+<span class="nc" id="L55">    single { FavoritesLocalDataStore(get()) }</span>
+
+
+    //Device layer
+<span class="nc" id="L59">    single { LocationManager(get()) }</span>
+
+<span class="nc" id="L61">    single{ LocalLocationDataStore(get()) }</span>
+
+    // Presentation
+
+<span class="nc" id="L65">    viewModel {</span>
+<span class="nc" id="L66">        MainViewModel(get(),get(),get(),get())</span>
+    }
+<span class="nc" id="L68">}</span>
+
+
+private fun provideGson(): Gson {
+<span class="nc" id="L72">    return GsonBuilder()</span>
+<span class="nc" id="L73">        .setLenient()</span>
+<span class="nc" id="L74">        .create()</span>
+}
+
+
+private fun provideRetrofit(baseUrl: String, gson: Gson, client: OkHttpClient): Retrofit {
+<span class="nc" id="L79">    return Retrofit.Builder()</span>
+<span class="nc" id="L80">        .client(client)</span>
+<span class="nc" id="L81">        .addConverterFactory(GsonConverterFactory.create(gson))</span>
+<span class="nc" id="L82">        .baseUrl(baseUrl)</span>
+<span class="nc" id="L83">        .build()</span>
+}
+
+
+private fun provideOkHttpClient(networkInterceptor: NoConnectionInterceptor): OkHttpClient {
+<span class="nc" id="L88">    return OkHttpClient.Builder()</span>
+<span class="nc" id="L89">        .connectTimeout(120, TimeUnit.SECONDS)</span>
+<span class="nc" id="L90">        .readTimeout(120, TimeUnit.SECONDS)</span>
+<span class="nc" id="L91">        .writeTimeout(120, TimeUnit.SECONDS)</span>
+<span class="nc" id="L92">        .addInterceptor(HttpLoggingInterceptor().apply {</span>
+<span class="nc" id="L93">            level = HttpLoggingInterceptor.Level.BODY</span>
+<span class="nc" id="L94">        })</span>
+<span class="nc" id="L95">        .addInterceptor(networkInterceptor)</span>
+<span class="nc" id="L96">        .build()</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

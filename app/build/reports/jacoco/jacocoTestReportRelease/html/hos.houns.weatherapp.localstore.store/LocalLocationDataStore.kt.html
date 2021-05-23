@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LocalLocationDataStore.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">hos.houns.weatherapp.localstore.store</a> &gt; <span class="el_source">LocalLocationDataStore.kt</span></div><h1>LocalLocationDataStore.kt</h1><pre class="source lang-java linenums">package hos.houns.weatherapp.localstore.store
+
+import android.content.Context
+import android.content.SharedPreferences
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import hos.houns.weatherapp.domain.entity.CurrentLocation
+import hos.houns.weatherapp.domain.entity.CurrentWeatherUIModel
+import hos.houns.weatherapp.domain.entity.ForecastWeatherUIModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+
+<span class="fc" id="L13">class LocalLocationDataStore(private var context: Context) {</span>
+
+<span class="fc" id="L15">    private val sharedPref: SharedPreferences by lazy {</span>
+<span class="fc" id="L16">        context.getSharedPreferences(&quot;WEATHER_PREFS&quot;, Context.MODE_PRIVATE)</span>
+    }
+
+    suspend fun saveLastLocation(location: CurrentLocation) {
+<span class="fc" id="L20">        withContext(Dispatchers.IO) {</span>
+<span class="fc" id="L21">            with(sharedPref.edit()) {</span>
+<span class="fc" id="L22">                putString(LATITUDE_KEY, location.latitude.toString())</span>
+<span class="fc" id="L23">                putString(LONGITUDE_KEY, location.longitude.toString())</span>
+<span class="fc" id="L24">                apply()</span>
+<span class="fc" id="L25">            }</span>
+<span class="fc" id="L26">        }</span>
+<span class="nc" id="L27">    }</span>
+
+    suspend fun getLastLocation(): CurrentLocation {
+<span class="fc" id="L30">        return withContext(Dispatchers.IO) {</span>
+<span class="fc" id="L31">            CurrentLocation(</span>
+<span class="pc bpc" id="L32" title="2 of 4 branches missed.">                sharedPref.getString(LATITUDE_KEY, &quot;0.0&quot;)?.toDouble() ?: 0.0,</span>
+<span class="pc bpc" id="L33" title="2 of 4 branches missed.">                sharedPref.getString(LONGITUDE_KEY, &quot;0.0&quot;)?.toDouble() ?: 0.0</span>
+            )
+        }
+    }
+
+    suspend fun saveCurrentWeather(weather: CurrentWeatherUIModel) {
+<span class="nc" id="L39">        withContext(Dispatchers.IO) {</span>
+<span class="nc" id="L40">            sharedPref.edit().putString(CURRENT_WEATHER_KEY, Gson().toJson(weather)).apply()</span>
+<span class="nc" id="L41">        }</span>
+<span class="nc" id="L42">    }</span>
+
+    suspend fun getCurrentWeather(): CurrentWeatherUIModel {
+<span class="nc" id="L45">        return withContext(Dispatchers.IO) {</span>
+<span class="nc" id="L46">            Gson().fromJson(</span>
+<span class="nc" id="L47">                sharedPref.getString(</span>
+<span class="nc" id="L48">                    CURRENT_WEATHER_KEY,</span>
+<span class="nc" id="L49">                    Gson().toJson(CurrentWeatherUIModel.EMPTY)</span>
+                ),
+<span class="nc" id="L51">                CurrentWeatherUIModel::class.java</span>
+            )
+        }
+    }
+
+    suspend fun saveForecastWeather(weather: List&lt;ForecastWeatherUIModel&gt;) {
+<span class="nc" id="L57">        withContext(Dispatchers.IO) {</span>
+<span class="nc" id="L58">            sharedPref.edit().putString(FORECAST_KEY, Gson().toJson(weather)).apply()</span>
+<span class="nc" id="L59">        }</span>
+<span class="nc" id="L60">    }</span>
+
+    suspend fun getForecastWeather(): List&lt;ForecastWeatherUIModel&gt; {
+<span class="nc" id="L63">        val type = object : TypeToken&lt;List&lt;ForecastWeatherUIModel&gt;&gt;() {}.type</span>
+
+<span class="nc" id="L65">        return withContext(Dispatchers.IO) {</span>
+<span class="nc" id="L66">            Gson().fromJson(</span>
+<span class="nc" id="L67">                sharedPref.getString(</span>
+<span class="nc" id="L68">                    FORECAST_KEY,</span>
+<span class="nc" id="L69">                    Gson().toJson(listOf(ForecastWeatherUIModel.EMPTY))</span>
+                ),
+<span class="nc" id="L71">                type</span>
+            )
+        }
+    }
+
+    suspend fun saveUpdateDate(date: String) {
+<span class="nc" id="L77">        withContext(Dispatchers.IO) {</span>
+<span class="nc" id="L78">            sharedPref.edit().putString(UPDATED_DATE_KEY, date).apply()</span>
+<span class="nc" id="L79">        }</span>
+<span class="nc" id="L80">    }</span>
+
+    suspend fun getUpdatedDate(): String {
+<span class="nc" id="L83">        return withContext(Dispatchers.IO) {</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">            sharedPref.getString(UPDATED_DATE_KEY, &quot;&quot;) ?: &quot;&quot;</span>
+        }
+    }
+
+
+    companion object {
+        const val LATITUDE_KEY = &quot;LATITUDE_KEY&quot;
+        const val LONGITUDE_KEY = &quot;LONGITUDE_KEY&quot;
+        const val CURRENT_WEATHER_KEY = &quot;CURRENT_WEATHER_KEY&quot;
+        const val FORECAST_KEY = &quot;FORECAST_KEY&quot;
+        const val UPDATED_DATE_KEY = &quot;UPDATED_DATE_KEY&quot;
+
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

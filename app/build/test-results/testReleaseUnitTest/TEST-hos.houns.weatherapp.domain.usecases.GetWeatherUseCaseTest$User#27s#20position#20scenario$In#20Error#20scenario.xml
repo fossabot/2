@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="hos.houns.weatherapp.domain.usecases.GetWeatherUseCaseTest$User's position scenario$In Error scenario" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-05-23T15:03:04" hostname="Hospices-MacBook-Pro.local" time="0.092">
+  <properties/>
+  <testcase name="should return Error when repo send Either type Right(Failure)[1]" classname="hos.houns.weatherapp.domain.usecases.GetWeatherUseCaseTest$User's position scenario$In Error scenario" time="0.069"/>
+  <testcase name="should return Error when repo send Either type Right(Failure)[2]" classname="hos.houns.weatherapp.domain.usecases.GetWeatherUseCaseTest$User's position scenario$In Error scenario" time="0.004"/>
+  <testcase name="should return Error when repo send Either type Right(Failure)[3]" classname="hos.houns.weatherapp.domain.usecases.GetWeatherUseCaseTest$User's position scenario$In Error scenario" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

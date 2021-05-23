@@ -1,0 +1,499 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:2:1-44:12
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:2:1-23:12
+MERGED from [androidx.databinding:databinding-adapters:4.0.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/da3ac06b3f219d1dd5caa6507d6e503a/databinding-adapters-4.0.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.databinding:databinding-runtime:4.0.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/3e457d046f28e7b1f0d04eb4fdb98218/databinding-runtime-4.0.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.databinding:viewbinding:4.0.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/724f8ac2a82c38e90c13a9c3d783de8b/jetified-viewbinding-4.0.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.multidex:multidex:2.0.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/624c1bd8bac7295a070416ce6b647bb3/multidex-2.0.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.3.0-alpha08] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c83da0df505d6fb705a11c603016c09a/jetified-activity-ktx-1.3.0-alpha08/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/57930a167a13f221155cd56d0a423aa4/jetified-core-ktx-1.5.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.material:material:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/334d879f05200d20831292b03a8cddfc/material-1.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/43804ad394c84de29374ce8db8c41c9f/constraintlayout-2.0.4/AndroidManifest.xml:2:1-11:12
+MERGED from [org.koin:koin-android-viewmodel:2.2.0-alpha-1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/9bac316d0a28f8bd97087d8fc8903098/jetified-koin-android-viewmodel-2.2.0-alpha-1/AndroidManifest.xml:2:1-9:12
+MERGED from [org.koin:koin-android-scope:2.2.0-alpha-1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/a43a7aa9c6079b1dfd5ec02520417da3/jetified-koin-android-scope-2.2.0-alpha-1/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.appcompat:appcompat:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/478ab25cd5d5effe397298f721de3905/appcompat-1.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7858722323d3599f81331fb1d59062de/jetified-lifecycle-livedata-ktx-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.room:room-ktx:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/6138407103303df90c44615f595e5efc/jetified-room-ktx-2.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/b7d2c8487a7d6c5b309f591e0bd96b02/jetified-lifecycle-runtime-ktx-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/30f172674e74b008329e085c30d6173f/jetified-lifecycle-viewmodel-ktx-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [org.koin:koin-android:2.2.0-alpha-1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1adff20bc10fad49a5e0f1556ac6568c/jetified-koin-android-2.2.0-alpha-1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/6613f36f85a9fbd5d4a2963852514c66/lifecycle-extensions-2.2.0/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/a1df0cbdde0af9ad2bed8524767ab611/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-location:18.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/8dad42e9d02f2c2d605ea54a6e6a3661/jetified-play-services-location-18.0.0/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:17:1-50:12
+MERGED from [androidx.room:room-runtime:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/f762ad4d54f740f924fb3e3eded36eb4/room-runtime-2.3.0/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1a772d691caaabf2d50b94f8a4be21fb/jetified-viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/caf917fc22d9f4ca7b68e99b2bb19d46/jetified-play-services-maps-17.0.0/AndroidManifest.xml:17:1-38:12
+MERGED from [com.google.android.gms:play-services-base:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/ff1a62e6536974bb14cfdcdfa687cab2/jetified-play-services-base-17.5.0/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/5666f7b02a5ad692c6fff8c96ac777da/jetified-play-services-places-placereport-17.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:17.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/9c57fb8ff43039fe3be1541ca0584330/jetified-play-services-tasks-17.2.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/897e5954d8692cf6c703305a1e04e245/jetified-play-services-basement-17.5.0/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.fragment:fragment:1.3.4] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/672daa2acde5b17e58f2993ae9ba9a4e/fragment-1.3.4/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/3fffa50304e989ee10dfda63470cd3d7/jetified-appcompat-resources-1.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/950fd468017f168ed7ee95a1e16e18c4/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/77dadf56d153518ecc886d307202d49b/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/6f6108941cf15e513f1afdede3e18b62/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/949802c68b5ce1b4bade574eb338f176/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/93671a662b657c2193a55368d097a2ad/transition-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/871ec07ce63463c0906775b375011472/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c206e2260e60001dc18af8150c8e7d24/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.3.0-alpha08] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bb4a28b534aee52e6d57615d5d92038b/jetified-activity-1.3.0-alpha08/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4c802112719c84677ef1e945374e0eaa/media-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c079b6552466acf5d500fbeb44cbec96/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/3f6038014f34b9c000fadcb681e124bd/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/207da50c4fbb33bda2c49f5967ea7596/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/07e49133df7515a81e9eefc6dd424130/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/340a2e7395a48dbdb3fdfbf7b753de30/slidingpanelayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c918d9d05e000433c0e37bdcbd42e827/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/af838b45ff84e8f010dee65694885435/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/3b9cba422aa1de0267b3195f50b416ec/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/33ac5ac0085d633b29e79ad0ddb3e404/core-1.5.0/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1301c6c423a5551fdb7c803f5478e1a8/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:17:1-32:12
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/67d94ca32dc2926373be52864b7c5123/jetified-lifecycle-service-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bbf70cc8572e52ac3074d3d79a39cf2f/lifecycle-runtime-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/2cbd8accb2213a8048a7e30dc488fc3f/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/edcad2ca85f104411d1777e62f5a1eee/jetified-savedstate-ktx-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/fad43232c7e8b66687c7714aa7c8b479/jetified-lifecycle-viewmodel-savedstate-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c882e9b180d5e1cf3d4ca80d6b86ad7e/jetified-savedstate-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/e2649feee88f3d47c8f38416d38750df/lifecycle-viewmodel-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/30aacea9b95bdcc0c75f07f20d63a606/lifecycle-livedata-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/d1a5130da67a830c582f1a19b3cea5a7/jetified-lifecycle-livedata-core-ktx-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/92745a2db80be29ebf5915e29148e4e4/lifecycle-livedata-core-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4e909cabd0449516cbade26708976e74/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/42cf9fde75ad6ccd4c2fb492a3bbfc1a/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7fa0fa2a06121e82e0b3f0525de5ca2d/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:15:1-38:12
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:15:1-41:12
+MERGED from [androidx.test:monitor:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bdc70262e5d2868aeaf5a840ddec43fd/monitor-1.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.sqlite:sqlite-framework:2.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/b5b900533e284b5540f4785fd3cb08e6/sqlite-framework-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.sqlite:sqlite:2.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/082ddaef20ac66a2c5f1c9e7f3d608b5/sqlite-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cd66146a3766a3a0959320a01c1fe2cf/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/456493dced58860ee0c886d5c2971902/jetified-tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c0465df4f6be1c463672172346a1b657/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/0ac246138be9e1a57b2396f0b13124c9/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/02eed3e875613d9704d8f4373fb460b6/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/9708c206a63c27adbf6af9c4050c3fce/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-encoders-json:16.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/02ab1b333c58bb80bc579ba7a778b7a3/jetified-firebase-encoders-json-16.1.0/AndroidManifest.xml:15:1-23:12
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/86e6bc7d35ab7e068c0cf00a800d199a/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.volley:volley:1.1.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4d460ff997b5de876c58155c4d646a56/jetified-volley-1.1.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.datatransport:transport-api:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/f9e8e4494955c049ba74475e041a9776/jetified-transport-api-2.2.0/AndroidManifest.xml:15:1-22:12
+INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:2:1-44:12
+	package
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:3:5-35
+		INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:2:1-44:12
+		INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:2:1-44:12
+		INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:5:5-79
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/caf917fc22d9f4ca7b68e99b2bb19d46/jetified-play-services-maps-17.0.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/caf917fc22d9f4ca7b68e99b2bb19d46/jetified-play-services-maps-17.0.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7fa0fa2a06121e82e0b3f0525de5ca2d/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7fa0fa2a06121e82e0b3f0525de5ca2d/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:5:22-76
+uses-permission#android.permission.INTERNET
+ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:6:5-67
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/caf917fc22d9f4ca7b68e99b2bb19d46/jetified-play-services-maps-17.0.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/caf917fc22d9f4ca7b68e99b2bb19d46/jetified-play-services-maps-17.0.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7fa0fa2a06121e82e0b3f0525de5ca2d/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:26:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7fa0fa2a06121e82e0b3f0525de5ca2d/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:26:5-67
+	android:name
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:6:22-64
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:9:5-79
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:9:5-79
+	android:name
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:7:22-76
+application
+ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:9:5-42:19
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:13:5-21:19
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:13:5-21:19
+MERGED from [com.google.android.material:material:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/334d879f05200d20831292b03a8cddfc/material-1.3.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/334d879f05200d20831292b03a8cddfc/material-1.3.0/AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/43804ad394c84de29374ce8db8c41c9f/constraintlayout-2.0.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/43804ad394c84de29374ce8db8c41c9f/constraintlayout-2.0.4/AndroidManifest.xml:9:5-20
+MERGED from [org.koin:koin-android-viewmodel:2.2.0-alpha-1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/9bac316d0a28f8bd97087d8fc8903098/jetified-koin-android-viewmodel-2.2.0-alpha-1/AndroidManifest.xml:7:5-20
+MERGED from [org.koin:koin-android-viewmodel:2.2.0-alpha-1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/9bac316d0a28f8bd97087d8fc8903098/jetified-koin-android-viewmodel-2.2.0-alpha-1/AndroidManifest.xml:7:5-20
+MERGED from [org.koin:koin-android-scope:2.2.0-alpha-1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/a43a7aa9c6079b1dfd5ec02520417da3/jetified-koin-android-scope-2.2.0-alpha-1/AndroidManifest.xml:7:5-20
+MERGED from [org.koin:koin-android-scope:2.2.0-alpha-1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/a43a7aa9c6079b1dfd5ec02520417da3/jetified-koin-android-scope-2.2.0-alpha-1/AndroidManifest.xml:7:5-20
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/6613f36f85a9fbd5d4a2963852514c66/lifecycle-extensions-2.2.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/6613f36f85a9fbd5d4a2963852514c66/lifecycle-extensions-2.2.0/AndroidManifest.xml:24:5-25:19
+MERGED from [com.google.android.gms:play-services-location:18.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/8dad42e9d02f2c2d605ea54a6e6a3661/jetified-play-services-location-18.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:18.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/8dad42e9d02f2c2d605ea54a6e6a3661/jetified-play-services-location-18.0.0/AndroidManifest.xml:7:5-20
+MERGED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:26:5-48:19
+MERGED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:26:5-48:19
+MERGED from [androidx.room:room-runtime:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/f762ad4d54f740f924fb3e3eded36eb4/room-runtime-2.3.0/AndroidManifest.xml:24:5-29:19
+MERGED from [androidx.room:room-runtime:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/f762ad4d54f740f924fb3e3eded36eb4/room-runtime-2.3.0/AndroidManifest.xml:24:5-29:19
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/caf917fc22d9f4ca7b68e99b2bb19d46/jetified-play-services-maps-17.0.0/AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/caf917fc22d9f4ca7b68e99b2bb19d46/jetified-play-services-maps-17.0.0/AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-base:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/ff1a62e6536974bb14cfdcdfa687cab2/jetified-play-services-base-17.5.0/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/ff1a62e6536974bb14cfdcdfa687cab2/jetified-play-services-base-17.5.0/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/5666f7b02a5ad692c6fff8c96ac777da/jetified-play-services-places-placereport-17.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/5666f7b02a5ad692c6fff8c96ac777da/jetified-play-services-places-placereport-17.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/9c57fb8ff43039fe3be1541ca0584330/jetified-play-services-tasks-17.2.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/9c57fb8ff43039fe3be1541ca0584330/jetified-play-services-tasks-17.2.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/897e5954d8692cf6c703305a1e04e245/jetified-play-services-basement-17.5.0/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/897e5954d8692cf6c703305a1e04e245/jetified-play-services-basement-17.5.0/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.core:core:1.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/33ac5ac0085d633b29e79ad0ddb3e404/core-1.5.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/33ac5ac0085d633b29e79ad0ddb3e404/core-1.5.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1301c6c423a5551fdb7c803f5478e1a8/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:24:5-30:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1301c6c423a5551fdb7c803f5478e1a8/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:24:5-30:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7fa0fa2a06121e82e0b3f0525de5ca2d/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7fa0fa2a06121e82e0b3f0525de5ca2d/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:25:5-39:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cd66146a3766a3a0959320a01c1fe2cf/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cd66146a3766a3a0959320a01c1fe2cf/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [com.android.volley:volley:1.1.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4d460ff997b5de876c58155c4d646a56/jetified-volley-1.1.1/AndroidManifest.xml:9:5-20
+MERGED from [com.android.volley:volley:1.1.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4d460ff997b5de876c58155c4d646a56/jetified-volley-1.1.1/AndroidManifest.xml:9:5-20
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/33ac5ac0085d633b29e79ad0ddb3e404/core-1.5.0/AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:14:9-35
+	android:label
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:12:9-41
+	android:roundIcon
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:13:9-54
+	android:icon
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:11:9-43
+	android:theme
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:15:9-69
+	android:name
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:10:9-30
+activity#hos.houns.weatherapp.presentation.favorite.MapsActivity
+ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:16:9-18:39
+	android:exported
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:18:13-36
+	android:name
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:17:13-63
+activity#hos.houns.weatherapp.presentation.MainActivity
+ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:19:9-29:20
+	android:screenOrientation
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:23:13-49
+	android:launchMode
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:20:13-43
+	android:configChanges
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:22:13-48
+	android:name
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:21:13-54
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:24:13-28:29
+action#android.intent.action.MAIN
+ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:25:17-69
+	android:name
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:25:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:27:17-77
+	android:name
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:27:27-74
+activity#hos.houns.weatherapp.presentation.favorite.PlaceAutocompleteActivity
+ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:30:9-32:52
+	android:screenOrientation
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:32:13-49
+	android:name
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:31:13-76
+meta-data#com.google.android.gms.version
+ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:34:9-36:69
+MERGED from [com.google.android.gms:play-services-basement:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/897e5954d8692cf6c703305a1e04e245/jetified-play-services-basement-17.5.0/AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.android.gms:play-services-basement:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/897e5954d8692cf6c703305a1e04e245/jetified-play-services-basement-17.5.0/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:36:13-66
+	android:name
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:35:13-58
+meta-data#com.google.android.geo.API_KEY
+ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:38:9-40:71
+	android:value
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:40:13-68
+	android:name
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml:39:13-58
+uses-sdk
+INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:7:5-44
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:7:5-44
+MERGED from [androidx.databinding:databinding-adapters:4.0.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/da3ac06b3f219d1dd5caa6507d6e503a/databinding-adapters-4.0.1/AndroidManifest.xml:22:5-44
+MERGED from [androidx.databinding:databinding-adapters:4.0.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/da3ac06b3f219d1dd5caa6507d6e503a/databinding-adapters-4.0.1/AndroidManifest.xml:22:5-44
+MERGED from [androidx.databinding:databinding-runtime:4.0.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/3e457d046f28e7b1f0d04eb4fdb98218/databinding-runtime-4.0.1/AndroidManifest.xml:22:5-44
+MERGED from [androidx.databinding:databinding-runtime:4.0.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/3e457d046f28e7b1f0d04eb4fdb98218/databinding-runtime-4.0.1/AndroidManifest.xml:22:5-44
+MERGED from [androidx.databinding:viewbinding:4.0.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/724f8ac2a82c38e90c13a9c3d783de8b/jetified-viewbinding-4.0.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.databinding:viewbinding:4.0.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/724f8ac2a82c38e90c13a9c3d783de8b/jetified-viewbinding-4.0.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.multidex:multidex:2.0.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/624c1bd8bac7295a070416ce6b647bb3/multidex-2.0.1/AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/624c1bd8bac7295a070416ce6b647bb3/multidex-2.0.1/AndroidManifest.xml:20:5-43
+MERGED from [androidx.activity:activity-ktx:1.3.0-alpha08] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c83da0df505d6fb705a11c603016c09a/jetified-activity-ktx-1.3.0-alpha08/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.3.0-alpha08] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c83da0df505d6fb705a11c603016c09a/jetified-activity-ktx-1.3.0-alpha08/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/57930a167a13f221155cd56d0a423aa4/jetified-core-ktx-1.5.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/57930a167a13f221155cd56d0a423aa4/jetified-core-ktx-1.5.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.material:material:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/334d879f05200d20831292b03a8cddfc/material-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/334d879f05200d20831292b03a8cddfc/material-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/43804ad394c84de29374ce8db8c41c9f/constraintlayout-2.0.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/43804ad394c84de29374ce8db8c41c9f/constraintlayout-2.0.4/AndroidManifest.xml:5:5-7:41
+MERGED from [org.koin:koin-android-viewmodel:2.2.0-alpha-1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/9bac316d0a28f8bd97087d8fc8903098/jetified-koin-android-viewmodel-2.2.0-alpha-1/AndroidManifest.xml:5:5-44
+MERGED from [org.koin:koin-android-viewmodel:2.2.0-alpha-1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/9bac316d0a28f8bd97087d8fc8903098/jetified-koin-android-viewmodel-2.2.0-alpha-1/AndroidManifest.xml:5:5-44
+MERGED from [org.koin:koin-android-scope:2.2.0-alpha-1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/a43a7aa9c6079b1dfd5ec02520417da3/jetified-koin-android-scope-2.2.0-alpha-1/AndroidManifest.xml:5:5-44
+MERGED from [org.koin:koin-android-scope:2.2.0-alpha-1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/a43a7aa9c6079b1dfd5ec02520417da3/jetified-koin-android-scope-2.2.0-alpha-1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/478ab25cd5d5effe397298f721de3905/appcompat-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/478ab25cd5d5effe397298f721de3905/appcompat-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7858722323d3599f81331fb1d59062de/jetified-lifecycle-livedata-ktx-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7858722323d3599f81331fb1d59062de/jetified-lifecycle-livedata-ktx-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.room:room-ktx:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/6138407103303df90c44615f595e5efc/jetified-room-ktx-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.room:room-ktx:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/6138407103303df90c44615f595e5efc/jetified-room-ktx-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/b7d2c8487a7d6c5b309f591e0bd96b02/jetified-lifecycle-runtime-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/b7d2c8487a7d6c5b309f591e0bd96b02/jetified-lifecycle-runtime-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/30f172674e74b008329e085c30d6173f/jetified-lifecycle-viewmodel-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/30f172674e74b008329e085c30d6173f/jetified-lifecycle-viewmodel-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [org.koin:koin-android:2.2.0-alpha-1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1adff20bc10fad49a5e0f1556ac6568c/jetified-koin-android-2.2.0-alpha-1/AndroidManifest.xml:5:5-44
+MERGED from [org.koin:koin-android:2.2.0-alpha-1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1adff20bc10fad49a5e0f1556ac6568c/jetified-koin-android-2.2.0-alpha-1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/6613f36f85a9fbd5d4a2963852514c66/lifecycle-extensions-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/6613f36f85a9fbd5d4a2963852514c66/lifecycle-extensions-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/a1df0cbdde0af9ad2bed8524767ab611/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/a1df0cbdde0af9ad2bed8524767ab611/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-location:18.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/8dad42e9d02f2c2d605ea54a6e6a3661/jetified-play-services-location-18.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:18.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/8dad42e9d02f2c2d605ea54a6e6a3661/jetified-play-services-location-18.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.room:room-runtime:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/f762ad4d54f740f924fb3e3eded36eb4/room-runtime-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.room:room-runtime:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/f762ad4d54f740f924fb3e3eded36eb4/room-runtime-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1a772d691caaabf2d50b94f8a4be21fb/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1a772d691caaabf2d50b94f8a4be21fb/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/caf917fc22d9f4ca7b68e99b2bb19d46/jetified-play-services-maps-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/caf917fc22d9f4ca7b68e99b2bb19d46/jetified-play-services-maps-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/ff1a62e6536974bb14cfdcdfa687cab2/jetified-play-services-base-17.5.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/ff1a62e6536974bb14cfdcdfa687cab2/jetified-play-services-base-17.5.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/5666f7b02a5ad692c6fff8c96ac777da/jetified-play-services-places-placereport-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/5666f7b02a5ad692c6fff8c96ac777da/jetified-play-services-places-placereport-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/9c57fb8ff43039fe3be1541ca0584330/jetified-play-services-tasks-17.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/9c57fb8ff43039fe3be1541ca0584330/jetified-play-services-tasks-17.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/897e5954d8692cf6c703305a1e04e245/jetified-play-services-basement-17.5.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/897e5954d8692cf6c703305a1e04e245/jetified-play-services-basement-17.5.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.3.4] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/672daa2acde5b17e58f2993ae9ba9a4e/fragment-1.3.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.4] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/672daa2acde5b17e58f2993ae9ba9a4e/fragment-1.3.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/3fffa50304e989ee10dfda63470cd3d7/jetified-appcompat-resources-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/3fffa50304e989ee10dfda63470cd3d7/jetified-appcompat-resources-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/950fd468017f168ed7ee95a1e16e18c4/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/950fd468017f168ed7ee95a1e16e18c4/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/77dadf56d153518ecc886d307202d49b/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/77dadf56d153518ecc886d307202d49b/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/6f6108941cf15e513f1afdede3e18b62/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/6f6108941cf15e513f1afdede3e18b62/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/949802c68b5ce1b4bade574eb338f176/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/949802c68b5ce1b4bade574eb338f176/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/93671a662b657c2193a55368d097a2ad/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/93671a662b657c2193a55368d097a2ad/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/871ec07ce63463c0906775b375011472/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/871ec07ce63463c0906775b375011472/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c206e2260e60001dc18af8150c8e7d24/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c206e2260e60001dc18af8150c8e7d24/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.3.0-alpha08] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bb4a28b534aee52e6d57615d5d92038b/jetified-activity-1.3.0-alpha08/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.3.0-alpha08] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bb4a28b534aee52e6d57615d5d92038b/jetified-activity-1.3.0-alpha08/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4c802112719c84677ef1e945374e0eaa/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4c802112719c84677ef1e945374e0eaa/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c079b6552466acf5d500fbeb44cbec96/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c079b6552466acf5d500fbeb44cbec96/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/3f6038014f34b9c000fadcb681e124bd/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/3f6038014f34b9c000fadcb681e124bd/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/207da50c4fbb33bda2c49f5967ea7596/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/207da50c4fbb33bda2c49f5967ea7596/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/07e49133df7515a81e9eefc6dd424130/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/07e49133df7515a81e9eefc6dd424130/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/340a2e7395a48dbdb3fdfbf7b753de30/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/340a2e7395a48dbdb3fdfbf7b753de30/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c918d9d05e000433c0e37bdcbd42e827/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c918d9d05e000433c0e37bdcbd42e827/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/af838b45ff84e8f010dee65694885435/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/af838b45ff84e8f010dee65694885435/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/3b9cba422aa1de0267b3195f50b416ec/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/3b9cba422aa1de0267b3195f50b416ec/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/33ac5ac0085d633b29e79ad0ddb3e404/core-1.5.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/33ac5ac0085d633b29e79ad0ddb3e404/core-1.5.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1301c6c423a5551fdb7c803f5478e1a8/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1301c6c423a5551fdb7c803f5478e1a8/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/67d94ca32dc2926373be52864b7c5123/jetified-lifecycle-service-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/67d94ca32dc2926373be52864b7c5123/jetified-lifecycle-service-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bbf70cc8572e52ac3074d3d79a39cf2f/lifecycle-runtime-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bbf70cc8572e52ac3074d3d79a39cf2f/lifecycle-runtime-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/2cbd8accb2213a8048a7e30dc488fc3f/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/2cbd8accb2213a8048a7e30dc488fc3f/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/edcad2ca85f104411d1777e62f5a1eee/jetified-savedstate-ktx-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/edcad2ca85f104411d1777e62f5a1eee/jetified-savedstate-ktx-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/fad43232c7e8b66687c7714aa7c8b479/jetified-lifecycle-viewmodel-savedstate-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/fad43232c7e8b66687c7714aa7c8b479/jetified-lifecycle-viewmodel-savedstate-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c882e9b180d5e1cf3d4ca80d6b86ad7e/jetified-savedstate-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c882e9b180d5e1cf3d4ca80d6b86ad7e/jetified-savedstate-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/e2649feee88f3d47c8f38416d38750df/lifecycle-viewmodel-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/e2649feee88f3d47c8f38416d38750df/lifecycle-viewmodel-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/30aacea9b95bdcc0c75f07f20d63a606/lifecycle-livedata-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/30aacea9b95bdcc0c75f07f20d63a606/lifecycle-livedata-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/d1a5130da67a830c582f1a19b3cea5a7/jetified-lifecycle-livedata-core-ktx-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/d1a5130da67a830c582f1a19b3cea5a7/jetified-lifecycle-livedata-core-ktx-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/92745a2db80be29ebf5915e29148e4e4/lifecycle-livedata-core-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/92745a2db80be29ebf5915e29148e4e4/lifecycle-livedata-core-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4e909cabd0449516cbade26708976e74/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4e909cabd0449516cbade26708976e74/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/42cf9fde75ad6ccd4c2fb492a3bbfc1a/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/42cf9fde75ad6ccd4c2fb492a3bbfc1a/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7fa0fa2a06121e82e0b3f0525de5ca2d/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7fa0fa2a06121e82e0b3f0525de5ca2d/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:18:5-20:41
+MERGED from [androidx.test:monitor:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bdc70262e5d2868aeaf5a840ddec43fd/monitor-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.test:monitor:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bdc70262e5d2868aeaf5a840ddec43fd/monitor-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite-framework:2.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/b5b900533e284b5540f4785fd3cb08e6/sqlite-framework-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite-framework:2.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/b5b900533e284b5540f4785fd3cb08e6/sqlite-framework-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite:2.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/082ddaef20ac66a2c5f1c9e7f3d608b5/sqlite-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite:2.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/082ddaef20ac66a2c5f1c9e7f3d608b5/sqlite-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cd66146a3766a3a0959320a01c1fe2cf/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cd66146a3766a3a0959320a01c1fe2cf/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/456493dced58860ee0c886d5c2971902/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/456493dced58860ee0c886d5c2971902/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c0465df4f6be1c463672172346a1b657/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/c0465df4f6be1c463672172346a1b657/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/0ac246138be9e1a57b2396f0b13124c9/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/0ac246138be9e1a57b2396f0b13124c9/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/02eed3e875613d9704d8f4373fb460b6/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/02eed3e875613d9704d8f4373fb460b6/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/9708c206a63c27adbf6af9c4050c3fce/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/9708c206a63c27adbf6af9c4050c3fce/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-encoders-json:16.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/02ab1b333c58bb80bc579ba7a778b7a3/jetified-firebase-encoders-json-16.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:16.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/02ab1b333c58bb80bc579ba7a778b7a3/jetified-firebase-encoders-json-16.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/86e6bc7d35ab7e068c0cf00a800d199a/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/86e6bc7d35ab7e068c0cf00a800d199a/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.volley:volley:1.1.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4d460ff997b5de876c58155c4d646a56/jetified-volley-1.1.1/AndroidManifest.xml:7:5-43
+MERGED from [com.android.volley:volley:1.1.1] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4d460ff997b5de876c58155c4d646a56/jetified-volley-1.1.1/AndroidManifest.xml:7:5-43
+MERGED from [com.google.android.datatransport:transport-api:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/f9e8e4494955c049ba74475e041a9776/jetified-transport-api-2.2.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/f9e8e4494955c049ba74475e041a9776/jetified-transport-api-2.2.0/AndroidManifest.xml:18:5-20:41
+INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+		ADDED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:10:5-76
+	android:name
+		ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:10:22-73
+activity#com.google.android.libraries.places.widget.AutocompleteActivity
+ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:14:9-20:20
+	android:label
+		ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:17:13-62
+	android:windowSoftInputMode
+		ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:19:13-55
+	android:exported
+		ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:16:13-37
+	android:theme
+		ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:18:13-61
+	android:name
+		ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/4914ed149a0e972b308942b36f775c94/jetified-places-2.4.0/AndroidManifest.xml:15:13-91
+uses-permission#android.permission.REORDER_TASKS
+ADDED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:24:5-72
+	android:name
+		ADDED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:24:22-69
+activity#androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity
+ADDED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:27:9-33:20
+	android:theme
+		ADDED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:29:13-49
+	android:name
+		ADDED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:28:13-99
+intent-filter#action:name:android.intent.action.MAIN
+ADDED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:30:13-32:29
+activity#androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity
+ADDED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:34:9-40:20
+	android:theme
+		ADDED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:36:13-49
+	android:name
+		ADDED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:35:13-95
+activity#androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity
+ADDED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:41:9-47:20
+	android:theme
+		ADDED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:43:13-56
+	android:name
+		ADDED from [androidx.test:core:1.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/bfa8f8807993909d728da788aebfbb1c/jetified-core-1.3.0/AndroidManifest.xml:42:13-103
+service#androidx.room.MultiInstanceInvalidationService
+ADDED from [androidx.room:room-runtime:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/f762ad4d54f740f924fb3e3eded36eb4/room-runtime-2.3.0/AndroidManifest.xml:25:9-28:40
+	android:exported
+		ADDED from [androidx.room:room-runtime:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/f762ad4d54f740f924fb3e3eded36eb4/room-runtime-2.3.0/AndroidManifest.xml:28:13-37
+	android:directBootAware
+		ADDED from [androidx.room:room-runtime:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/f762ad4d54f740f924fb3e3eded36eb4/room-runtime-2.3.0/AndroidManifest.xml:27:13-43
+	android:name
+		ADDED from [androidx.room:room-runtime:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/f762ad4d54f740f924fb3e3eded36eb4/room-runtime-2.3.0/AndroidManifest.xml:26:13-74
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/caf917fc22d9f4ca7b68e99b2bb19d46/jetified-play-services-maps-17.0.0/AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/caf917fc22d9f4ca7b68e99b2bb19d46/jetified-play-services-maps-17.0.0/AndroidManifest.xml:27:9-41
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/caf917fc22d9f4ca7b68e99b2bb19d46/jetified-play-services-maps-17.0.0/AndroidManifest.xml:28:9-32
+uses-library#org.apache.http.legacy
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/caf917fc22d9f4ca7b68e99b2bb19d46/jetified-play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/caf917fc22d9f4ca7b68e99b2bb19d46/jetified-play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/caf917fc22d9f4ca7b68e99b2bb19d46/jetified-play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/ff1a62e6536974bb14cfdcdfa687cab2/jetified-play-services-base-17.5.0/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/ff1a62e6536974bb14cfdcdfa687cab2/jetified-play-services-base-17.5.0/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/ff1a62e6536974bb14cfdcdfa687cab2/jetified-play-services-base-17.5.0/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:17.5.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/ff1a62e6536974bb14cfdcdfa687cab2/jetified-play-services-base-17.5.0/AndroidManifest.xml:24:13-79
+provider#androidx.lifecycle.ProcessLifecycleOwnerInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1301c6c423a5551fdb7c803f5478e1a8/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+	android:authorities
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1301c6c423a5551fdb7c803f5478e1a8/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+	android:multiprocess
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1301c6c423a5551fdb7c803f5478e1a8/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+	android:exported
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1301c6c423a5551fdb7c803f5478e1a8/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/1301c6c423a5551fdb7c803f5478e1a8/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7fa0fa2a06121e82e0b3f0525de5ca2d/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:36:9-38:40
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7fa0fa2a06121e82e0b3f0525de5ca2d/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7fa0fa2a06121e82e0b3f0525de5ca2d/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:30:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7fa0fa2a06121e82e0b3f0525de5ca2d/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:32:13-34:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7fa0fa2a06121e82e0b3f0525de5ca2d/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:34:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/7fa0fa2a06121e82e0b3f0525de5ca2d/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:33:17-94
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:26:9-30:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:28:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:29:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:27:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/hospicehounsou/.gradle/caches/transforms-2/files-2.1/cb303d22806a4948d4000f755d92e8e7/jetified-transport-runtime-2.2.3/AndroidManifest.xml:33:13-132

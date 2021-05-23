@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/Users/hospicehounsou/AndroidStudioProjects/Weather App/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_main.xml",
+        "source": "/Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/res/layout/fragment_main.xml"
+    },
+    {
+        "merged": "/Users/hospicehounsou/AndroidStudioProjects/Weather App/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/place_autocomplete.xml",
+        "source": "/Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/res/layout/place_autocomplete.xml"
+    },
+    {
+        "merged": "/Users/hospicehounsou/AndroidStudioProjects/Weather App/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_maps.xml",
+        "source": "/Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/res/layout/activity_maps.xml"
+    },
+    {
+        "merged": "/Users/hospicehounsou/AndroidStudioProjects/Weather App/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/forecast_item.xml",
+        "source": "/Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/res/layout/forecast_item.xml"
+    },
+    {
+        "merged": "/Users/hospicehounsou/AndroidStudioProjects/Weather App/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
+        "source": "/Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/hospicehounsou/AndroidStudioProjects/Weather App/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/favourite_item.xml",
+        "source": "/Users/hospicehounsou/AndroidStudioProjects/Weather App/app/src/main/res/layout/favourite_item.xml"
+    }
+]

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="hos.houns.weatherapp.data.FavoritesRepositoryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-05-23T15:02:32" hostname="Hospices-MacBook-Pro.local" time="0.221">
+  <properties/>
+  <testcase name="test load Favourites()" classname="hos.houns.weatherapp.data.FavoritesRepositoryTest" time="0.187"/>
+  <testcase name="test add Favourite()" classname="hos.houns.weatherapp.data.FavoritesRepositoryTest" time="0.017"/>
+  <testcase name="test delete Favourite()" classname="hos.houns.weatherapp.data.FavoritesRepositoryTest" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FavoritesAdapter.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">hos.houns.weatherapp.presentation.favorite</a> &gt; <span class="el_source">FavoritesAdapter.kt</span></div><h1>FavoritesAdapter.kt</h1><pre class="source lang-java linenums">package hos.houns.weatherapp.presentation.favorite
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+
+import androidx.recyclerview.widget.RecyclerView
+import hos.houns.weatherapp.databinding.FavouriteItemBinding
+import hos.houns.weatherapp.domain.entity.FavoriteUiModel
+
+
+<span class="nc" id="L11">class FavoritesAdapter(var list: List&lt;FavoriteUiModel&gt;,</span>
+<span class="nc" id="L12">                       var onLongClicked : (FavoriteUiModel) -&gt; Unit,</span>
+<span class="nc" id="L13">                       var onClicked : (FavoriteUiModel) -&gt; Unit,</span>
+<span class="nc" id="L14">) : RecyclerView.Adapter&lt;FavoritesAdapter.ViewHolder&gt;(){</span>
+<span class="nc" id="L15">    inner class ViewHolder(val binding: FavouriteItemBinding) : RecyclerView.ViewHolder(binding.root)</span>
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+<span class="nc" id="L18">        return ViewHolder(</span>
+<span class="nc" id="L19">            FavouriteItemBinding.inflate(</span>
+<span class="nc" id="L20">                LayoutInflater.from(parent.context),</span>
+<span class="nc" id="L21">                parent,</span>
+<span class="nc" id="L22">                false</span>
+            )
+        )
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+<span class="nc" id="L28">        holder.binding.favourite.text = list[position].label</span>
+<span class="nc" id="L29">        holder.binding.root.setOnLongClickListener {</span>
+<span class="nc" id="L30">            println(&quot;ererzerzr&quot;)</span>
+<span class="nc" id="L31">            onLongClicked.invoke(list[position])</span>
+<span class="nc" id="L32">            true</span>
+        }
+
+<span class="nc" id="L35">        holder.binding.root.setOnClickListener {</span>
+<span class="nc" id="L36">            onClicked.invoke(list[position])</span>
+<span class="nc" id="L37">        }</span>
+<span class="nc" id="L38">    }</span>
+
+    override fun getItemCount(): Int {
+<span class="nc" id="L41">        return list.size</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

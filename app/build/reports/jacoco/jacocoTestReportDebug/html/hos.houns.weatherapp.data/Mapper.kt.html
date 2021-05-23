@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Mapper.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">hos.houns.weatherapp.data</a> &gt; <span class="el_source">Mapper.kt</span></div><h1>Mapper.kt</h1><pre class="source lang-java linenums">package hos.houns.weatherapp.data
+
+import hos.houns.weatherapp.domain.entity.CurrentWeatherUIModel
+import hos.houns.weatherapp.domain.entity.ForecastWeatherUIModel
+import hos.houns.weatherapp.domain.entity.WeatherType
+import hos.houns.weatherapp.remotestore.CurrentWeatherResponse
+import hos.houns.weatherapp.remotestore.ForecastResponse
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.math.roundToInt
+
+fun CurrentWeatherResponse?.toUiModel(): CurrentWeatherUIModel {
+<span class="fc" id="L13">   return  CurrentWeatherUIModel(</span>
+<span class="pc bpc" id="L14" title="2 of 6 branches missed.">        temp = (this?.main?.temp ?: 0.0).roundToInt(),</span>
+        tempMax = (
+<span class="pc bpc" id="L16" title="2 of 6 branches missed.">                this?.main?.temp_max ?: 0.0</span>
+<span class="fc" id="L17">                ).roundToInt(),</span>
+        tempMin = (
+<span class="pc bpc" id="L19" title="2 of 6 branches missed.">                this?.main?.temp_min ?: 0.0</span>
+<span class="fc" id="L20">                ).roundToInt(),</span>
+<span class="pc bpc" id="L21" title="3 of 8 branches missed.">        type = (this?.weather?.first()?.id ?: 0).toWeatherType()</span>
+    )
+}
+
+
+fun ForecastResponse?.toUiModel(): List&lt;ForecastWeatherUIModel&gt; {
+<span class="pc bpc" id="L27" title="2 of 4 branches missed.">    return this?.daily?.map {</span>
+<span class="fc" id="L28">        ForecastWeatherUIModel(</span>
+<span class="pc bpc" id="L29" title="2 of 4 branches missed.">            temp = it.temp?.max?.roundToInt()?:0,</span>
+<span class="pc bpc" id="L30" title="4 of 8 branches missed.">            type = it.weather?.first()?.id?.toWeatherType()?: WeatherType.UNKNOW,</span>
+<span class="pc bpc" id="L31" title="2 of 4 branches missed.">            day = it.dt?.toDateString()?:&quot;&quot;</span>
+        )
+<span class="nc" id="L33">    } ?: emptyList()</span>
+}
+
+fun Int.toWeatherType( ): WeatherType {
+<span class="fc" id="L37">    return when {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        this == 0 -&gt; {</span>
+<span class="fc" id="L39">            WeatherType.UNKNOW</span>
+        }
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        this.toString().startsWith(&quot;2&quot;) -&gt; {</span>
+<span class="fc" id="L42">            WeatherType.THUNDERSTORM</span>
+        }
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        this.toString().startsWith(&quot;3&quot;) -&gt; {</span>
+<span class="fc" id="L45">            WeatherType.DRIZZLE</span>
+        }
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        this.toString().startsWith(&quot;5&quot;) -&gt; {</span>
+<span class="fc" id="L48">            WeatherType.RAINY</span>
+        }
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        this.toString().startsWith(&quot;6&quot;) -&gt; {</span>
+<span class="fc" id="L51">            WeatherType.SNOW</span>
+        }
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        this.toString().startsWith(&quot;7&quot;) -&gt; {</span>
+<span class="fc" id="L54">            WeatherType.ATMOSPHERE</span>
+        }
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        this.toString() == &quot;800&quot; -&gt; {</span>
+<span class="fc" id="L57">            WeatherType.CLEAR</span>
+        }
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        this.toString().startsWith(&quot;80&quot;) -&gt; {</span>
+<span class="fc" id="L60">            WeatherType.CLOUDY</span>
+        }
+        else -&gt; {
+<span class="fc" id="L63">            WeatherType.SUNNY</span>
+        }
+    }
+}
+
+fun Long.toDateString(): String {
+<span class="fc" id="L69">    return SimpleDateFormat(&quot;EEEE&quot;, Locale.US).format(Date(this * 1000))</span>
+}
+
+fun String.withDegree(): String {
+<span class="nc" id="L73">    return this + 0x00B0.toChar()</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

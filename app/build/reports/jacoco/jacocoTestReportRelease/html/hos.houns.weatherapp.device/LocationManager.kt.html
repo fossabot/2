@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LocationManager.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">hos.houns.weatherapp.device</a> &gt; <span class="el_source">LocationManager.kt</span></div><h1>LocationManager.kt</h1><pre class="source lang-java linenums">package hos.houns.weatherapp.device
+
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.pm.PackageManager
+import androidx.core.app.ActivityCompat
+import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.tasks.CancellationTokenSource
+import hos.houns.weatherapp.domain.entity.CurrentLocation
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
+import java.lang.Exception
+
+@SuppressLint(&quot;MissingPermission&quot;)
+<span class="nc" id="L18">class LocationManager(</span>
+    private val context: Context
+)  {
+
+<span class="nc" id="L22">     suspend fun getCurrentLocation() = withContext(Dispatchers.IO) {</span>
+<span class="nc" id="L23">        val cancellationTokenSource = CancellationTokenSource()</span>
+<span class="nc" id="L24">        val currentLocationTask =  LocationServices.getFusedLocationProviderClient(context).getCurrentLocation(</span>
+<span class="nc" id="L25">            PRIORITY_HIGH_ACCURACY,</span>
+<span class="nc" id="L26">            cancellationTokenSource.token</span>
+<span class="nc" id="L27">        ).await()</span>
+<span class="nc" id="L28">        cancellationTokenSource.cancel()</span>
+<span class="nc" id="L29">        CurrentLocation(currentLocationTask.latitude, currentLocationTask.longitude)</span>
+<span class="nc" id="L30">    }</span>
+
+    @SuppressLint(&quot;ServiceCast&quot;)
+      fun isLocationEnabled(): Boolean {
+<span class="nc" id="L34">        val lm = context.getSystemService(Context.LOCATION_SERVICE) as android.location.LocationManager</span>
+<span class="nc" id="L35">        var gps_enabled = false</span>
+<span class="nc" id="L36">        var network_enabled = false</span>
+<span class="nc" id="L37">        try {</span>
+<span class="nc" id="L38">            gps_enabled = lm.isProviderEnabled(android.location.LocationManager.GPS_PROVIDER)</span>
+<span class="nc" id="L39">        } catch (e: Exception) {</span>
+<span class="nc" id="L40">            e.printStackTrace()</span>
+        }
+<span class="nc" id="L42">        try {</span>
+<span class="nc" id="L43">            network_enabled = lm.isProviderEnabled(android.location.LocationManager.NETWORK_PROVIDER)</span>
+<span class="nc" id="L44">        } catch (e: Exception) {</span>
+<span class="nc" id="L45">            e.printStackTrace()</span>
+        }
+
+<span class="nc bnc" id="L48" title="All 4 branches missed.">       return gps_enabled &amp;&amp; network_enabled</span>
+    }
+
+     fun hasFinePermissionGranted(): Boolean {
+        // Background permissions didn't exit prior to Q, so it's approved by default.
+        if (Manifest.permission.ACCESS_FINE_LOCATION == Manifest.permission.ACCESS_BACKGROUND_LOCATION &amp;&amp;
+<span class="nc bnc" id="L54" title="All 4 branches missed.">            android.os.Build.VERSION.SDK_INT &lt; android.os.Build.VERSION_CODES.Q) {</span>
+<span class="nc" id="L55">            return true</span>
+        }
+
+<span class="nc bnc" id="L58" title="All 2 branches missed.">        return ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) ==</span>
+                PackageManager.PERMISSION_GRANTED
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

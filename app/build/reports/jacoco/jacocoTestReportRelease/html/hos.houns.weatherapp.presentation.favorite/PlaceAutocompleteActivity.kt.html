@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PlaceAutocompleteActivity.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">hos.houns.weatherapp.presentation.favorite</a> &gt; <span class="el_source">PlaceAutocompleteActivity.kt</span></div><h1>PlaceAutocompleteActivity.kt</h1><pre class="source lang-java linenums">package hos.houns.weatherapp.presentation.favorite
+
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.libraries.places.api.model.Place
+import com.google.android.libraries.places.widget.Autocomplete
+import com.google.android.libraries.places.widget.AutocompleteActivity
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
+import hos.houns.weatherapp.R
+import hos.houns.weatherapp.databinding.PlaceAutocompleteBinding
+import hos.houns.weatherapp.domain.entity.FavoriteUiModel
+import hos.houns.weatherapp.presentation.*
+import kotlinx.coroutines.flow.collect
+import org.koin.android.viewmodel.ext.android.getViewModel
+
+<span class="nc" id="L23">class PlaceAutocompleteActivity : AppCompatActivity(R.layout.place_autocomplete) {</span>
+    private lateinit var binding: PlaceAutocompleteBinding
+<span class="nc" id="L25">    private val AUTOCOMPLETE_REQUEST_CODE = 1</span>
+    private lateinit var viewModel: MainViewModel
+    override fun onCreate(savedInstanceState: Bundle?) {
+<span class="nc" id="L28">        super.onCreate(savedInstanceState)</span>
+<span class="nc" id="L29">        viewModel = getViewModel()</span>
+<span class="nc" id="L30">        binding = PlaceAutocompleteBinding.inflate(layoutInflater)</span>
+<span class="nc" id="L31">        val view = binding.root</span>
+<span class="nc" id="L32">        setContentView(view)</span>
+<span class="nc" id="L33">        binding.locations.setOnClickListener {</span>
+<span class="nc" id="L34">            val fields = listOf(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG)</span>
+<span class="nc" id="L35">            val intent = Autocomplete.IntentBuilder(AutocompleteActivityMode.FULLSCREEN, fields)</span>
+<span class="nc" id="L36">                .build(this)</span>
+<span class="nc" id="L37">            startActivityForResult(intent, AUTOCOMPLETE_REQUEST_CODE)</span>
+<span class="nc" id="L38">        }</span>
+
+<span class="nc" id="L40">        binding.maps.setOnClickListener {</span>
+<span class="nc" id="L41">            startActivity(Intent(this, MapsActivity::class.java))</span>
+<span class="nc" id="L42">        }</span>
+
+<span class="nc" id="L44">        binding.back.setOnClickListener {</span>
+<span class="nc" id="L45">            finish()</span>
+<span class="nc" id="L46">        }</span>
+
+<span class="nc" id="L48">        initObservers()</span>
+
+<span class="nc" id="L50">        viewModel.setIntent(MainContract.MainIntent.LoadFavoriteIntent)</span>
+
+<span class="nc" id="L52">    }</span>
+
+    private fun initObservers() {
+<span class="nc" id="L55">        lifecycleScope.launchWhenStarted {</span>
+<span class="nc" id="L56">            viewModel.uiState.collect { state -&gt;</span>
+                when (state) {
+                    is MainContract.MainState.Favorites -&gt; {
+                        state.value.collect {
+                            if (it.isEmpty()) {
+                                binding.nofavourite.visibility = View.VISIBLE
+                                binding.recyclerview.visibility = View.GONE
+                            } else {
+                                println(it.size)
+                                binding.nofavourite.visibility = View.GONE
+                                binding.recyclerview.visibility = View.VISIBLE
+
+                                binding.recyclerview.layoutManager =
+                                    LinearLayoutManager(applicationContext)
+                                binding.recyclerview.adapter =
+                                    FavoritesAdapter(it, onLongClicked = {
+<span class="nc" id="L72">                                        showDeletionPopup(it)</span>
+<span class="nc" id="L73">                                    }, onClicked = {</span>
+<span class="nc" id="L74">                                        val intent = Intent(this@PlaceAutocompleteActivity, MainActivity::class.java)</span>
+<span class="nc" id="L75">                                        intent.putExtra(FavouriteUiModelID, it.id)</span>
+<span class="nc" id="L76">                                        intent.putExtra(FavouriteUiModelTitle, it.label)</span>
+<span class="nc" id="L77">                                        intent.putExtra(FavouriteUiModelLat, it.latitude)</span>
+<span class="nc" id="L78">                                        intent.putExtra(FavouriteUiModelLong, it.longitude)</span>
+<span class="nc" id="L79">                                        startActivity(intent)</span>
+<span class="nc" id="L80">                                    })</span>
+                            }
+
+                        }
+                    }
+                }
+            }
+
+<span class="nc" id="L88">        }</span>
+
+<span class="nc" id="L90">    }</span>
+
+    private fun showDeletionPopup(favoriteUiModel: FavoriteUiModel) {
+<span class="nc" id="L93">        AlertDialog.Builder(this, AlertDialog.THEME_DEVICE_DEFAULT_LIGHT)</span>
+<span class="nc" id="L94">            .setMessage(getString(R.string.delete_item))</span>
+<span class="nc" id="L95">            .setCancelable(false)</span>
+<span class="nc" id="L96">            .setPositiveButton(</span>
+<span class="nc" id="L97">                getString(android.R.string.yes)</span>
+<span class="nc" id="L98">            ) { _, _ -&gt;</span>
+<span class="nc" id="L99">                viewModel.setIntent(MainContract.MainIntent.DeleteFavoriteIntent(favoriteUiModel))</span>
+<span class="nc" id="L100">            }</span>
+<span class="nc" id="L101">            .setNegativeButton(android.R.string.cancel) { _, _ -&gt;</span>
+<span class="nc" id="L102">                viewModel.setIntent(MainContract.MainIntent.InitialIntent)</span>
+<span class="nc" id="L103">            }</span>
+<span class="nc" id="L104">            .show()</span>
+<span class="nc" id="L105">    }</span>
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        if (requestCode == AUTOCOMPLETE_REQUEST_CODE) {</span>
+<span class="nc bnc" id="L109" title="All 4 branches missed.">            when (resultCode) {</span>
+                Activity.RESULT_OK -&gt; {
+<span class="nc bnc" id="L111" title="All 2 branches missed.">                    data?.let {</span>
+<span class="nc" id="L112">                        val place = Autocomplete.getPlaceFromIntent(data)</span>
+<span class="nc" id="L113">                        viewModel.setIntent(</span>
+<span class="nc" id="L114">                            MainContract.MainIntent.AddFavoriteIntent(</span>
+<span class="nc" id="L115">                                place</span>
+                            )
+                        )
+<span class="nc" id="L118">                        Log.i(&quot;TAG&quot;, &quot;Place: ${place.name}, ${place.latLng}&quot;)</span>
+                    }
+                }
+                AutocompleteActivity.RESULT_ERROR -&gt; {
+                    // TODO: Handle the error.
+<span class="nc bnc" id="L123" title="All 2 branches missed.">                    data?.let {</span>
+<span class="nc" id="L124">                        val status = Autocomplete.getStatusFromIntent(data)</span>
+<span class="nc" id="L125">                        Log.i(&quot;TAG&quot;, status.statusMessage)</span>
+                    }
+                }
+                Activity.RESULT_CANCELED -&gt; {
+                    // The user canceled the operation.
+                }
+            }
+<span class="nc" id="L132">            return</span>
+        }
+<span class="nc" id="L134">        super.onActivityResult(requestCode, resultCode, data)</span>
+<span class="nc" id="L135">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -20,17 +20,7 @@ class MainViewModel(
     override fun handleIntent(intent: MainContract.MainIntent) {
         when (intent) {
             MainContract.MainIntent.InitialIntent -> {
-                setState { MainContract.MainState.Loading }
-                viewModelScope.launch {
-                    when (val usecase = getWeatherUseCase.execute(null, null)) {
-                        is GetWeatherUseCase.GetWeatherResult.Error -> setState { MainContract.MainState.Error(usecase.error) }
-                        is GetWeatherUseCase.GetWeatherResult.Success -> setState {
-                            MainContract.MainState.Success(
-                                usecase.value
-                            )
-                        }
-                    }
-                }
+                handleInitialIntent()
             }
             MainContract.MainIntent.CloseDialog -> {
             }
@@ -41,42 +31,69 @@ class MainViewModel(
                 }
             }
             is MainContract.MainIntent.LoadFavoriteWeather -> {
-                setState { MainContract.MainState.Loading }
-                viewModelScope.launch {
-                    when (val usecase =
-                        getWeatherUseCase.execute(intent.latitude, intent.longitude)) {
-                        is GetWeatherUseCase.GetWeatherResult.Error -> setState { MainContract.MainState.Error(usecase.error) }
-                        is GetWeatherUseCase.GetWeatherResult.Success -> setState {
-                            MainContract.MainState.Success(
-                                usecase.value
-                            )
-                        }
-                    }
-                }
+                handleLoadFavoriteWeatherIntent(intent)
             }
-
             is MainContract.MainIntent.AddFavoriteIntent -> {
-                viewModelScope.launch {
-                    favoriteUseCase.addFavorite(
-                        FavoriteUiModel(
-                            intent.place.id ?: "",
-                            intent.place.name ?: "",
-                            intent.place.latLng?.latitude ?: 0.0,
-                            intent.place.latLng?.longitude ?: 0.0
-                        )
-                    )
-                }
+                handleAddFavoriteIntent(intent)
             }
-
             is MainContract.MainIntent.DeleteFavoriteIntent -> {
                 viewModelScope.launch {
                     favoriteUseCase.deleteFavorite(intent.favoriteUiModel)
                 }
             }
-
             MainContract.MainIntent.LastPosition -> viewModelScope.launch {
                 val location = localLocationDataStore.getLastLocation()
                 setState { MainContract.MainState.LastPosition(location) }
+            }
+        }
+    }
+
+    private fun handleAddFavoriteIntent(intent: MainContract.MainIntent.AddFavoriteIntent) {
+        viewModelScope.launch {
+            favoriteUseCase.addFavorite(
+                FavoriteUiModel(
+                    intent.place.id ?: "",
+                    intent.place.name ?: "",
+                    intent.place.latLng?.latitude ?: 0.0,
+                    intent.place.latLng?.longitude ?: 0.0
+                )
+            )
+        }
+    }
+
+    private fun handleLoadFavoriteWeatherIntent(intent: MainContract.MainIntent.LoadFavoriteWeather) {
+        setState { MainContract.MainState.Loading }
+        viewModelScope.launch {
+            when (val usecase =
+                getWeatherUseCase.execute(intent.latitude, intent.longitude)) {
+                is GetWeatherUseCase.GetWeatherResult.Error -> setState {
+                    MainContract.MainState.Error(
+                        usecase.error
+                    )
+                }
+                is GetWeatherUseCase.GetWeatherResult.Success -> setState {
+                    MainContract.MainState.Success(
+                        usecase.value
+                    )
+                }
+            }
+        }
+    }
+
+    private fun handleInitialIntent() {
+        setState { MainContract.MainState.Loading }
+        viewModelScope.launch {
+            when (val usecase = getWeatherUseCase.execute(null, null)) {
+                is GetWeatherUseCase.GetWeatherResult.Error -> setState {
+                    MainContract.MainState.Error(
+                        usecase.error
+                    )
+                }
+                is GetWeatherUseCase.GetWeatherResult.Success -> setState {
+                    MainContract.MainState.Success(
+                        usecase.value
+                    )
+                }
             }
         }
     }

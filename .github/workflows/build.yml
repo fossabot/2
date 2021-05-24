@@ -22,7 +22,11 @@ jobs:
 
     - name: Run Test Coverage
       run: ./gradlew jacocoTestReport
+    
       
     - name: Build the app
       run: ./gradlew build
+      
+   
+ 
       

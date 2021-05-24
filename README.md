@@ -38,6 +38,8 @@ To do that, I  decouple the project in 4 layers.
  
 I  write unit tests and has around 80% coverage. 
 
+I set Github Actions to build each time i push on main. I could do better by following GitFlow proccess.
+
 ## Next improvement
 
 1. Write UI tests

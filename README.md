@@ -40,7 +40,15 @@ I  write unit tests and has around 80% coverage.
 
 I set Github Actions to build each time i push on main. I could do better by following GitFlow proccess.
 
+## Good points
+
+![Code quality](https://github.com/segnonna/DVT-Weather-App/blob/main/code_quality.png)
+
+![Code quality](https://github.com/segnonna/DVT-Weather-App/blob/main/code_quality_2.png)
+
 ## Next improvement
+
+
 
 1. Write UI tests
 2. Add Trackers

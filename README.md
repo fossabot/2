@@ -1,3 +1,4 @@
+![example workflow](https://github.com/segnonna/DVT-Weather-App/actions/workflows/build.yml/badge.svg)
 ## About the repo
 All the codes  of this exercice are in the app folder.
 To achieve the goals,  I use Kotlin, Coroutines, MutableStateFlow, MutableSharedFlow, Koin.

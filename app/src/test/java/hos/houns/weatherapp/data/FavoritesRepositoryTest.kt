@@ -1,7 +1,6 @@
 package hos.houns.weatherapp.data
 
 import hos.houns.weatherapp.domain.entity.FavoriteUiModel
-import hos.houns.weatherapp.domain.usecases.AddDeleteFavouriteUseCase
 import hos.houns.weatherapp.localstore.database.Favorite
 import hos.houns.weatherapp.localstore.store.FavoritesLocalDataStore
 import io.mockk.coEvery
@@ -10,9 +9,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
-import org.amshove.kluent.shouldBeInstanceOf
 import org.amshove.kluent.shouldEqual
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance

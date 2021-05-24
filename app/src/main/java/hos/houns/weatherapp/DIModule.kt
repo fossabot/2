@@ -29,8 +29,7 @@ val modules = module {
     // Domain Layer
 
     single { GetWeatherUseCase(get(),get(),get()) }
-    single { LoadFavoritesUseCase(get()) }
-    single { AddDeleteFavouriteUseCase(get()) }
+    single { FavoriteUseCase(get()) }
 
     //Remote layer
 
@@ -63,7 +62,7 @@ val modules = module {
     // Presentation
 
     viewModel {
-        MainViewModel(get(),get(),get(),get())
+        MainViewModel(get(),get(),get())
     }
 }
 

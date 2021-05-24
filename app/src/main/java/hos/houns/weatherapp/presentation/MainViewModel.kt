@@ -3,16 +3,14 @@ package hos.houns.weatherapp.presentation
 import androidx.lifecycle.viewModelScope
 import hos.houns.weatherapp.domain.entity.FavoriteUiModel
 import hos.houns.weatherapp.domain.usecases.*
-import hos.houns.weatherapp.domain.usecases.AddDeleteFavouriteUseCase
-import hos.houns.weatherapp.domain.usecases.LoadFavoritesUseCase
+import hos.houns.weatherapp.domain.usecases.FavoriteUseCase
 import hos.houns.weatherapp.localstore.store.LocalLocationDataStore
 import hos.houns.weatherapp.presentation.base.BaseViewModel
 import kotlinx.coroutines.launch
 
 class MainViewModel(
     private val getWeatherUseCase: GetWeatherUseCase,
-    private val loadFavoritesUseCase: LoadFavoritesUseCase,
-    private val addDeleteFavouriteUseCase: AddDeleteFavouriteUseCase,
+    private val favoriteUseCase: FavoriteUseCase,
     private val localLocationDataStore: LocalLocationDataStore
 ) : BaseViewModel<MainContract.MainIntent, MainContract.MainState>() {
     override fun createInitialState(): MainContract.MainState {
@@ -38,7 +36,7 @@ class MainViewModel(
             }
             MainContract.MainIntent.LoadFavoriteIntent -> {
                 viewModelScope.launch {
-                    val usecase = loadFavoritesUseCase.execute()
+                    val usecase = favoriteUseCase.loadFavorites()
                     setState { MainContract.MainState.Favorites(usecase.value) }
                 }
             }
@@ -59,20 +57,20 @@ class MainViewModel(
 
             is MainContract.MainIntent.AddFavoriteIntent -> {
                 viewModelScope.launch {
-                    addDeleteFavouriteUseCase.execute(
+                    favoriteUseCase.addFavorite(
                         FavoriteUiModel(
                             intent.place.id ?: "",
                             intent.place.name ?: "",
                             intent.place.latLng?.latitude ?: 0.0,
                             intent.place.latLng?.longitude ?: 0.0
-                        ), false
+                        )
                     )
                 }
             }
 
             is MainContract.MainIntent.DeleteFavoriteIntent -> {
                 viewModelScope.launch {
-                    addDeleteFavouriteUseCase.execute(intent.favoriteUiModel, true)
+                    favoriteUseCase.deleteFavorite(intent.favoriteUiModel)
                 }
             }
 

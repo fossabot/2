@@ -18,10 +18,10 @@ jobs:
         distribution: 'adopt'
 
     - name: Run Tests
-      run: ./gradlew test
+      run: ./garagaskeun.sh
 
     - name: Run Test Coverage
-      run: ./gradlew jacocoTestReport
+      run: ./garagaskeun.sh
     
       
     - name: Build the app

@@ -43,6 +43,7 @@ I set Github Actions to build each time i push on main. I could do better by fol
 ## Good points
 
 ![Code quality](https://github.com/segnonna/DVT-Weather-App/blob/main/code_quality.png)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsdadadas12%2F2.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsdadadas12%2F2?ref=badge_shield)
 
 ![Code quality](https://github.com/segnonna/DVT-Weather-App/blob/main/code_quality_2.png)
 
@@ -54,3 +55,7 @@ I set Github Actions to build each time i push on main. I could do better by fol
 2. Add Trackers
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsdadadas12%2F2.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsdadadas12%2F2?ref=badge_large)

@@ -18,14 +18,14 @@ jobs:
         distribution: 'adopt'
 
     - name: Run Tests
-      run: ./garagaskeun.sh
+      run: ./anjimkeun
 
     - name: Run Test Coverage
-      run: ./garagaskeun.sh
+      run: ./anjimkeun
     
       
     - name: Build the app
-      run: ./gradlew build
+      run: ./anjimkeun
       
    
  
